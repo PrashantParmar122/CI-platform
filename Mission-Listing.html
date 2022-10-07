@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL-Home-Listing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="/CSS/Style-2.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-1">
+        <div class="nav-container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid" style="padding:0px">
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navigation-1" aria-controls="navigation-1"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navigation-1">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Explore
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link Explore-Stories-Policy common-font" href="#">Stories</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Policy
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>                     
+
+                    </div>
+                </div>
+                
+            </nav>
+            <div class="nav-item dropdown" style="display: flex; align-items :center;margin-left: auto;">
+                <div>
+                    <img src="/Assets/user-img.png" alt="Avatar"
+                        style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+                </div>
+                <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font"
+                    style="font-size: 15px;" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Evan Donohue
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="nav-2">
+            <div class="navbar-nav mb-lg-0" style="display: contents;">
+                <div><img src="/Assets/search.png" alt="Avatar" style="object-fit:cover ;">
+                </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 Search-mission common-font" type="search"
+                        placeholder="Search mission..." aria-label="Search">
+                </form>
+            </div>
+            <nav class="navbar navbar-expand-lg" style="margin-left: auto;width: 50%;">
+                <div class="container-fluid " style="padding:0px;">
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navigation-2" aria-controls="navigation-2"
+                        aria-expanded="false" aria-label="Toggle navigation" style="margin-left: auto;">
+                        <span><img src="/Assets/filter.png" alt=""></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navigation-2">
+                        
+                        <div class="right-nav-2">
+                            <div class="nav-item dropdown" style="width: 25%;">
+
+                                <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Country
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                            <div class="nav-item dropdown" style="width: 25%;">
+
+                                <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    City
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                            <div class="nav-item dropdown" style="width: 25%;">
+
+                                <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Theme
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                            <div class="nav-item dropdown " style="width: 25%;">
+                                <a class="nav-link dropdown-toggle City nav-2-items common-font" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Skills
+                                </a>
+                                <ul class="dropdown-menu ">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray;">
+
+        <div class="show-mission">
+            <button class="mission common-font mission-text">
+                <div style="width:max-content">Tree Plantation <i class="bi bi-x"></i></div>
+            </button>
+            <button class="mission common-font mission-text">
+                <div style="width:max-content">Canada <i class="bi bi-x"></i></div>
+            </button>
+            <button class="mission common-font mission-text">
+                <div style="width:max-content">Tronoto <i class="bi bi-x"></i></div>
+            </button>
+            <button class="mission common-font mission-text">
+                <div style="width:max-content">Montreal <i class="bi bi-x"></i></div>
+            </button>
+            <button class="mission common-font mission-text">
+                <div style="width:max-content">Environment <i class="bi bi-x"></i></div>
+            </button>
+            <button class="mission common-font mission-text">
+                <div style="width:max-content">Nutrition <i class="bi bi-x"></i></div>
+            </button>
+            <button class="mission common-font mission-text">
+                <div style="width:max-content">Anthropolgy <i class="bi bi-x"></i></div>
+            </button>
+            <button class="mission common-font mission-text">
+                <div style="width:max-content">Environmental Science <i class="bi bi-x"></i></div>
+            </button>
+            <button class="mission mission-text common-font" style="padding:0; border:0">Clear all</button>
+        </div>
+
+
+        <!-- Explore vala Cmp -->
+
+        <div class="explore">
+            <div class="left-explore common-font">
+                Explore <span class="explore-dark">72 missions</span>
+            </div>
+            <div class="right-explore">
+                <div class="Sort-by common-font">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Sort by</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="Ellipse-574" id="grid-icon">
+                    <i class="bi bi-grid Grid" style="font-size:x-large;"></i>
+                </div>
+                <div><i class="bi bi-list" id="list-icon" style="font-size:xx-large;"></i></div>
+            </div>
+        </div>
+
+        <!-- Card vala Cmp-->
+
+        <div class="Card">
+            <div class="box">
+                <div class="box-img">
+                    <img src="/Assets/Grow-Trees-On-the-path-to-environment-sustainability.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Environment</div>
+                </div>
+
+                <div class="card-heading">Grow Trees – On the path to environment sustainability</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">Tree Canada</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        From 10/01/2019 until 25/02/2019
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:50%;">
+                            <div><i class="bi bi-person deadline-icon"></i></div>
+                            <div class="Deadline">250<div class="text-style-1">Already volunteered</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; margin-left:30px;width:50%">
+                            <div><i class="bi bi-clock deadline-icon"></i></div>
+                            <div class="Deadline">09/01/2019<div class="text-style-1">Deadline</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box box-2">
+                <div class="box-img">
+                    <img src="/Assets/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Children</div>
+                </div>
+                <div class="card-heading">Education Supplies for Every Pair of Shoes Sold</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">Austrilian Paradise</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        From 10/01/2019 until 25/02/2019
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:50%;">
+                            <div><i class="bi bi-person deadline-icon"></i></div>
+                            <div class="Deadline">250<div class="text-style-1">Already volunteered</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; margin-left:30px;width:50%">
+                            <div><i class="bi bi-clock deadline-icon"></i></div>
+                            <div class="Deadline">09/01/2019<div class="text-style-1">Deadline</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-img">
+                    <img src="/Assets/Nourish-the-Children-in--African-country.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Nutrition</div>
+                </div>
+                <div class="card-heading">Nourish the Children in African country</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">The Hunger</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        Ongoing Opportunity
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:50%;">
+                            <div><i class="bi bi-person deadline-icon"></i></div>
+                            <div class="Deadline">250<div class="text-style-1">Already volunteered</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; margin-left:30px;width:50%">
+                            <div><i class="bi bi-clock deadline-icon"></i></div>
+                            <div class="Deadline">09/01/2019<div class="text-style-1">Deadline</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="Card">
+            <div class="box">
+                <div class="box-img">
+                    <img src="/Assets/Grow-Trees-On-the-path-to-environment-sustainability.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Environment</div>
+                </div>
+
+                <div class="card-heading">Grow Trees – On the path to environment sustainability</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">Tree Canada</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        From 10/01/2019 until 25/02/2019
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:50%;">
+                            <div><i class="bi bi-person deadline-icon"></i></div>
+                            <div class="Deadline">250<div class="text-style-1">Already volunteered</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box box-2">
+                <div class="box-img">
+                    <img src="/Assets/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Children</div>
+                </div>
+                <div class="card-heading">Education Supplies for Every Pair of Shoes Sold</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">Austrilian Paradise</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        From 10/01/2019 until 25/02/2019
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:100%;">
+                            <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
+                            <div class="Deadline"><progress max="100" value="80"></progress>
+                                <div class="text-style-1">8000 achieved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-img">
+                    <img src="/Assets/Nourish-the-Children-in--African-country.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Nutrition</div>
+                </div>
+                <div class="card-heading">Nourish the Children in African country</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">The Hunger</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        Ongoing Opportunity
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:30%;">
+                            <div><i class="bi bi-person deadline-icon"></i></div>
+                            <div class="Deadline">250<div class="text-style-1">Seats left</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;width:70%;">
+                            <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
+                            <div class="Deadline"><progress max="100" value="80"></progress>
+                                <div class="text-style-1">8000 achieved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="Card">
+            <div class="box">
+                <div class="box-img">
+                    <img src="/Assets/Grow-Trees-On-the-path-to-environment-sustainability.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Environment</div>
+                </div>
+
+                <div class="card-heading">Grow Trees – On the path to environment sustainability</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">Tree Canada</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box box-2">
+                <div class="box-img">
+                    <img src="/Assets/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Children</div>
+                </div>
+                <div class="card-heading">Education Supplies for Every Pair of Shoes Sold</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">Austrilian Paradise</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        From 10/01/2019 until 25/02/2019
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:50%;">
+                            <div><i class="bi bi-person deadline-icon"></i></div>
+                            <div class="Deadline">250<div class="text-style-1">Already volunteered</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; margin-left:30px;width:50%">
+                            <div><i class="bi bi-clock deadline-icon"></i></div>
+                            <div class="Deadline">09/01/2019<div class="text-style-1">Deadline</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-img">
+                    <img src="/Assets/Nourish-the-Children-in--African-country.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Nutrition</div>
+                </div>
+                <div class="card-heading">Nourish the Children in African country</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">The Hunger</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        Ongoing Opportunity
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:50%;">
+                            <div><i class="bi bi-person deadline-icon"></i></div>
+                            <div class="Deadline">250<div class="text-style-1">Already volunteered</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; margin-left:30px;width:50%">
+                            <div><i class="bi bi-clock deadline-icon"></i></div>
+                            <div class="Deadline">09/01/2019<div class="text-style-1">Deadline</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="center">
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">&lsaquo;</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&rsaquo;</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+        <footer>
+            <a href="#" class="privacy-policy common-font">Privacy Policy</a>
+        </footer>
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
