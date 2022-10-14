@@ -1,0 +1,262 @@
+.body-1 {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-container {
+    width: 75%;
+    left: 12.5%;
+    right: 12.5%;
+    position: relative;
+    margin-top: 16px;
+    display: flex;
+}
+
+.right-container {
+    position: relative;
+    width: 75%;
+    margin-left: auto;
+}
+
+.left-container {
+    position: relative;
+    width: 23%;
+    margin-bottom: auto;
+    border: solid 1px #e8e8e8;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.large-img-user{
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 200px;
+    position: relative;
+    margin-top: 30px;
+}
+
+.User-name{
+    font-size: 22px;
+    color: black;
+    font-weight: normal;
+    margin-top: 20px;
+}
+
+.Explore-Stories-Policy {
+    font-size: 16px;
+    font-weight: 300;
+    color: #333;
+}
+
+.common-font {
+    font-family: NotoSans;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.Share-your-story {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.main-body{
+    display: flex;
+}
+
+.preview-img-block {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.preview-img {
+    height: 110px;
+    width: 110px;
+    object-fit: cover;
+}
+
+.close-btn-icon {
+    color: white;
+    background-color: black;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
+
+.font-style-1 {
+    font-size: 15px;
+    font-weight: 300;
+    text-align: left;
+    color: #414141;
+}
+
+.input-box-style {
+    border-radius: 3px;
+    border: solid 1px #d9d9d9;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    color: #757575;
+    font-family: NotoSans;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.btn-style1 {
+    position: relative;
+    border-radius: 100px;
+    padding: 10px 30px;
+    border: 2px solid #f88634;
+    font-size: 17px;
+    background-color: white;
+    font-weight: normal;
+    text-align: left;
+    color: #f88634;
+}
+
+.privacy-policy {
+    position: relative;
+    width: 75%;
+    left: 12.5%;
+    right: 12.5;
+    height: 100px;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    color: #414141;
+    text-decoration: none;
+}
+
+.Skill-style{
+    padding: 2px 6px;
+}
+
+.three-btns{
+    display: flex;
+}
+
+@media only screen and (max-width: 1536px) {
+    .Share-your-story {
+        font-size: 37px;
+    }
+
+    .preview-img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .large-img-user{
+        width: 144px;
+        height: 144px;
+        margin-top: 30px;
+    }
+    .User-name{
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .Share-your-story {
+        font-size: 35px;
+    }
+
+    .preview-img {
+        height: 95px;
+        width: 95px;
+    }
+
+    .large-img-user{
+        width: 135px;
+        height: 135px;
+        margin-top: 27px;
+    }
+    .User-name{
+        font-size: 17px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .Share-your-story {
+        font-size: 32px;
+    }
+
+    .preview-img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .large-img-user{
+        width: 96px;
+        height: 96px;
+        margin-top: 25px;
+    }
+    .User-name{
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .Share-your-story {
+        font-size: 29px;
+    }
+
+    .nav-container {
+        width: 92%;
+        left: 4%;
+    }
+
+    .preview-img {
+        height: 70px;
+        width: 70px;
+    }
+    .large-img-user{
+        width: 72px;
+        height: 72px;
+        margin-top: 25px;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+
+    .main-body{
+        display: block;
+    }
+    .left-container {
+        width: 80%;
+        left:10%;
+        padding-bottom: 25px;
+    }
+    .right-container {
+        width: 80%;
+        left: 10%;
+        margin: 0;
+    }
+    .nav-container {
+        width: 96%;
+        left: 2%;
+    }
+
+    .preview-img {
+        height: 60px;
+        width: 60px;
+    }
+    .large-img-user{
+        width: 100px;
+        height: 100px;
+        margin-top: 25px;
+    }
+    .three-btns{
+        display: block;
+    }
+}

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL-Story-detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="/CSS/User-edit-profile.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-1">
+        <div class="nav-container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid" style="padding:0px">
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#navigation-1" aria-controls="navigation-1" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+                        id="navigation-1" aria-labelledby="offcanvasScrollingLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="navbar-collapse">
+                                <ul class="navbar-nav mb-2 mb-lg-0">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                            Explore
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link Explore-Stories-Policy common-font" href="#">Stories</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Policy
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+            <div class="nav-item dropdown" style="display: flex; align-items :center;margin-left: auto;">
+                <div>
+                    <img src="/Assets/user-img.png" alt="Avatar"
+                        style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+                </div>
+                <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" style="font-size: 15px;" href="#"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Evan Donohue
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="nav-container main-body">
+            <div class="left-container">
+                <img class="large-img-user" src="/Assets/user-img-large.png" alt="">
+                <div class="common-font User-name">Evan Donohue</div>
+            </div>
+            <div class="right-container" style="display: block;">
+                <form class="row g-3 common-font font-style-1" style="margin-bottom: 50px;">
+
+                    <div class="col-12 common-font font-style-1"
+                        style="font-size: 22px;border-bottom: 1px solid #e8e8e8;padding-bottom: 20px;margin-top: 40px;">
+                        <span
+                            style="font-weight: normal;color: #333; border-bottom: 1px solid #757575;padding-bottom: 21px;">
+                            Basic Information
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control input-box-style" style="box-shadow: none;" id="name"
+                            placeholder="Enter your name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="surname" class="form-label">Surname</label>
+                        <input type="text" class="form-control input-box-style" style="box-shadow: none;" id="surname"
+                            placeholder="Enter your surname">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="employee-id" class="form-label">Employee Id</label>
+                        <input type="text" class="form-control input-box-style" style="box-shadow: none;"
+                            id="employee-id" placeholder="Enter your employee id">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="manager" class="form-label">Manager</label>
+                        <input type="text" class="form-control input-box-style" style="box-shadow: none;" id="manager"
+                            placeholder="Enter your manager details">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control input-box-style" style="box-shadow: none;" id="title"
+                            placeholder="Enter your title">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="department" class="form-label">Department</label>
+                        <input type="text" class="form-control input-box-style" style="box-shadow: none;"
+                            id="department" placeholder="Enter your department details">
+                    </div>
+
+                    <div class="col-12 ">
+                        <label for="my-profile" class="form-label">My Profile</label>
+                        <textarea class="form-control input-box-style" placeholder="Enter your comments..."
+                            id="my-profile" style="height: 120px; box-shadow: none;"></textarea>
+                    </div>
+                    <div class="col-12 ">
+                        <label for="why-i-volunteer" class="form-label">Why I Volunteer?</label>
+                        <textarea class="form-control input-box-style" placeholder="Enter your comments..."
+                            id="why-i-volunteer" style="height: 120px; box-shadow: none;"></textarea>
+                    </div>
+
+                    <!-- address -->
+                    <div class="col-12 common-font font-style-1"
+                        style="font-size: 22px;border-bottom: 1px solid #e8e8e8;padding-bottom: 20px;margin-top: 40px;">
+                        <span
+                            style="font-weight: normal;color: #333; border-bottom: 1px solid #757575;padding-bottom: 21px;">
+                            Address Information
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control input-box-style" style="box-shadow: none;" id="city"
+                            placeholder="Enter your city">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="country" class="form-label">Country</label>
+                        <select id="country" class="form-select input-box-style" style="box-shadow: none;">
+                            <option selected>Select your country</option>
+                            <option>India</option>
+                            <option>United States</option>
+                            <option>Nepal</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Professional details -->
+                    <div class="col-12 common-font font-style-1"
+                        style="font-size: 22px;border-bottom: 1px solid #e8e8e8;padding-bottom: 20px;margin-top: 40px;">
+                        <span
+                            style="font-weight: normal;color: #333; border-bottom: 1px solid #757575;padding-bottom: 21px;">
+                            Professional Information
+                        </span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="availablity" class="form-label">Availablity</label>
+                        <select id="availablity" class="form-select input-box-style" style="box-shadow: none;">
+                            <option selected>Select your availablity</option>
+                            <option>India</option>
+                            <option>United States</option>
+                            <option>Nepal</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="linkedIn" class="form-label">LinkedIn</label>
+                        <input type="text" class="form-control input-box-style" style="box-shadow: none;" id="linkedIn"
+                            placeholder="Enter linkedIn URL">
+                    </div>
+
+
+                    <div class="col-12 common-font font-style-1"
+                        style="font-size: 22px;border-bottom: 1px solid #e8e8e8;padding-bottom: 20px;margin-top: 40px;">
+                        <span
+                            style="font-weight: normal;color: #333; border-bottom: 1px solid #757575;padding-bottom: 21px;">
+                            My Skills
+                        </span>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-control input-box-style common-font font-style-1"
+                            style="line-height: 2.14;font-size: 14px;">
+                            Anthropology<br>
+                            Archeology<br>
+                            Astronomy<br>
+                            Computer Science<br>
+                            Environmental Science<br>
+                            History
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn-style1 common-font" type="button"
+                            style="color:#757575;border-color: #757575;" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop3" aria-controls="staticBackdrop">
+                            Add Skill
+                        </button>
+                    </div>
+
+                    <div class="three-btns">
+                        <button class="btn-style1 common-font" type="button"
+                            style="color:#757575;border-color: #757575;margin-right: 15px;margin-bottom: 5px;" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            Change Password
+                        </button>
+                        <button class="btn-style1 common-font" type="button"
+                            style="color:#757575;border-color: #757575;margin-bottom: 5px;" data-bs-toggle="offcanvas"
+                            data-bs-target="#staticBackdrop1" aria-controls="staticBackdrop">
+                            Contact Us
+                        </button>
+                        <button class="btn-style1 common-font" type="button" style="margin-left: auto;margin-bottom: 5px;">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+            aria-labelledby="staticBackdropLabel"
+            style="left: 50%;transform: translate(-50%,0);height: max-content;top:150px">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title common-font font-style-1"
+                    style="font-weight: normal;color: #414141;font-size: 22px;" id="staticBackdropLabel">Change Password
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <form class="row g-4 common-font font-style-1">
+                        <div class="col-12">
+                            <input type="password" class="form-control input-box-style" style="box-shadow: none;"
+                                placeholder="Enter old password" aria-label="old password">
+                        </div>
+                        <div class="col-12">
+                            <input type="password" class="form-control input-box-style" style="box-shadow: none;"
+                                placeholder="Enter new password" aria-label="new password">
+                        </div>
+                        <div class="col-12">
+                            <input type="password" class="form-control input-box-style" style="box-shadow: none;"
+                                placeholder="Enter confirm password" aria-label="confirm password">
+                        </div>
+                        <div style="align-items: end; display: flex;">
+                            <button class="btn-style1 common-font"
+                                style=" margin-left:auto; color:#757575;border-color: #757575;font-size: 17px;padding: 8px 15px;">
+                                Cancel
+                            </button>
+                            <button class="btn-style1 common-font"
+                                style="margin-left: 10px;font-size: 17px;padding: 8px 15px;">Change Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" data-bs-scroll="true" tabindex="-1"
+            id="staticBackdrop1" aria-labelledby="staticBackdropLabel2"
+            style="left: 50%;transform: translate(-50%,-50%);height: 100vh;top:50%;max-height: 566px;">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title common-font font-style-1"
+                    style="font-weight: normal;color: #414141;font-size: 22px;" id="staticBackdropLabel2">Contact Us
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <form class="row g-4 common-font font-style-1">
+                        <div class="col-12">
+                            <label for="Name" class="form-label">Name</label>
+                            <input class="form-control input-box-style" type="text" style="box-shadow: none;" id="Name"
+                                value="Smith Doh" aria-label="Disabled input example" disabled readonly>
+                        </div>
+                        <div class="col-12">
+                            <label for="Email-address" class="form-label">Email Address</label>
+                            <input class="form-control input-box-style" type="email" style="box-shadow: none;"
+                                id="Email-address" value="Smith doh1234@gmail.com" aria-label="Disabled input example"
+                                disabled readonly>
+                        </div>
+                        <div class="col-12">
+                            <label for="Subject" class="form-label">Subject</label>
+                            <input class="form-control input-box-style" type="text" style="box-shadow: none;"
+                                id="Subject" placeholder="Enter your Subject">
+                        </div>
+
+                        <div class="col-12 ">
+                            <label for="Message" class="form-label">Message</label>
+                            <textarea class="form-control input-box-style" placeholder="Enter your messages..."
+                                id="Message" style="height: 120px; box-shadow: none;"></textarea>
+                        </div>
+
+
+
+                        <!-- buttons -->
+                        <div style="align-items: end; display: flex;">
+                            <button class="btn-style1 common-font"
+                                style=" margin-left:auto; color:#757575;border-color: #757575;font-size: 17px;padding: 8px 15px;">
+                                Cancel
+                            </button>
+                            <button class="btn-style1 common-font"
+                                style="margin-left: 10px;font-size: 17px;padding: 8px 15px;">Change Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" data-bs-scroll="true" tabindex="-1"
+            id="staticBackdrop3" aria-labelledby="staticBackdropLabel3"
+            style="left: 50%;transform: translate(-50%,0);height: 95vh;max-height: 700px;width: 906px;top:5vh;">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title common-font font-style-1"
+                    style="font-weight: normal;color: #414141;font-size: 22px;" id="staticBackdropLabel3">Add Skills
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <form class="row g-1 common-font font-style-1" style="font-size: 14px;">
+                        <div class="col-md-6" style="border: 1px solid #d9d9d9;">
+                            <div class="col-12 Skill-style">Anthropology</div>
+                            <div class="col-12 Skill-style">Archeology</div>
+                            <div class="col-12 Skill-style">Astronomy</div>
+                            <div class="col-12 Skill-style">Computer Science</div>
+                            <div class="col-12 Skill-style">Environmental Science</div>
+                            <div class="col-12 Skill-style">History</div>
+                            <div class="col-12 Skill-style">Library Sciences</div>
+                            <div class="col-12 Skill-style">Mathematics</div>
+                            <div class="col-12 Skill-style">Music Theory</div>
+                            <div class="col-12 Skill-style">Research</div>
+                            <div class="col-12 Skill-style">Administrative Support</div>
+                            <div class="col-12 Skill-style">Customer Service</div>
+                            <div class="col-12 Skill-style">Data Entry</div>
+                            <div class="col-12 Skill-style">Executive Admin</div>
+                            <div class="col-12 Skill-style">Office Management</div>
+                            <div class="col-12 Skill-style">Office Reception</div>
+                            <div class="col-12 Skill-style">Program Management</div>
+                            <div class="col-12 Skill-style">Transactions</div>
+                            <div class="col-12 Skill-style">Agronomy</div>
+                            <div class="col-12 Skill-style">Animal Care / Handling</div>
+                            <div class="col-12 Skill-style">Animal Therapy</div>
+                            <div class="col-12 Skill-style">Aquarium Maintenance</div>
+                            <div class="col-12 Skill-style">Botany</div>
+                            <div class="col-12 Skill-style">Environmental Education</div>
+                            <div class="col-12 Skill-style">Environmental Policy</div>
+                            <div class="col-12 Skill-style">Farming</div>
+                        </div>
+
+                        <div class="col-md-6" style="border: 1px solid #d9d9d9;">
+                            <div class="col-12 Skill-style">Astronomy</div>
+                            <div class="col-12 Skill-style">Environmental Science</div>
+                            <div class="col-12 Skill-style">History</div>
+                            <div class="col-12 Skill-style">Mathematics</div>
+                            <div class="col-12 Skill-style">Data Entry</div>
+                            <div class="col-12 Skill-style">Agronomy</div>
+                        </div>
+
+
+
+
+                        <!-- buttons -->
+                        <div style="display: flex; margin-top: 20px;">
+                            <button class="btn-style1 common-font"
+                                style="color:#757575;border-color: #757575;font-size: 17px;padding: 8px 15px;">
+                                Cancel
+                            </button>
+                            <button class="btn-style1 common-font"
+                                style="margin-left: 10px;font-size: 17px;padding: 8px 15px;">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+    <footer>
+        <a href="#" class="privacy-policy common-font">Privacy Policy</a>
+    </footer>
+    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

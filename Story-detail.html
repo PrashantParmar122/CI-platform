@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL-Story-detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="/CSS/Story-detail.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-1">
+        <div class="nav-container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid" style="padding:0px">
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#navigation-1" aria-controls="navigation-1" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+                        id="navigation-1" aria-labelledby="offcanvasScrollingLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="navbar-collapse">
+                                <ul class="navbar-nav mb-2 mb-lg-0">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                            Explore
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link Explore-Stories-Policy common-font" href="#">Stories</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Policy
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+            <div class="nav-item dropdown" style="display: flex; align-items :center;margin-left: auto;">
+                <div>
+                    <img src="/Assets/user-img.png" alt="Avatar"
+                        style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+                </div>
+                <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" style="font-size: 15px;" href="#"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Evan Donohue
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="nav-2">
+            <div class="navbar-nav mb-lg-0" style="display: contents;">
+                <div><img src="/Assets/search.png" alt="Avatar" style="object-fit:cover ;">
+                </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 Search-mission common-font" type="search"
+                        placeholder="Search mission..." aria-label="Search">
+                </form>
+            </div>
+            <nav class="navbar navbar-expand-lg" style="margin-left: auto;width: 50%;">
+                <div class="container-fluid " style="padding:0px;">
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#navigation-2" aria-controls="navigation-2" aria-expanded="false"
+                        aria-label="Toggle navigation" style="margin-left: auto;">
+                        <span><img src="/Assets/filter.png" alt=""></span>
+                    </button>
+
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+                        id="navigation-2" aria-labelledby="offcanvasScrollingLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="navbar-collapse" id="navigation-2">
+
+                                <div class="right-nav-2">
+                                    <div class="nav-item dropdown" style="width: 25%;">
+
+                                        <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Country
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-item dropdown" style="width: 25%;">
+
+                                        <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            City
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-item dropdown" style="width: 25%;">
+
+                                        <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Theme
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-item dropdown " style="width: 25%;">
+                                        <a class="nav-link dropdown-toggle City nav-2-items common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Skills
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin-bottom: 0;">
+
+        <div class="photo-description-body">
+            <div class=" photo">
+                <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
+                    style="width: 100%;margin-bottom: 6px;" alt="Can't render">
+                <div class="mini-photo row g-2">
+                    <div class="col-3">
+                        <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                            style="width: 100%;margin-right: 6px;" alt="can't rendor">
+                    </div>
+                    <div class="col-3">
+                        <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                            style="width: 100%;margin-right: 6px;" alt="can't rendor">
+                    </div>
+                    <div class="col-3">
+                        <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                            style="width: 100%;margin-right: 6px;" alt="can't rendor">
+                    </div>
+                    <div class="col-3">
+                        <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                            style="width: 100%;margin-right: 6px;" alt="can't rendor">
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <div style="position: relative;margin: 38px 0;">
+
+                    <div style="font-size: 13px;">
+                        <img class="volunteer-image-style" src="/Assets/volunteer2.png" alt="Can't render">
+                        <div class="common-font font-style-1" style="margin-top: 10px;font-size: 16px; line-height: 1.63;">Andrew Johnson</div>
+                    </div>
+                    <div class="common-font eye-block">
+                        <img src="/Assets/eye.png" alt="....">
+                        12,000 Views
+                    </div>
+                </div>
+
+
+                <div class="common-font font-style-1" style="line-height: 1.53;font-size: 17px;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                    <br><br>
+                    Ut enim ad minim veniam. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.
+                    <br><br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam. Sed ut perspiciatis unde omnis iste natus error sit
+                    voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.
+                </div>
+                <div class="two-btns">
+                    <button class="add-to-fav common-font" style="margin-right:auto;">
+                        <div><img class="deadline-icon" src="/Assets/add1.png" alt="....." style="margin-right: 7px;">
+                        </div>
+                        Recommend to a Co-Worker
+                    </button>
+                    <button class="Apply common-font">
+                        Open Mission<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="details-container">
+        <div class="common-font font-style-1"
+            style="font-size: 22px;border-bottom: 1px solid #e8e8e8;padding-bottom: 20px;margin-bottom: 30px;">
+            <span style="border-bottom: 1px solid #757575;padding-bottom: 21px;">Grow Tress</span> - On the path to
+            environment sustainbility
+        </div>
+        <div class="common-font font-style-1" style="line-height: 1.6;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat.
+            <br><br>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.
+            <br><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.
+            <br><br>
+        </div>
+        <div class="font-style-1 common-font" style="line-height: 2;">We use these technologies for a number of
+            purposes, such as:
+        </div>
+        <ul class="font-style-1 common-font" style="line-height: 1.73;">
+            <li>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+            </li>
+            <li>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                deleniti atque excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+                officia deserunt mollitia animi.</li>
+            <li>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
+                and demoralized</li>
+            <li>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+            </li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore</li>
+        </ul>
+        <div class="font-style-1 common-font" style="line-height: 1.6;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.
+        </div>
+    </div>
+
+    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+    <footer>
+        <a href="#" class="privacy-policy common-font">Privacy Policy</a>
+    </footer>
+    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

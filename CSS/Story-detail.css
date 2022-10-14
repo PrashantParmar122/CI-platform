@@ -1,0 +1,405 @@
+.body-1 {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-container {
+    width: 75%;
+    left: 12.5%;
+    right: 12.5%;
+    position: relative;
+    margin-top: 16px;
+    display: flex;
+}
+
+.Explore-Stories-Policy {
+    font-size: 16px;
+    font-weight: 300;
+    color: #333;
+}
+
+.nav-2 {
+    position: relative;
+    width: 75%;
+    left: 12.5%;
+    display: flex;
+    align-items: center;
+}
+
+.right-nav-2 {
+    display: contents;
+    margin-left: auto;
+}
+
+.Search-mission {
+    font-size: 20px;
+    font-weight: 300;
+    color: #757575;
+    border: 0px;
+}
+
+.City {
+    font-size: 16px;
+    font-weight: 300;
+    text-align: right;
+    color: #414141;
+}
+
+.common-font {
+    font-family: NotoSans;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.font-style-1 {
+    font-size: 15px;
+    font-weight: 300;
+    text-align: left;
+    color: #414141;
+}
+
+.photo-description-body {
+    position: relative;
+    width: 75%;
+    display: flex;
+    left: 12.5%;
+}
+
+.photo {
+    position: relative;
+    width: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.mini-photo {
+    width: 100%;
+    display: flex;
+}
+
+.description {
+    width: 50%;
+    padding-left: 60px;
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.volunteer-image-style{
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.eye-block{
+    position: absolute;
+    right: 0; 
+    bottom: 0;
+    border: 1px solid #e8e8e8;
+    margin-left:auto ;
+    width:max-content;
+    padding: 6px 10px;
+    border-radius: 60px;
+    color:#757575;
+    font-size: 17px;
+}
+
+.two-btns{
+    padding: 0 15px;
+    position: relative;
+    margin: 40px 0;
+    display: flex;    
+}
+
+.add-to-fav {
+    position: relative;
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 150px;
+    border: solid 2px #757575;
+    background-color: #fff;
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Apply-btn {
+    position: relative;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    border-top: 1px solid #e8e8e8;
+}
+
+.Apply {
+    position: relative;
+    width: max-content;
+    font-weight: normal;
+    color: #f88634;
+    padding: 10px 25px;
+    font-size: 20px;
+    background-color: white;
+    border: solid 2px #f88634;
+    border-radius: 35px;
+}
+
+.details-container {
+    position: relative;
+    width: 75%;
+    left: 12.5%;
+    margin-top: 50px;
+}
+
+.privacy-policy {
+    position: relative;
+    width: 75%;
+    left: 12.5%;
+    right: 12.5;
+    height: 100px;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    color: #414141;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 1536px) {
+    .Card {
+        position: relative;
+        width: 92%;
+        left: 4%;
+    }
+    .add-to-fav , .Apply{
+        font-size: 18px;
+        width: fit-content;
+    }
+
+    .nav-container {
+        width: 92%;
+        left: 4%;
+    }
+
+    .nav-2 {
+        width: 92%;
+        left: 4%;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .Card {
+        position: relative;
+        width: 92%;
+        left: 4%;
+    }
+    .add-to-fav , .Apply{
+        font-size: 16px;
+    }
+
+    .photo-description-body {
+        width: 92%;
+        display: block;
+        left: 4%;
+        align-items: center;
+    }
+
+    .photo {
+        width: auto;
+    }
+
+    .description {
+        width: 700px;
+        padding: 0;
+        display: block;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .nav-container {
+        width: 92%;
+        left: 4%;
+    }
+
+    .nav-2 {
+        width: 92%;
+        left: 4%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .details-container {
+        display: block;
+    }
+
+    .tabs-container {
+        width: 100%;
+    }
+
+    .Info-Volunteers-Container {
+        display: flex;
+        width: 100%;
+    }
+
+    .Information-container {
+        margin-top: 40px;
+        width: 50%;
+    }
+
+    .volunteers-container {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .Card {
+        position: relative;
+        width: 92%;
+        left: 3%;
+        display: block;
+    }
+
+    .photo-description-body {
+        width: 92%;
+        display: block;
+        left: 4%;
+        align-items: center;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .box-2 {
+        margin: inherit;
+    }
+
+    .photo {
+        width: auto;
+    }
+
+    .description {
+        width: 90%;
+        padding: 0;
+        display: block;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .nav-container {
+        width: 92%;
+        left: 4%;
+    }
+
+    .nav-2 {
+        width: 92%;
+        left: 4%;
+    }
+
+    .Information-container {
+        padding: 15px;
+    }
+
+    .volunteers-container {
+        padding: 15px;
+    }
+
+    /* .volunteer-image-style {
+        height: 50px;
+        width: 50px;
+        border-radius: 70px;
+    } */
+}
+
+@media only screen and (max-width: 426px) {
+    .Card {
+        position: relative;
+        width: 96%;
+        left: 2%;
+        display: block;
+    }
+
+    .photo-description-body {
+        width: 96%;
+        display: block;
+        left: 2%;
+        align-items: center;
+    }
+
+    .two-btns{
+        margin: 20px 0;
+        display: block;    
+    }
+    
+    .add-to-fav{
+        width: 100%;
+        font-size: 15px; 
+    }
+    .Apply{
+        margin-top: 10px;
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .box-2 {
+        margin: inherit;
+    }
+
+    .photo {
+        width: auto;
+    }
+
+    .description {
+        width: 98%;
+        padding: 0;
+        display: block;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .nav-container {
+        width: 96%;
+        left: 2%;
+    }
+
+    .nav-2 {
+        width: 96%;
+        left: 2%;
+    }
+
+    .details-container {
+        display: block;
+    }
+
+    .tabs-container {
+        width: 100%;
+    }
+
+    .Info-Volunteers-Container {
+        display: block;
+        width: 100%;
+    }
+
+    .Information-container {
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    .volunteers-container {
+        width: 100%;
+    }
+
+    .volunteer-image-style {
+        height: 60px;
+        width: 60px;
+        border-radius: 70px;
+    }
+}

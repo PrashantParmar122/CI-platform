@@ -18,12 +18,66 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid" style="padding:0px">
                     <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#navigation-1" aria-controls="navigation-1" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navigation-1">
+                    <!-- Side bar start
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body
+                        scrolling</button>-->
+
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+                        id="navigation-1" aria-labelledby="offcanvasScrollingLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="navbar-collapse">
+                                <ul class="navbar-nav mb-2 mb-lg-0">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                            Explore
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link Explore-Stories-Policy common-font" href="#">Stories</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Policy
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side bar End -->
+
+                    <!-- <div class="collapse navbar-collapse" id="navigation-1">
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
@@ -59,7 +113,7 @@
 
                         </ul>
 
-                    </div>
+                    </div> -->
                 </div>
 
             </nav>
@@ -95,13 +149,90 @@
             <nav class="navbar navbar-expand-lg" style="margin-left: auto;width: 50%;">
                 <div class="container-fluid " style="padding:0px;">
                     <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#navigation-2" aria-controls="navigation-2" aria-expanded="false"
                         aria-label="Toggle navigation" style="margin-left: auto;">
                         <span><img src="/Assets/filter.png" alt=""></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navigation-2">
 
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+                        id="navigation-2" aria-labelledby="offcanvasScrollingLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="navbar-collapse" id="navigation-2">
+
+                                <div class="right-nav-2">
+                                    <div class="nav-item dropdown" style="width: 25%;">
+
+                                        <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Country
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-item dropdown" style="width: 25%;">
+
+                                        <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            City
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-item dropdown" style="width: 25%;">
+
+                                        <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Theme
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nav-item dropdown " style="width: 25%;">
+                                        <a class="nav-link dropdown-toggle City nav-2-items common-font" href="#"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Skills
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="collapse navbar-collapse" id="navigation-2">
                         <div class="right-nav-2">
                             <div class="nav-item dropdown" style="width: 25%;">
 
@@ -164,36 +295,48 @@
                             </div>
 
                         </div>
-
-                    </div>
+                    </div> -->
                 </div>
             </nav>
         </div>
         <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin-bottom: 0;">
 
         <div class="photo-description-body">
-            <div class="photo">
+            <div class=" photo">
                 <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
                     style="width: 100%;margin-bottom: 6px;" alt="Can't render">
-                <div class="mini-photo">
-                    <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
-                        style="width: 100%;margin-right: 6px;" alt="can't rendor">
-                    <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
-                        style="width: 100%;margin-right: 6px;" alt="can't rendor">
-                    <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
-                        style="width: 100%;margin-right: 6px;" alt="can't rendor">
-                    <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
-                        style="width: 100%;margin-right: 6px;" alt="can't rendor">
-                    <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
-                        style="width: 100%;margin-right: 6px;" alt="can't rendor">
-                    <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
-                        style="width: 100%;margin-right: 6px;" alt="can't rendor">
+                <div class="mini-photo row g-2">
+                    <div class="col-2">
+                        <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                            style="width: 100%;margin-right: 6px;" alt="can't rendor">
+                    </div>
+                    <div class="col-2">
+                        <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                            style="width: 100%;margin-right: 6px;" alt="can't rendor">
+                    </div>
+                    <div class="col-2">
+                        <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                            style="width: 100%;margin-right: 6px;" alt="can't rendor">
+                    </div>
+                    <div class="col-2">
+                        <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                            style="width: 100%;margin-right: 6px;" alt="can't rendor">
+                    </div>
+                    <div class="col-2">
+                        <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                            style="width: 100%;margin-right: 6px;" alt="can't rendor">
+                    </div>
+                    <div class="col-2">
+                        <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                            style="width: 100%;" alt="can't rendor">
+                    </div>
+                    <!-- <img src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+                        style="width: 100%;margin-right: 6px;" alt="can't rendor"> -->
                 </div>
             </div>
-            <div class="description">
+            <div class="description  ">
                 <div class="card-heading" style="font-size:35px;margin-top: 49px;">CSR initiative stands for Coffee &
-                    Farmer
-                    Equity</div>
+                    Farmer Equity</div>
                 <div class="card-body" style="font-size:17px;margin:23px 0 45px 0 ;"> Lorem ipsum dolor sit amet,
                     consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
@@ -207,14 +350,15 @@
                         Plant 10,000 Trees
                     </div>
                     <div class="person " style="margin:0px 0 30px 18px">
-                        <div style="display:flex;width:50%;">
+                        <div style="display:flex;width:40%;">
                             <div><i class="bi bi-person deadline-icon"></i></div>
                             <div class="Deadline">250<div class="text-style-1">Seats left</div>
                             </div>
                         </div>
-                        <div style="display:flex;width:50%;">
+                        <div style="display:flex;width:60%;">
                             <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
-                            <div class="Deadline"><progress max="100" value="80"></progress>
+                            <div class="Deadline">
+                                <div style="width: 100%;"><progress max="100" value="80"></progress></div>
                                 <div class="text-style-1">8000 achieved</div>
                             </div>
                         </div>
@@ -224,10 +368,10 @@
 
                 <div class="two-btn">
                     <button class="add-to-fav common-font">
-                        <div><img class="deadline-icon" src="/Assets/add1.png" alt="....."></div>Add to Favourite
+                        <img class="deadline-icon" src="/Assets/heart1.png" alt=".....">Add to Favourite
                     </button>
                     <button class="add-to-fav common-font" style="margin-left: 20px;">
-                        <div><img class="deadline-icon" src="/Assets/heart1.png" alt="....."></div>Recommend to a
+                        <div><img class="deadline-icon" src="/Assets/add1.png" alt="....."></div>Recommend to a
                         Co-Worker
                     </button>
                 </div>
@@ -243,23 +387,23 @@
                     </div>
                 </div>
 
-                <div class="info-container">
-                    <div class="items">
+                <div class="row g-0 info-container">
+                    <div class="col-3 items" style="width: 23.5%;">
                         <div><img class="deadline-icon" src="/Assets/add1.png" alt="....."></div>
                         <p class="common-font" style="font-size: 13px;color:#757575;margin-top: 10px;">City</p>
                         <p class="common-font" style="font-size: 15px;color:#414141;margin:0">London</p>
                     </div>
-                    <div class="items">
+                    <div class="col-3 items" style="width: 23.5%;">
                         <div><img class="deadline-icon" src="/Assets/add1.png" alt="....."></div>
                         <p class="common-font" style="font-size: 13px;color:#757575;margin-top: 10px;">Theme</p>
                         <p class="common-font" style="font-size: 15px;color:#414141;margin:0">Environment</p>
                     </div>
-                    <div class="items">
+                    <div class="col-3 items" style="width: 23.5%;">
                         <div><img class="deadline-icon" src="/Assets/add1.png" alt="....."></div>
                         <p class="common-font" style="font-size: 13px;color:#757575;margin-top: 10px;">Date</p>
                         <p class="common-font" style="font-size: 15px;color:#414141;margin:0">Ongoing Opportunity</p>
                     </div>
-                    <div class="items">
+                    <div class="col-3 items" style="width: 23.5%;margin-right: 0;">
                         <div><img class="deadline-icon" src="/Assets/add1.png" alt="....."></div>
                         <p class="common-font" style="font-size: 13px;color:#757575;margin-top: 10px;">Organization</p>
                         <p class="common-font" style="font-size: 15px;color:#414141;margin:0">CSE Network</p>
@@ -272,249 +416,318 @@
                         Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
                     </button>
                 </div>
-
-
-
-
             </div>
-
-
         </div>
-    </div>
 
-    <div class="details-container">
-        <div class="tabs-container">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="mission-tab" data-bs-toggle="tab" data-bs-target="#Mission"
-                        type="button" role="tab" aria-controls="Mission" aria-selected="true"
-                        style="color: #757575;font-size: 15px;">Mission</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                        type="button" role="tab" aria-controls="profile" aria-selected="false"
-                        style="color: #757575;font-size: 15px;">Organization</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
-                        type="button" role="tab" aria-controls="contact" aria-selected="false"
-                        style="color: #757575;font-size: 15px;">Sponsored</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
-                        type="button" role="tab" aria-controls="contact" aria-selected="false"
-                        style="color: #757575;font-size: 15px;">Comments</button>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent" style="margin-top: 25px;">
 
-                <div class="tab-pane fade show active" id="Mission" role="tabpanel" aria-labelledby="mission-tab">
-                    <h4 class="common-font" style="font-weight: normal;color: #414141;">Introduction</h4>
-                    <p class="common-font info-details" style="line-height: 1.6;">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.
-                        <br><br>
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                        mollit anim id est laborum.
-                        <br><br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <h4 class="common-font" style="font-weight: normal;color: #414141;">Challenge</h4>
-                    <p class="common-font info-details" style="line-height: 1.6;">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        <br><br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident,
-                        sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <h4 class="common-font" style="font-weight: normal;color: #414141;">Documents</h4>
-                    <div class="documents">
-                        <button class="download-btn">
-                            <img src="/Assets/doc.png" style="margin-right: 9px;" alt="Can't Render img">
-                            <div class="common-font info-details" style="line-height: 1.6;width: max-content;">
-                                lorem-ipsum.pdf</div>
-                        </button>
-                        <button class="download-btn">
-                            <img src="/Assets/pdf.png" style="margin-right: 9px;" alt="Can't Render img">
-                            <div class="common-font info-details" style="line-height: 1.6;width: max-content;">
-                                at_vero_eos_accusamus.doc</div>
-                        </button>
-                        <button class="download-btn">
-                            <img src="/Assets/xlsx.png" style="margin-right: 9px;" alt="Can't Render img">
-                            <div class="common-font info-details" style="line-height: 1.6;width: max-content;">
-                                important_doc.xls</div>
-                        </button>
+        <div class="details-container">
+            <div class="tabs-container">
+                <ul class="nav nav-tabs" style="overflow-x: auto; white-space: nowrap; display: block; overflow-y: hidden;" 
+                    id="myTab" role="tablist">
+                    <li class="nav-item" style="display: inline-block;" role="presentation">
+                        <button class="nav-link active" id="mission-tab" data-bs-toggle="tab" data-bs-target="#Mission"
+                            type="button" role="tab" aria-controls="Mission" aria-selected="true"
+                            style="color: #757575;font-size: 15px;">Mission</button>
+                    </li>
+                    <li class="nav-item" style="display: inline-block;"role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                            type="button" role="tab" aria-controls="profile" aria-selected="false"
+                            style="color: #757575;font-size: 15px;">Organization</button>
+                    </li>
+                    <li class="nav-item" style="display: inline-block;" role="presentation">
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                            type="button" role="tab" aria-controls="contact" aria-selected="false"
+                            style="color: #757575;font-size: 15px;">Sponsored</button>
+                    </li>
+                    <li class="nav-item" style="display: inline-block;" role="presentation">
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                            type="button" role="tab" aria-controls="contact" aria-selected="false"
+                            style="color: #757575;font-size: 15px;">Comments</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent" style="margin-top: 25px;">
+
+                    <div class="tab-pane fade show active" id="Mission" role="tabpanel" aria-labelledby="mission-tab">
+                        <h4 class="common-font" style="font-weight: normal;color: #414141;">Introduction</h4>
+                        <p class="common-font info-details" style="line-height: 1.6;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                            <br><br>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                            mollit anim id est laborum.
+                            <br><br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <h4 class="common-font" style="font-weight: normal;color: #414141;">Challenge</h4>
+                        <p class="common-font info-details" style="line-height: 1.6;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat
+                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <br><br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non
+                            proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <h4 class="common-font" style="font-weight: normal;color: #414141;">Documents</h4>
+                        <div class="documents">
+                            <button class="download-btn">
+                                <img src="/Assets/doc.png" style="margin-right: 9px;" alt="Can't Render img">
+                                <div class="common-font info-details" style="line-height: 1.6;width: max-content;">
+                                    lorem-ipsum.pdf</div>
+                            </button>
+                            <button class="download-btn">
+                                <img src="/Assets/pdf.png" style="margin-right: 9px;" alt="Can't Render img">
+                                <div class="common-font info-details" style="line-height: 1.6;width: max-content;">
+                                    at_vero_eos_accusamus.doc</div>
+                            </button>
+                            <button class="download-btn">
+                                <img src="/Assets/xlsx.png" style="margin-right: 9px;" alt="Can't Render img">
+                                <div class="common-font info-details" style="line-height: 1.6;width: max-content;">
+                                    important_doc.xls</div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                </div>
+            </div>
+            <div class="Info-Volunteers-Container">
+                <div class="Information-container">
+                    <div class="common-font"
+                        style="position: relative;top:1px; color: #414141;font-size: 22px;display: inline-block;border-bottom: 1px solid black;padding-bottom: 22px;">
+                        Information</div>
+                    <hr style="margin-top: 0;">
+                    <div style="display: flex;">
+                        <div class="common-font" style="width: 20%;font-size: 15px; color:#414141;">Skills</div>
+                        <div class="common-font" style="width: 80%;font-size: 15px; color:#414141;">Cool, Easy going,
+                            Math,
+                            Computer</div>
+                    </div>
+                    <hr>
+                    <div style="display: flex;">
+                        <div class="common-font" style="width: 20%;font-size: 15px; color:#414141;">Days</div>
+                        <div class="common-font" style="width: 80%;font-size: 15px; color:#414141;">Weekend only</div>
+                    </div>
+                    <hr>
+                    <div style="display: flex;">
+                        <div class="common-font" style="width: 20%;font-size: 15px; color:#414141;">Rating</div>
+                        <div class="common-font" style="width: 80%;font-size: 14px; color:#757575;display: flex;">
+                            <div class="star-rate" style="margin-right: 6px;">
+                                <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                                <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                                <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                                <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                                <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                            </div>
+                            (by 125 volunteers)
+                        </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-            </div>
-        </div>
-        <div class="Info-Volunteers-Container">
-            <div class="Information-container">
-                hi
-            </div>
-            <div class="volunteers-container">
-                hi
-            </div>
-        </div>
-    </div>
 
-    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
 
-    <div class="Related-Missions common-font">Related Mission</div>
-
-    <div class="Card">
-        <div class="box">
-            <div class="box-img">
-                <img src="/Assets/Grow-Trees-On-the-path-to-environment-sustainability.png" class="box-img"
-                    alt="Can't Render photo">
-                <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
-                <button class="img-icon"><i class="bi bi-heart"></i></button>
-                <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
-                <div class="img-text common-font">Environment</div>
-            </div>
-
-            <div class="card-heading">Grow Trees – On the path to environment sustainability</div>
-            <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore...
-            </div>
-            <div class="star-box">
-                <div class="star-name common-font">Tree Canada</div>
-                <div class="star-rate">
-                    <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                    <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                    <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                </div>
-            </div>
-            <div class="time-date">
-                <div class="date-set common-font">
-                    From 10/01/2019 until 25/02/2019
-                </div>
-                <div class="person">
-                    <div style="display:flex;width:50%;">
-                        <div><i class="bi bi-person deadline-icon"></i></div>
-                        <div class="Deadline">250<div class="text-style-1">Already volunteered</div>
+                <div class="volunteers-container" style="margin-top: 40px;">
+                    <div class="common-font"
+                        style="position: relative;top:1px; color: #414141;font-size: 22px;display: inline-block;border-bottom: 1px solid black;padding-bottom: 22px;">
+                        Recent Volunteers</div>
+                    <hr style="margin-top: 0;">
+                    <div class="row g-1">
+                        <div class="col-4" style="font-size: 13px;text-align: center;"> <img
+                                class="volunteer-image-style" src="/Assets/volunteer1.png" alt="Can't render">
+                            <div>Andrew Johnson</div>
+                        </div>
+                        <div class="col-4" style="font-size: 13px;text-align: center;"> <img
+                                class="volunteer-image-style" src="/Assets/volunteer2.png" alt="Can't render">
+                            <div>Andrew Johnson</div>
+                        </div>
+                        <div class="col-4" style="font-size: 13px;text-align: center;"> <img
+                                class="volunteer-image-style" src="/Assets/volunteer3.png" alt="Can't render">
+                            <div>Andrew Johnson</div>
+                        </div>
+                        <div class="col-4" style="font-size: 13px;text-align: center;"> <img
+                                class="volunteer-image-style" src="/Assets/volunteer4.png" alt="Can't render">
+                            <div>Andrew Johnson</div>
+                        </div>
+                        <div class="col-4" style="font-size: 13px;text-align: center;"> <img
+                                class="volunteer-image-style" src="/Assets/volunteer5.png" alt="Can't render">
+                            <div>Andrew Johnson</div>
+                        </div>
+                        <div class="col-4" style="font-size: 13px;text-align: center;"> <img
+                                class="volunteer-image-style" src="/Assets/volunteer6.png" alt="Can't render">
+                            <div>Andrew Johnson</div>
+                        </div>
+                        <div class="col-4" style="font-size: 13px;text-align: center;"> <img
+                                class="volunteer-image-style" src="/Assets/volunteer7.png" alt="Can't render">
+                            <div>Andrew Johnson</div>
+                        </div>
+                        <div class="col-4" style="font-size: 13px;text-align: center;"> <img
+                                class="volunteer-image-style" src="/Assets/volunteer8.png" alt="Can't render">
+                            <div>Andrew Johnson</div>
+                        </div>
+                        <div class="col-4" style="font-size: 13px;text-align: center;"> <img
+                                class="volunteer-image-style" src="/Assets/volunteer9.png" alt="Can't render">
+                            <div>Andrew Johnson</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="Apply-btn">
-                <button class="Apply common-font">
-                    Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
-                </button>
-            </div>
-        </div>
-        <div class="box box-2">
-            <div class="box-img">
-                <img src="/Assets/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" class="box-img"
-                    alt="Can't Render photo">
-                <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
-                <button class="img-icon"><i class="bi bi-heart"></i></button>
-                <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
-                <div class="img-text common-font">Children</div>
-            </div>
-            <div class="card-heading">Education Supplies for Every Pair of Shoes Sold</div>
-            <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore...
-            </div>
-            <div class="star-box">
-                <div class="star-name common-font">Austrilian Paradise</div>
-                <div class="star-rate">
-                    <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                    <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                    <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                </div>
-            </div>
-            <div class="time-date">
-                <div class="date-set common-font">
-                    From 10/01/2019 until 25/02/2019
-                </div>
-                <div class="person">
-                    <div style="display:flex;width:100%;">
-                        <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
-                        <div class="Deadline"><progress max="100" value="80"></progress>
-                            <div class="text-style-1">8000 achieved</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="Apply-btn">
-                <button class="Apply common-font">
-                    Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
-                </button>
-            </div>
-        </div>
-        <div class="box">
-            <div class="box-img">
-                <img src="/Assets/Nourish-the-Children-in--African-country.png" class="box-img"
-                    alt="Can't Render photo">
-                <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
-                <button class="img-icon"><i class="bi bi-heart"></i></button>
-                <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
-                <div class="img-text common-font">Nutrition</div>
-            </div>
-            <div class="card-heading">Nourish the Children in African country</div>
-            <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore...
-            </div>
-            <div class="star-box">
-                <div class="star-name common-font">The Hunger</div>
-                <div class="star-rate">
-                    <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                    <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                    <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                </div>
-            </div>
-            <div class="time-date">
-                <div class="date-set common-font">
-                    Ongoing Opportunity
-                </div>
-                <div class="person">
-                    <div style="display:flex;width:30%;">
-                        <div><i class="bi bi-person deadline-icon"></i></div>
-                        <div class="Deadline">250<div class="text-style-1">Seats left</div>
-                        </div>
-                    </div>
-                    <div style="display:flex;width:60%;">
-                        <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
-                        <div class="Deadline"><progress max="100" value="80"></progress>
-                            <div class="text-style-1">8000 achieved</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="Apply-btn">
-                <button class="Apply common-font">
-                    Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
-                </button>
-            </div>
         </div>
 
-    </div>
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
 
-    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
-    <footer>
-        <a href="#" class="privacy-policy common-font">Privacy Policy</a>
-    </footer>
-    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+        <div class="Related-Missions common-font">Related Mission</div>
+
+        <div class="Card">
+            <div class="box">
+                <div class="box-img">
+                    <img src="/Assets/Grow-Trees-On-the-path-to-environment-sustainability.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Environment</div>
+                </div>
+
+                <div class="card-heading">Grow Trees – On the path to environment sustainability</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">Tree Canada</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        From 10/01/2019 until 25/02/2019
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:50%;">
+                            <div><i class="bi bi-person deadline-icon"></i></div>
+                            <div class="Deadline">250<div class="text-style-1">Already volunteered</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box box-2">
+                <div class="box-img">
+                    <img src="/Assets/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Children</div>
+                </div>
+                <div class="card-heading">Education Supplies for Every Pair of Shoes Sold</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">Austrilian Paradise</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        From 10/01/2019 until 25/02/2019
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:100%;">
+                            <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
+                            <div class="Deadline"><progress max="100" value="80"></progress>
+                                <div class="text-style-1">8000 achieved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-img">
+                    <img src="/Assets/Nourish-the-Children-in--African-country.png" class="box-img"
+                        alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>Tronoto</button>
+                    <button class="img-icon"><i class="bi bi-heart"></i></button>
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">Nutrition</div>
+                </div>
+                <div class="card-heading">Nourish the Children in African country</div>
+                <div class="card-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore...
+                </div>
+                <div class="star-box">
+                    <div class="star-name common-font">The Hunger</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+                <div class="time-date">
+                    <div class="date-set common-font">
+                        Ongoing Opportunity
+                    </div>
+                    <div class="person">
+                        <div style="display:flex;width:30%;">
+                            <div><i class="bi bi-person deadline-icon"></i></div>
+                            <div class="Deadline">250<div class="text-style-1">Seats left</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;width:60%;">
+                            <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
+                            <div class="Deadline"><progress max="100" value="80"></progress>
+                                <div class="text-style-1">8000 achieved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+        <footer>
+            <a href="#" class="privacy-policy common-font">Privacy Policy</a>
+        </footer>
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+
     </div>
 
 

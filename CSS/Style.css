@@ -1,6 +1,6 @@
 .body-1 {
   width: 100%;
-  height: auto;
+  height: 100%;
   padding: 0px;
   margin: 0;
   display: flex;
@@ -9,6 +9,10 @@
 .Left-Container {
   width: 70%;
   height: auto;
+}
+
+.img-height{
+  height: 100vh;
 }
 
 .Right-Container {
@@ -33,9 +37,13 @@
   width: 76.5%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
   .body-1 {
     display: block;
+  }
+
+  .img-height{
+    height: auto;
   }
 
   .Left-Container {
@@ -56,6 +64,12 @@
     position: absolute;
     margin: 20px;
   }
+}
+
+.form-input {
+  display: inline-block;
+  color: #414141;
+  border-radius: 3px;
 }
 
 .form-container {
