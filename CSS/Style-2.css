@@ -4,49 +4,6 @@
     margin: 0;
 }
 
-.nav-container {
-    width: 75%;
-    left: 12.5%;
-    right: 12.5%;
-    position: relative;
-    margin-top: 16px;
-    display: flex;
-}
-
-.Explore-Stories-Policy {
-    font-size: 16px;
-    font-weight: 300;
-    color: #333;
-}
-
-.nav-2 {
-    position: relative;
-    width: 100%;
-    padding-left: 12.5%;
-    padding-right: 12.5%;
-    display: flex;
-    align-items: center;
-}
-
-.right-nav-2 {
-    display: contents;
-    margin-left: auto;
-}
-
-.Search-mission {
-    font-size: 20px;
-    font-weight: 300;
-    color: #757575;
-    border: 0px;
-}
-
-.City {
-    font-size: 16px;
-    font-weight: 300;
-    text-align: center;
-    color: #414141;
-}
-
 .common-font {
     font-family: NotoSans;
     font-stretch: normal;

@@ -4,15 +4,6 @@
     margin: 0;
 }
 
-.nav-container {
-    width: 75%;
-    left: 12.5%;
-    right: 12.5%;
-    position: relative;
-    margin-top: 16px;
-    display: flex;
-}
-
 .right-container {
     position: relative;
     width: 75%;
@@ -44,12 +35,6 @@
     margin-top: 20px;
 }
 
-.Explore-Stories-Policy {
-    font-size: 16px;
-    font-weight: 300;
-    color: #333;
-}
-
 .common-font {
     font-family: NotoSans;
     font-stretch: normal;
@@ -64,6 +49,11 @@
 }
 
 .main-body{
+    width: 75%;
+    left: 12.5%;
+    right: 12.5%;
+    position: relative;
+    margin-top: 16px;
     display: flex;
 }
 
@@ -149,6 +139,10 @@
     .Share-your-story {
         font-size: 37px;
     }
+    .main-body {
+        width: 92%;
+        left: 4%;
+    }
 
     .preview-img {
         height: 100px;
@@ -211,11 +205,6 @@
         font-size: 29px;
     }
 
-    .nav-container {
-        width: 92%;
-        left: 4%;
-    }
-
     .preview-img {
         height: 70px;
         width: 70px;
@@ -229,7 +218,9 @@
 
 @media only screen and (max-width: 426px) {
 
-    .main-body{
+    .main-body {
+        width: 96%;
+        left: 2%;
         display: block;
     }
     .left-container {
@@ -241,10 +232,6 @@
         width: 80%;
         left: 10%;
         margin: 0;
-    }
-    .nav-container {
-        width: 96%;
-        left: 2%;
     }
 
     .preview-img {
