@@ -25,6 +25,10 @@
     --bs-link-hover-color: black;
 }
 
+.list-group-item.active {
+    font-weight: bolder;
+}    
+
 .right-container {
     position: relative;
     width: 840px;
