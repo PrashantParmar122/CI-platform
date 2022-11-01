@@ -76,24 +76,18 @@
     color: #414141;
 }
 
-.Ellipse-574 {
-    width: 48px;
-    height: 48px;
-    padding: 13px;
-    background-color: #e8e8e8;
-    border-radius: 100%;
+.Grid-block {
+    display: block;
     margin: 0 15px 0 40px;
 }
 
 .Grid {
-    border-radius: 100%;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    width: 22px;
-    bottom: 7px;
-    height: 22px;
+    border:0;
     background-color: #e8e8e8;
+    border-radius: 100px;
     position: relative;
+    top: 50%;
+    transform: translate(0px, -50%);
 }
 
 .Card {
@@ -261,6 +255,7 @@
 }
 
 .Deadline {
+    width: 90%;
     font-family: NotoSans;
     font-size: 18px;
     font-weight: normal;
@@ -296,7 +291,7 @@ progress::-webkit-progress-value {
 }
 
 progress {
-    width: 200px;
+    width: -webkit-fill-available;
     height: 10px;
     background-color: white;
 }

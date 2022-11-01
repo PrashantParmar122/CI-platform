@@ -380,10 +380,14 @@
                         <option value="6">Sort by deadline</option>
                     </select>
                 </div>
-                <div class="Ellipse-574" id="grid-icon">
-                    <i class="bi bi-grid Grid" style="font-size:x-large;"></i>
+                <div class="Grid-block" id="grid-icon">
+                    <button class="Grid">
+                        <i class="bi bi-grid" style="font-size:x-large;color:#757575"></i>
+                    </button>
                 </div>
-                <div><i class="bi bi-list" id="list-icon" style="font-size:xx-large;"></i></div>
+                <div class="Grid-block" style="margin: 0;">
+                    <button class="Grid" style="background-color: white;"><i class="bi bi-list" id="list-icon" style="font-size:xx-large;color:#ccc"></i></button>
+                </div>
             </div>
         </div>
 
@@ -604,7 +608,8 @@
                     <div class="person">
                         <div style="display:flex;width:100%;">
                             <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
-                            <div class="Deadline"><progress max="100" value="80"></progress>
+                            <div class="Deadline">
+                                <div style="width: 100%;"><progress max="100" value="80"></progress></div> 
                                 <div class="text-style-1">8000 achieved</div>
                             </div>
                         </div>
@@ -649,10 +654,13 @@
                             <div class="Deadline">250<div class="text-style-1">Seats left</div>
                             </div>
                         </div>
-                        <div style="display:flex;width:70%;">
-                            <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
-                            <div class="Deadline"><progress max="100" value="80"></progress>
-                                <div class="text-style-1">8000 achieved</div>
+                        <div style="width:70%;display: block;">
+                            <div style="display:flex;">
+                                <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
+                                <div class="Deadline">
+                                    <div style="width: 100%;"><progress max="100" value="80"></progress></div>
+                                    <div class="text-style-1">8000 achieved</div>
+                                </div>
                             </div>
                         </div>
                     </div>
