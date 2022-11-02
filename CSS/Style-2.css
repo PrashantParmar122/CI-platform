@@ -5,7 +5,6 @@
 }
 
 .common-font {
-    font-family: NotoSans;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -43,7 +42,6 @@
     position: relative;
     left: 12.5%;
     right: 12.5%;
-    width: 75%;
     display: flex;
     margin-top: 28px;
 }
@@ -102,7 +100,6 @@
 
 .box {
     position: relative;
-    width: 32%;
     border-radius: 3px;
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.06);
     background-color: #fff;
@@ -110,7 +107,7 @@
 }
 
 .box-2 {
-    margin: 0 2% 0 2%;
+    margin: 0;
 }
 
 .box-img {
@@ -121,7 +118,6 @@
 
 .card-heading {
     margin: 6.5% 6.5% 3.3% 6.5%;
-    font-family: NotoSans;
     font-size: 26px;
     font-weight: normal;
     font-stretch: normal;
@@ -134,7 +130,6 @@
 
 .card-body {
     margin: 0 30px 16px 30px;
-    font-family: NotoSans;
     font-size: 15px;
     font-weight: 300;
     font-stretch: normal;
@@ -238,7 +233,7 @@
     width: max-content;
     font-weight: normal;
     color: #f88634;
-    padding: 15px 25px 15px 25px;
+    padding: 10px 25px;
     font-size: 17px;
     background-color: white;
     border: solid 2px #f88634;
@@ -247,16 +242,21 @@
     transform: translate(-50%, 0);
 }
 
+.Apply:hover{
+    color: white;
+    background-color: #f88634;
+    border-color: black;
+}
+
 .person {
     position: relative;
     display: flex;
-    top: 50%;
+    top: 55%;
     transform: translate(0, -50%);
 }
 
 .Deadline {
     width: 90%;
-    font-family: NotoSans;
     font-size: 18px;
     font-weight: normal;
     font-stretch: normal;
@@ -364,15 +364,27 @@ progress {
     margin-top: 15px;
 }
 
+@media only screen and (max-width: 1536px) {
+    .Card{
+        width: 92%;
+        left: 4%;
+    }
+    .explore {
+        width: 92%;
+        left: 4%;
+        right: 4%;
+    }
+    .show-mission {
+        width: 92%;
+        left: 4%;
+        right: 4%;
+    }
+}
+
 @media only screen and (max-width: 1024px) {
     .Card {
-        position: relative;
-        width: 75%;
-        left: 12.5%;
-        right: 12.5%;
         margin-top: 26px;
         margin-bottom: 40px;
-        display: block;
     }
 
     .box {
@@ -382,10 +394,6 @@ progress {
         border-radius: 3px;
         box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.06);
         background-color: #fff;
-    }
-
-    .box-2 {
-        margin: inherit;
     }
 
     #grid-icon {
@@ -399,37 +407,24 @@ progress {
 
 @media only screen and (max-width: 425px) {
     .Card {
-        position: relative;
-        width: 90%;
-        left: 5%;
-        right: 5%;
+        width: 96%;
+        left: 2%;
         margin-top: 20px;
         margin-bottom: 20px;
         display: block;
     }
+    .explore {
+        width: 96%;
+        left: 2%;
+        right: 2%;
+    }
+    .show-mission {
+        width: 96%;
+        left: 2%;
+        right: 2%;
+    }
 
     .time-date {
         padding: 0 10px;
-    }
-
-    .box {
-        position: relative;
-        width: 100%;
-        margin-bottom: 10px;
-        border-radius: 3px;
-        box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.06);
-        background-color: #fff;
-    }
-
-    .box-2 {
-        margin: inherit;
-    }
-
-    #grid-icon {
-        display: none;
-    }
-
-    #list-icon {
-        display: none;
     }
 }

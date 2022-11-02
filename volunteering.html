@@ -202,15 +202,16 @@
                                     <!-- Buttons -->
                                 
                                     <div style="align-items: end; display: flex;">
-                                        <button class="btn-style-99 common-font"
-                                            style="color:#757575;border-color: #757575;font-size: 17px;padding: 8px 15px;">
+                                        <button class="btn-style-99 btn-style99-grey common-font"
+                                            style="font-size: 17px;padding: 8px 15px;">
                                             Cancel
                                         </button>
-                                        <button class="btn-style-99 common-font"
+                                        <button class="btn-style-99 btn-style99-orange common-font"
                                             style="margin-left: 10px;font-size: 17px;padding: 8px 15px;">
                                             Submit    
                                         </button>
                                     </div>
+
                                 </form>
                             </div>
                         </div>
@@ -232,7 +233,7 @@
                 </ul>
             </div>
         </div>
-        <hr>
+        <hr style="margin-bottom: 0;">
         <div class="nav-2">
             <div class="navbar-nav mb-lg-0" style="display: contents;">
                 <div><img src="/Assets/search.png" alt="Avatar" style="object-fit:cover ;">
@@ -242,7 +243,7 @@
                         placeholder="Search mission..." aria-label="Search">
                 </form>
             </div>
-            <nav class="navbar navbar-expand-lg" style="margin-left: auto;width: 50%;">
+            <nav class="navbar navbar-expand-lg" style="margin-left: auto;width: 50%;padding: 0;">
                 <div class="container-fluid " style="padding:0px;">
                     <!-- <a class="navbar-brand" href="#">Navbar</a> -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -262,53 +263,41 @@
                             <div class="navbar-collapse" id="navigation-2">
 
                                 <div class="right-nav-2">
-                                    <div class="nav-item dropdown" style="width: 25%;">
-
-                                        <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#"
-                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Country
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
+                                    <div class="nav-item dropdown nav-2-items">
+                                        <select class="form-select select-menu border-lg-left City" aria-label="Default select example" style="box-shadow: none;">
+                                            <option selected>Country</option>
+                                            <option value="1">India</option>
+                                            <option value="2">Australia</option>
+                                            <option value="3">Bhutan</option>
+                                            <option value="4">USA</option>
+                                            <option value="5">Indonesia</option>
+                                            <option value="6">SouthAfrica</option>
+                                        </select>
                                     </div>
-                                    <div class="nav-item dropdown" style="width: 25%;">
-
-                                        <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#"
-                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            City
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
+                                    <div class="nav-item dropdown nav-2-items">
+                                        <select class="form-select select-menu border-lg-left City" aria-label="Default select example" style="box-shadow: none;">
+                                            <option selected>City</option>
+                                            <option value="1">Jamnagar</option>
+                                            <option value="2">Rajkot</option>
+                                            <option value="3">Ahemdabad</option>
+                                            <option value="4">Surat</option>
+                                            <option value="5">Gandhinagar</option>
+                                            <option value="6">Baroda</option>
+                                        </select>
                                     </div>
-                                    <div class="nav-item dropdown" style="width: 25%;">
-
-                                        <a class="nav-link nav-2-items dropdown-toggle City common-font" href="#"
-                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Theme
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
+                                    <div class="nav-item dropdown nav-2-items">
+                                        <select class="form-select select-menu border-lg-left City" aria-label="Default select example" style="box-shadow: none;">
+                                            <option selected>Theme</option>
+                                            <option value="1">Nutrition</option>
+                                            <option value="2">Education</option>
+                                            <option value="3">Blood donation</option>
+                                            <option value="4">Environment</option>
+                                            <option value="5">Farming</option>
+                                            <option value="6">Trees</option>
+                                        </select>
                                     </div>
-                                    <div class="nav-item dropdown " style="width: 25%;">
-                                        <a class="nav-link dropdown-toggle City nav-2-items common-font" href="#"
+                                    <div class="nav-item dropdown nav-2-items">
+                                        <!-- <a class="nav-link dropdown-toggle City nav-2-items common-font" href="#"
                                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Skills
                                         </a>
@@ -319,7 +308,16 @@
                                                 <hr class="dropdown-divider">
                                             </li>
                                             <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
+                                        </ul> -->
+                                        <select class="form-select select-menu border-lg-left border-lg-right City" aria-label="Default select example" style="box-shadow: none;">
+                                            <option selected>Skills</option>
+                                            <option value="1">Anthropology</option>
+                                            <option value="2">Archeology</option>
+                                            <option value="3">Computer Science</option>
+                                            <option value="4">History</option>
+                                            <option value="5">Environmental Policy</option>
+                                            <option value="6">Botany</option>
+                                        </select>
                                     </div>
 
                                 </div>
@@ -330,8 +328,7 @@
                 </div>
             </nav>
         </div>
-        
-        <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin-bottom: 0;">
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin-top: 0;">
 
         <div class="photo-description-body">
             <div class=" photo">
@@ -445,7 +442,7 @@
 
                 <div class="Apply-btn" style="border:0">
                     <button class="Apply common-font">
-                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                        Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
                     </button>
                 </div>
             </div>
@@ -659,7 +656,7 @@
                 </div>
                 <div class="Apply-btn">
                     <button class="Apply common-font">
-                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                        Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
                     </button>
                 </div>
             </div>
@@ -701,7 +698,7 @@
                 </div>
                 <div class="Apply-btn">
                     <button class="Apply common-font">
-                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                        Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
                     </button>
                 </div>
             </div>
@@ -748,7 +745,7 @@
                 </div>
                 <div class="Apply-btn">
                     <button class="Apply common-font">
-                        Apply<i class="bi bi-arrow-right" style="color: #f88634; margin:0 0 0 20px;"></i>
+                        Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
                     </button>
                 </div>
             </div>
@@ -759,7 +756,6 @@
         <footer>
             <a href="#" class="privacy-policy common-font">Privacy Policy</a>
         </footer>
-        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
 
     </div>
 

@@ -57,10 +57,9 @@
 
 .photo-head {
   position: relative;
-  top: 0;
+  top: -25px;
   left: 0;
-  font-family: NotoSans;
-  font-size: 2.4vw;
+  font-size: 2vw;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -75,12 +74,11 @@
 
 .photo-body {
   position: relative;
-  top: 0;
+  top: -25px;
   left: 0;
   margin: 25px 0 0 0;
   bottom: 30px;
-  font-family: NotoSans;
-  font-size: 1.4vw;
+  font-size: 1.2vw;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -91,8 +89,16 @@
   z-index: 1;
 }
 
+.btn-outline-mystyle{
+  --bs-btn-border-width: 2px;
+  --bs-btn-color: #f88634;
+  --bs-btn-border-color: #f88634;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #f88634;
+  --bs-btn-hover-border-color: #000000;
+}
+
 .text {
-  font-family: NotoSans;
   font-size: 14px;
   font-weight: 300;
   font-stretch: normal;

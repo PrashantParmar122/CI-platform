@@ -51,10 +51,9 @@
 
 .photo-head {
   position: relative;
-  top: 0;
+  top: -25px;
   left: 0;
-  font-family: NotoSans;
-  font-size: 2.4vw;
+  font-size: 2vw;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -69,12 +68,11 @@
 
 .photo-body {
   position: relative;
-  top: 0;
+  top: -25px;
   left: 0;
   margin: 25px 0 0 0;
   bottom: 30px;
-  font-family: NotoSans;
-  font-size: 1.4vw;
+  font-size: 1.2vw;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -86,7 +84,6 @@
 }
 
 .text {
-  font-family: NotoSans;
   font-size: 14px;
   font-weight: 300;
   font-stretch: normal;
@@ -96,6 +93,15 @@
   text-align: center;
   color: #414141;
   text-decoration-line: none;
+}
+
+.btn-outline-mystyle{
+  --bs-btn-border-width: 2px;
+  --bs-btn-color: #f88634;
+  --bs-btn-border-color: #f88634;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #f88634;
+  --bs-btn-hover-border-color: #000000;
 }
 
 .link-text {
@@ -120,7 +126,28 @@
   }
 }
 
-@media only screen and (max-width: 1439px) {
+/* @media only screen and (max-width: 1439px) {
+  .body-1 {
+    display: block;
+  }
+
+  .Left-Container {
+    width: 100%;
+  }
+
+  .Right-Container {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 65px;
+  }
+
+  .Privacy-Policy {
+    bottom: -65px;
+    margin: 20px;
+  }
+} */
+
+@media only screen and (max-width: 992px) {
   .body-1 {
     display: block;
   }

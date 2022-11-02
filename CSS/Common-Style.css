@@ -19,7 +19,6 @@
 .City {
     font-size: 16px;
     font-weight: 300;
-    text-align: right;
     color: #414141;
 }
 
@@ -40,6 +39,10 @@
     align-items: center;
 }
 
+.nav-2-items{
+    width: 25%;
+}
+
 .Submit-new-mission-btn {
     position: relative;
     margin-right: 19px;
@@ -57,7 +60,13 @@
     border-radius: 35px;
 }
 
-.profile-name-in-nav{
+.Submit-new-mission:hover {
+    color: white;
+    background-color: #f88634;
+    border-color: black;
+}
+
+.profile-name-in-nav {
     position: relative;
     display: inline-block;
 }
@@ -72,6 +81,41 @@
     font-weight: normal;
     text-align: left;
     color: #f88634;
+}
+
+.select-menu{
+    border: 0;
+    height: 78px;
+    border-radius: 0;
+}
+
+.border-lg-left{
+    border-left: 1px solid #d9d9d9;
+}
+
+.border-lg-right{
+    border-right: 1px solid #d9d9d9;
+}
+
+.btn-style99-orange {
+    color: #f88634;
+    border: 2px solid #f88634;
+}
+
+.btn-style99-orange:hover {
+    color: white;
+    border: 2px solid black;
+    background-color: #f88634;
+}
+
+.btn-style99-grey {
+    color: #757575;
+    border: 2px solid #757575;
+}
+
+.btn-style99-grey:hover {
+    border: 2px solid black;
+    background-color: #e8e8e8;
 }
 
 .font-style-99 {
@@ -89,11 +133,14 @@
     font-weight: 300;
     text-align: left;
     color: #757575;
-    font-family: NotoSans;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
+}
+
+footer {
+    margin: 36px 0 36px 0;
 }
 
 @media only screen and (max-width: 1536px) {
@@ -106,26 +153,41 @@
         width: 92%;
         left: 4%;
     }
+
     .Submit-new-mission {
         padding: 14px;
         font-size: 17px;
     }
 }
 
-@media only screen and (max-width: 1440px) {
-}
+@media only screen and (max-width: 1440px) {}
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {}
 
+@media only screen and (max-width: 992px) {
+    .border-lg-left{
+        border: 0;
+    }
+    .border-lg-right{
+        border: 0;
+    }
+    .nav-2-items{
+        width: 50%;
+    }
+    .select-menu{
+        height: 40px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-    #profile-dropdown-icon.dropdown-toggle::after{
-        display: none;
-    }   
-    .profile-name-in-nav{
+    #profile-dropdown-icon.dropdown-toggle::after {
         display: none;
     }
+
+    .profile-name-in-nav {
+        display: none;
+    }
+
     .Submit-new-mission {
         padding: 13px;
         font-size: 15px;
@@ -142,6 +204,7 @@
         width: 96%;
         left: 2%;
     }
+
     .Submit-new-mission {
         padding: 10px;
         font-size: 13px;

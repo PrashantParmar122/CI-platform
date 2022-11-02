@@ -5,7 +5,6 @@
 }
 
 .common-font {
-    font-family: NotoSans;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -156,7 +155,6 @@
 
 .card-heading {
     margin: 6.5% 6.5% 3.3% 6.5%;
-    font-family: NotoSans;
     font-size: 26px;
     font-weight: normal;
     font-stretch: normal;
@@ -169,7 +167,6 @@
 
 .card-body {
     margin: 0 30px 16px 30px;
-    font-family: NotoSans;
     font-size: 15px;
     font-weight: 300;
     font-stretch: normal;
@@ -281,6 +278,12 @@
     transform: translate(-50%, 0);
 }
 
+.Apply:hover{
+    color: white;
+    background-color: #f88634;
+    border-color: black;
+}
+
 .two-btn {
     position: relative;
     margin-bottom: 40px;
@@ -309,7 +312,6 @@
 }
 
 .Deadline {
-    font-family: NotoSans;
     font-size: 18px;
     font-weight: normal;
     font-stretch: normal;

@@ -14,7 +14,6 @@
 }
 
 .common-font {
-    font-family: NotoSans;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -60,12 +59,28 @@
     position: relative;
     border-radius: 100px;
     padding: 10px 30px;
-    border: 2px solid #f88634;
     font-size: 17px;
     background-color: white;
     font-weight: normal;
     text-align: left;
+}
+.btn-style-orange {
+    border: 2px solid #f88634;
     color: #f88634;
+}
+.btn-style-orange:hover {
+    border: 2px solid black;
+    color: white;
+    background-color: #f88634;
+}
+.btn-style-grey{
+    border: 2px solid #757575;
+    color: #757575;
+}
+.btn-style-grey:hover{
+    border: 2px solid black;
+    color: #757575;
+    background-color: #e8e8e8;
 }
 
 .privacy-policy {

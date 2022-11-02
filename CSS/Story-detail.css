@@ -5,7 +5,6 @@
 }
 
 .common-font {
-    font-family: NotoSans;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -79,12 +78,20 @@
     padding: 10px 15px;
     border-radius: 150px;
     border: solid 2px #757575;
+    color: #757575;
     background-color: #fff;
     display: flex;
     font-size: 20px;
     justify-content: center;
     align-items: center;
 }
+
+.add-to-fav:hover{
+    color: black;
+    background-color: #e8e8e8;
+    border-color: black;
+}
+
 
 .Apply-btn {
     position: relative;
@@ -106,6 +113,13 @@
     border: solid 2px #f88634;
     border-radius: 35px;
 }
+
+.Apply:hover{
+    color: white;
+    background-color: #f88634;
+    border-color: black;
+}
+
 
 .details-container {
     position: relative;
