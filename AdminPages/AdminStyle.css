@@ -1,0 +1,60 @@
+.body-1 {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.left-container {
+    position: relative;
+    width: 20%;
+}
+
+.right-container {
+    position: relative;
+    width: 80%;
+}
+
+.side-nav {
+    display: block;
+    background-color: #0b72fd;
+    width: 100%;
+    min-width: max-content;
+    height: 100%;
+    position: relative;
+    padding: 15px;
+    overflow-x: scroll;
+}
+
+.navigation-items-container {
+    border-bottom: 1px solid #77bfff;
+    color: rgb(124, 168, 218);
+    display: flex;
+    align-items: center;
+}
+
+.navigation-items {
+    color: rgb(195, 223, 255);
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navigation-items i {
+    margin-right: 16px;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 992px) {
+    .nav-item-name {
+        display: none;
+    }
+
+    .dropdown-toggle::after {
+        display: none;
+    }
+}
