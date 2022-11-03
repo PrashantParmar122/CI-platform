@@ -13,9 +13,9 @@
 
 .photo-description-body {
     position: relative;
-    width: 100%;
+    width: 75%;
     display: flex;
-    margin-right: 12.5%;
+    left: 12.5%;
 }
 
 .photo {
@@ -31,7 +31,7 @@
 }
 
 .description {
-    width: 38.5%;
+    width: 50%;
     padding-left: 60px;
     position: relative;
 }
@@ -155,7 +155,7 @@
 
 .card-heading {
     margin: 6.5% 6.5% 3.3% 6.5%;
-    font-size: 26px;
+    font-size: 2vw;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -167,7 +167,7 @@
 
 .card-body {
     margin: 0 30px 16px 30px;
-    font-size: 15px;
+    font-size: 1.2vw;
     font-weight: 300;
     font-stretch: normal;
     font-style: normal;
@@ -371,35 +371,54 @@ progress {
         width: 92%;
         left: 4%;
     }
+    .photo-description-body {
+        width: 92%;
+        left: 4%;
+    }
 }
 
 @media only screen and (max-width: 1440px) {
 
     .photo-description-body {
-        width: 92%;
-        display: block;
-        left: 4%;
         align-items: center;
     }
 
-    .photo {
-        width: auto;
-    }
-
-    .description {
+    /* .description {
         width: 700px;
         padding: 0;
         display: block;
         left: 50%;
         transform: translate(-50%, 0);
-    }
+    } */
 }
 
 @media only screen and (max-width: 1024px) {
     .details-container {
         display: block;
     }
+    .photo-description-body {
+        width: 92%;
+        display: block;
+        left: 4%;
+        align-items: center;
+    }
+    .photo {
+        width: auto;
+    }
 
+    .description {
+        width: 90%;
+        padding: 0;
+        display: block;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    .card-body {
+        font-size: 2vw;
+    }
+    .card-heading {
+        font-size: 4vw;
+    }
     .tabs-container {
         width: 100%;
     }
@@ -427,31 +446,12 @@ progress {
         display: block;
     }
 
-    .photo-description-body {
-        width: 92%;
-        display: block;
-        left: 4%;
-        align-items: center;
-    }
-
     .box {
         width: 100%;
     }
 
     .box-2 {
         margin: inherit;
-    }
-
-    .photo {
-        width: auto;
-    }
-
-    .description {
-        width: 90%;
-        padding: 0;
-        display: block;
-        left: 50%;
-        transform: translate(-50%, 0);
     }
 
     .Information-container {
@@ -470,39 +470,21 @@ progress {
 
 @media only screen and (max-width: 426px) {
     .Card {
-        position: relative;
         width: 96%;
         left: 2%;
-        display: block;
+    }
+    .card-body {
+        font-size: 14px;
+    }
+    .card-heading {
+        font-size: 20px;
     }
 
     .photo-description-body {
         width: 96%;
-        display: block;
         left: 2%;
-        align-items: center;
     }
 
-    .box {
-        width: 100%;
-    }
-
-    .box-2 {
-        margin: inherit;
-    }
-
-    .photo {
-        width: auto;
-    }
-
-    .description {
-        width: 98%;
-        padding: 0;
-        display: block;
-        left: 50%;
-        transform: translate(-50%, 0);
-    }
-    
     .details-container {
         display: block;
     }
@@ -528,6 +510,5 @@ progress {
     .volunteer-image-style {
         height: 40px;
         width: 40px;
-        border-radius: 70px;
     }
 }

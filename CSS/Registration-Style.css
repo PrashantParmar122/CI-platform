@@ -126,30 +126,15 @@
   }
 }
 
-/* @media only screen and (max-width: 1439px) {
-  .body-1 {
-    display: block;
-  }
-
-  .Left-Container {
-    width: 100%;
-  }
-
-  .Right-Container {
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 65px;
-  }
-
-  .Privacy-Policy {
-    bottom: -65px;
-    margin: 20px;
-  }
-} */
-
 @media only screen and (max-width: 992px) {
   .body-1 {
     display: block;
+  }
+  .photo-body {
+    font-size: 1.9vw;
+  }
+  .photo-head {
+    font-size: 3vw;
   }
 
   .Left-Container {

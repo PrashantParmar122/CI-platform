@@ -120,6 +120,15 @@
   text-align: center;
 }
 
+@media only screen and (max-width: 992px) {
+  .photo-body {
+    font-size: 1.5vw;
+  }
+  .photo-head {
+    font-size: 2.5vw;
+  }
+}
+
 @media only screen and (max-width: 769px) {
   .body-1 {
     display: block;
