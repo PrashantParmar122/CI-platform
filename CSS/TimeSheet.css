@@ -1,0 +1,167 @@
+.body-1 {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.body-2 {
+    position: relative;
+    left: 12.5%;
+    width: 75%;
+    margin-top: 80px;
+}
+
+.common-font {
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.Volunteer-title {
+    position: relative;
+    color: #414141;
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.card-container{
+    position: relative;
+    display: flex;
+    margin: 26px 0 120px 0;
+}
+
+.left-container {
+    position: relative;
+    width: 48%;
+    margin-right: 4%;
+    box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.06);
+    border: solid 1px #e8e8e8;
+    padding: 25px;
+    min-height: 350px;
+}
+
+.right-container {
+    position: relative;
+    width: 48%;
+    box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.06);
+    border: solid 1px #e8e8e8;
+    padding: 25px;
+    min-height: 350px;
+}
+
+.thead_font {
+    font-size: 16px;
+    color: #414141;
+}
+
+.tbody-font{
+    font-size: 14px;
+    color: #414141;
+    font-weight: 300;
+    line-height: normal;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    padding: 8px;
+}
+
+.Edit {
+    color: #f88634;
+}
+
+.Delete {
+    border: 0;
+    background-color: #fff;
+}
+
+.btn-style1 {
+    position: relative;
+    border-radius: 100px;
+    padding: 7px 26px;
+    border: 2px solid #f88634;
+    font-size: 17px;
+    background-color: white;
+    font-weight: normal;
+    text-align: left;
+    color: #f88634;
+}
+
+.btn-style-orange {
+    border: 2px solid #f88634;
+    color: #f88634;
+}
+
+.btn-style-orange:hover {
+    border: 2px solid black;
+    color: white;
+    background-color: #f88634;
+}
+
+.btn-style-grey {
+    border: 2px solid #757575;
+    color: #757575;
+}
+
+.btn-style-grey:hover {
+    border: 2px solid black;
+    background-color: #e8e8e8;
+    color: #000;
+}
+
+.privacy-policy {
+    position: relative;
+    width: 75%;
+    left: 12.5%;
+    height: 100px;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    color: #414141;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 1536px) {
+    .body-2 {
+        left: 4%;
+        width: 92%;
+    }
+}
+
+@media only screen and (max-width: 1441px) {
+}
+
+@media only screen and (max-width: 1025px) {
+
+    .card-container{
+        display: block;
+    }
+
+    .left-container {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .right-container {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+}
+
+@media only screen and (max-width: 769px) {
+}
+
+@media only screen and (max-width: 426px) {
+    .body-2 {
+        left: 2%;
+        width: 96%;
+        margin-top: 30px;
+        display: block;
+    }
+}

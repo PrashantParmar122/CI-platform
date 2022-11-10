@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL-CMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="/AdminPages/AdminStyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-1">
+        <div class="left-container">
+            <ul class="nav flex-column side-nav">
+                <div>
+                    <li class="nav-head">NAVIGATION</li>
+                    <li class="nav-item navigation-items-container">
+                        <a class="nav-link navigation-items" aria-current="page" href="./User.html">
+                            <i class="bi bi-person"></i>
+                            <div class="nav-item-name">User</div>
+                        </a>
+                    </li>
+                    <li class="nav-item navigation-items-container">
+                        <a class="nav-link navigation-items active" href="./CMS.html"><i
+                                class="bi bi-file-earmark-text-fill"></i>
+                            <div class="nav-item-name">CMS Pages</div>
+                        </a>
+                    </li>
+                    <li class="nav-item navigation-items-container">
+                        <a class="nav-link navigation-items" href="./Mission.html"><i class="bi bi-bullseye"></i>
+                            <div class="nav-item-name">Mission</div>
+                        </a>
+                    </li>
+                    <li class="nav-item navigation-items-container">
+                        <a class="nav-link navigation-items" href="./MissionTheme.html"><i class="bi bi-columns"></i>
+                            <div class="nav-item-name">Mission Theme</div>
+                        </a>
+                    </li>
+                    <li class="nav-item navigation-items-container">
+                        <a class="nav-link navigation-items" href="./MissionSkill.html"><i class="bi bi-tools"></i>
+                            <div class="nav-item-name">Mission Skills</div>
+                        </a>
+                    </li>
+                    <li class="nav-item navigation-items-container">
+                        <a class="nav-link navigation-items" href="./MissionApplication.html"><i
+                                class="bi bi-gear-fill"></i>
+                            <div class="nav-item-name">Mission Application</div>
+                        </a>
+                    </li>
+                    <li class="nav-item navigation-items-container">
+                        <a class="nav-link navigation-items" href="./Story.html"><i class="bi bi-pencil-square"></i>
+                            <div class="nav-item-name">Story</div>
+                        </a>
+                    </li>
+                    <li class="nav-item navigation-items-container">
+                        <a class="nav-link navigation-items" href="./Banner.html"><i class="bi bi-gear-fill"></i>
+                            <div class="nav-item-name">Banner Management</div>
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <div class="right-container">
+
+            <div style="display: flex;box-shadow: 3px 5.2px 10px 0 rgba(0, 0, 0, 0.08);padding:23px 40px 20px 20px;">
+                <div style="align-items: center;display: flex;">
+                    Thursday, November 3, 2022, 10:06 AM
+                </div>
+                <div style="margin-left: auto;">
+                    <a class="nav-link dropdown-toggle" id="profile-dropdown-icon"
+                        style="font-size: 15px;display: flex;align-items: center;padding: 0;color:#757575;" href="#"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/Assets/user-img.png" alt="Avatar"
+                            style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+                        <div class="profile-name-in-nav">Evan Donohue</div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="padding: 0 40px 0 20px;width: 100%;position: relative;">
+                <form class="row g-4 font-style-1"
+                    style="margin: 50px 0 130px 0;border: 1px solid #e8e8e8;position: relative;">
+                    <div class="form-title">Add/Edit</div>
+                    <hr style="margin: 0;">
+                    <div class="col-12">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control input-box-style" style="box-shadow: none;" id="title">
+                    </div>
+                    <div class="col-12 ">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control input-box-style" id="description"
+                            style="height: 200px; box-shadow: none;"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label for="slug" class="form-label">Slug</label>
+                        <input type="text" class="form-control input-box-style" id="slug" style="box-shadow: none;">
+                    </div>
+                    <div class="col-12" style="margin-bottom: 40px;">
+                        <label for="status" class="form-label">Status</label>
+                        <select id="status" class="form-select input-box-style" style="box-shadow: none;">
+                            <option selected></option>
+                            <option>Active</option>
+                            <option>In active</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; position: absolute;bottom: -75px;justify-content: end;">
+                        <a href="./CMS.html" style="text-decoration: none;" class="btn-style1 btn-style-grey">
+                            Cancel
+                        </a>
+                        <button class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
