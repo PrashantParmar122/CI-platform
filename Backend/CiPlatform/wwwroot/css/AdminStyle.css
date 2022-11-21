@@ -1,0 +1,262 @@
+﻿.body-1 {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+}
+
+.left-container {
+    position: relative;
+    width: max-content;
+    min-height: 100%;
+    height: auto;
+}
+
+.right-container {
+    position: relative;
+    width: 88%;
+}
+
+.side-nav {
+    display: block;
+    background-color: #f88634;
+    width: 100%;
+    min-width: max-content;
+    height: 100%;
+    position: relative;
+    padding: 50px 15px 15px 15px;
+    overflow-x: scroll;
+}
+
+.nav-head {
+    margin-bottom: 18px;
+    color: white;
+}
+
+.navigation-items-container {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+    .navigation-items-container:hover {
+        background-color: white;
+    }
+
+    .navigation-items-container:active {
+        background-color: #fff;
+    }
+
+.navigation-items {
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.nav-item-name {
+    font-size: 18px;
+}
+
+.navigation-items:active {
+    color: #f88634;
+}
+
+.navigation-items i {
+    margin-right: 16px;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: #f88634;
+    background-color: #fff;
+}
+
+.profile-name-in-nav {
+    color: #333333;
+}
+
+.Search-mission {
+    font-size: 14px;
+    font-weight: 300;
+    border: 0px;
+}
+
+table {
+    border: 1px solid #ced4da;
+}
+
+tbody tr {
+    border-top: 1px solid #ced4da;
+}
+
+.thead_font {
+    font-size: 22px;
+    line-height: normal;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    padding: 16px;
+}
+
+thead {
+    background-color: #f8f9fc;
+}
+
+.status {
+    color: #14c506;
+}
+
+.Edit {
+    color: #f88634;
+    text-decoration: none;
+}
+
+.Delete {
+    border: 0;
+    background-color: #fff;
+}
+
+.btn-style1 {
+    position: relative;
+    border-radius: 100px;
+    padding: 7px 26px;
+    border: 2px solid #f88634;
+    font-size: 17px;
+    background-color: white;
+    font-weight: normal;
+    text-align: left;
+    color: #f88634;
+}
+
+.btn-style-orange {
+    border: 2px solid #f88634;
+    color: #f88634;
+}
+
+    .btn-style-orange:hover {
+        border: 2px solid black;
+        color: white;
+        background-color: #f88634;
+    }
+
+.btn-style-grey {
+    border: 2px solid #757575;
+    color: #757575;
+}
+
+    .btn-style-grey:hover {
+        border: 2px solid black;
+        background-color: #e8e8e8;
+        color: #000;
+    }
+
+.center {
+    text-align: right;
+}
+
+.pagination {
+    display: inline-block;
+    margin-top: 33px;
+    margin-bottom: 60px;
+}
+
+    .pagination a {
+        color: black;
+        float: left;
+        height: 33px;
+        width: 33px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        transition: background-color .3s;
+        border: 1px solid #e8e8e8;
+        margin: 0 4px;
+        border-radius: 3px;
+        background-color: #fff;
+    }
+
+        .pagination a.active {
+            background-color: #f88634;
+            color: white;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+.form-title {
+    margin: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: #f8f9fc;
+    color: #333;
+    font-size: 22px;
+}
+
+.form-label {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: normal;
+    color: #414141;
+}
+
+.input-box-style {
+    border-radius: 3px;
+    border: solid 1px #d9d9d9;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    color: #757575;
+}
+
+.navigation-items.active {
+    color: #f88634;
+    background-color: white;
+}
+
+.modal-backdrop.show {
+    opacity: 0.0;
+}
+
+@media only screen and (max-width: 1536px) {
+    .thead_font {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .thead_font {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .nav-item-name {
+        display: none;
+    }
+
+    .navigation-items i {
+        margin-right: 0;
+    }
+
+    .dropdown-toggle::after {
+        display: none;
+    }
+
+    .nav-head {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+}

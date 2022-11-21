@@ -1,0 +1,162 @@
+﻿@using CiPlatform.Models
+@model RegisterPageViewModel
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL-Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+            crossorigin="anonymous"></script>
+    <link href="~/css/Registration.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="body-1">
+        <div class="Left-Container">
+            @{
+                var i = 0;
+            }
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-indicators">
+                    @foreach (var item in @Model.banner)
+                    {
+                        var tempclass = "";
+                        @if (i == 0)
+                        {
+                            tempclass = "active";
+                        }
+
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i"
+                            class="@tempclass" aria-label="Slide @i"
+                            style="height: 8px;width: 8px; border-radius: 10px;border: 0;">
+                        </button>
+                        i++;
+                    }
+                </div>
+                <div class="carousel-inner">
+                    @{
+                        i = 0;
+                    }
+                    @foreach (var item in @Model.banner)
+                    {
+                        var tempclass = "carousel-item";
+
+                        @if (i == 0)
+                        {
+                            tempclass = "carousel-item active";
+                            i++;
+                        }
+                        <div class="@tempclass">
+                            <img src="@item.Image"
+                             class="d-block w-100 img-height" alt="Can't Load Image">
+                            <div class="carousel-caption d-none d-md-block">
+                                <p class="photo-head">
+                                    @item.Title
+                                </p>
+                                <p class="photo-body">
+                                    @item.Text
+                                </p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="Right-Container">
+            <div class="form-block">
+                <form method="post" class="form-container row g-3">
+
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-12 mb-2">
+                        <label asp-for="FirstName" class="form-label"> First Name </label>
+                        <input asp-for="FirstName" type="text" class="form-control" style="display:inline;box-shadow: none;" id="first-Name"
+                               placeholder="Your Name">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-12 mb-2">
+                        <label asp-for="LastName" class="form-label">Last Name</label>
+                        <input asp-for="LastName" type="text" class="form-control" id="last-Name" style="display:inline;box-shadow: none;"
+                               placeholder="Surname">
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-12 mb-2">
+                        <label asp-for="Email" class="form-label">Email Address</label>
+                        <input asp-for="Email" type="email" class="form-control" style="display:inline;box-shadow: none;" id="Email"
+                               placeholder="xyz@abc.com">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-12 mb-2">
+                        <label asp-for="PhoneNumber" class="form-label"> Phone Number </label>
+                        <input asp-for="PhoneNumber" type="number" class="form-control" style="display:inline;box-shadow: none;"
+                               id="phone-Number" placeholder="Phone Number">
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-12 mb-2">
+                        <label asp-for="Password" class="form-label"> Password </label>
+                        <input asp-for="Password" type="password" class="form-control" style="display:inline;box-shadow: none;"
+                               id="pass" placeholder="Enter Password...">
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-12 mb-2">
+                        <label for="Confirm-Password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm_pass"
+                               style="display:inline;box-shadow: none;" placeholder="Re-Enter Password..."
+                               onkeyup="validate_password()">
+                    </div>
+                    <span class="col-12" id="wrong_pass_alert" style="margin:0;position:absolute;"></span>
+
+
+                    <button type="submit" class="btn form-control mb-3 mt-3 rounded-pill" onclick="wrong_pass_alert()"
+                            style="border: solid 2px #f88634;color:#f88634;border-radius: 50px;font-size: 17px;">
+                        Register
+                    </button>
+                </form>
+            </div>
+            <div class="Privacy-Policy">
+                <a class="text" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validate_password() {
+
+            var pass = document.getElementById('pass').value;
+            var confirm_pass = document.getElementById('confirm_pass').value;
+            if (pass != confirm_pass) {
+                document.getElementById('wrong_pass_alert').style.color = 'red';
+                document.getElementById('wrong_pass_alert').innerHTML
+                    = '☒ Use same password';
+                document.getElementById('create').disabled = true;
+                document.getElementById('create').style.opacity = (0.4);
+            } else {
+                document.getElementById('wrong_pass_alert').style.color = 'green';
+                document.getElementById('wrong_pass_alert').innerHTML =
+                    '🗹 Password Matched';
+                document.getElementById('create').disabled = false;
+                document.getElementById('create').style.opacity = (1);
+            }
+        }
+
+        function wrong_pass_alert() {
+            if (document.getElementById('pass').value != "" &&
+                document.getElementById('confirm_pass').value != "") {
+                alert("Your response is submitted");
+            } else {
+                alert("Please fill all the fields");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+

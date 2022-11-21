@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CiPlatform", "CiPlatform.csproj", "{6AB351DB-8A95-4A80-9D8B-A604DF0258E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AB351DB-8A95-4A80-9D8B-A604DF0258E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AB351DB-8A95-4A80-9D8B-A604DF0258E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AB351DB-8A95-4A80-9D8B-A604DF0258E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AB351DB-8A95-4A80-9D8B-A604DF0258E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0069F4F-3D7F-4D4A-9CBB-5705B916A793}
+	EndGlobalSection
+EndGlobal

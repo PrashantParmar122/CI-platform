@@ -1,0 +1,5 @@
+D:\CI\Design1\Backend\CiPlatform.Models\obj\Debug\net6.0\CiPlatform.Models.csproj.AssemblyReference.cache
+D:\CI\Design1\Backend\CiPlatform.Models\obj\Debug\net6.0\CiPlatform.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\CI\Design1\Backend\CiPlatform.Models\obj\Debug\net6.0\CiPlatform.Models.AssemblyInfoInputs.cache
+D:\CI\Design1\Backend\CiPlatform.Models\obj\Debug\net6.0\CiPlatform.Models.AssemblyInfo.cs
+D:\CI\Design1\Backend\CiPlatform.Models\obj\Debug\net6.0\CiPlatform.Models.csproj.CoreCompileInputs.cache

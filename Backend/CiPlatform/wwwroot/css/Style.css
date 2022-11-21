@@ -1,0 +1,160 @@
+﻿.body-1 {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0;
+    display: flex;
+}
+
+.Left-Container {
+    width: 70%;
+    height: auto;
+}
+
+.img-height {
+    height: 100vh;
+}
+
+.Right-Container {
+    position: relative;
+    width: 30%;
+    height: auto;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.Privacy-Policy {
+    position: absolute;
+    bottom: 4.5%;
+    text-align: center;
+}
+
+.form-block {
+    margin: auto;
+    position: relative;
+    width: 76.5%;
+}
+
+.form-input {
+    display: inline-block;
+    color: #414141;
+    border-radius: 3px;
+}
+
+.form-container {
+    margin: 0;
+    position: relative;
+}
+
+.Image {
+    width: 100%;
+    height: auto;
+    opacity: 5;
+    vertical-align: bottom;
+}
+
+.photo-head {
+    position: relative;
+    top: -25px;
+    left: 0;
+    font-size: 2vw;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+    padding: 0;
+    margin-bottom: 29px;
+    z-index: 1;
+}
+
+.photo-body {
+    position: relative;
+    top: -25px;
+    left: 0;
+    margin: 25px 0 0 0;
+    bottom: 30px;
+    font-size: 1.2vw;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+    z-index: 1;
+}
+
+.btn-outline-mystyle {
+    --bs-btn-border-width: 2px;
+    --bs-btn-color: #f88634;
+    --bs-btn-border-color: #f88634;
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #f88634;
+    --bs-btn-hover-border-color: #000000;
+}
+
+.text {
+    font-size: 14px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #414141;
+    text-decoration-line: none;
+}
+
+.link-text {
+    color: #2b64b1;
+    text-decoration-line: none;
+}
+
+.lost {
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 992px) {
+    .photo-body {
+        font-size: 1.5vw;
+    }
+
+    .photo-head {
+        font-size: 2.5vw;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .body-1 {
+        display: block;
+    }
+
+    .img-height {
+        height: auto;
+    }
+
+    .Left-Container {
+        width: 100%;
+        height: auto;
+    }
+
+    .Right-Container {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+        margin-bottom: 65px;
+    }
+
+    .Privacy-Policy {
+        bottom: -65px;
+        text-align: center;
+        position: absolute;
+        margin: 20px;
+    }
+}
