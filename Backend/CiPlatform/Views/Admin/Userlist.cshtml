@@ -28,7 +28,7 @@
 
                 <li class="nav-head">NAVIGATION</li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items active" aria-current="page" href="./User.html">
+                    <a class="nav-link navigation-items active" aria-current="page" asp-action="Userlist">
                         <i class="bi bi-person"></i>
                         <div class="nav-item-name">User</div>
                     </a>
@@ -70,7 +70,7 @@
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./Banner.html">
+                    <a class="nav-link navigation-items" asp-action="Banner">
                         <i class="bi bi-gear-fill"></i>
                         <div class="nav-item-name">Banner Management</div>
                     </a>
@@ -116,7 +116,7 @@
                             <input asp-for="pagination.Keyword" class="form-control me-2 Search-mission common-font" type="search"
                                    placeholder="Search" aria-label="Search" style="box-shadow: none;">
                         </form>
-                    </div>
+                    </div>   
                     <a class="btn-style1 btn-style-orange" asp-controller="Admin" asp-action="UpsertUser" asp-route-id="0"
                        style="margin-left: 10px;align-items: center;display: flex;padding: 0 14px 0 10px;margin-left: auto;text-decoration: none;">
                         <i class="bi bi-plus" style="font-size: x-large;margin-right: 0px;"></i>Add
@@ -171,7 +171,7 @@
                                             <div style="align-items: end;">
                                                 <div style="font-size: 24px;">Are you sure you want to delete this item?</div>
                                                 <div style="text-align: center; margin-top: 40px;">
-                                                    <button class="btn-style1 btn-style-grey" data-bs-dismiss="offcanvas"
+                                                    <button type="button" class="btn-style1 btn-style-grey" data-bs-dismiss="offcanvas"
                                                         aria-label="Close">
                                                         Cancel
                                                     </button>
@@ -189,23 +189,38 @@
                 </table>
                 <div class="center">
                     <div class="pagination">
-                        <a href="#">&laquo;</a>
-                        <a href="#">
+                        @{
+                            long back = 1;
+                            if(Model.pagination.Pageindex > 1 )
+                                back = Model.pagination.Pageindex-1;
+                        }
+                        <a asp-action="Userlist" asp-route-pagination.Pageindex="@back" asp-route-pagination.Keyword="@Model.pagination.Keyword">
                             &lsaquo;
                         </a>
                         
-                       @{long j = Model.listOfObject.total_Records;}
+                        @{
+                            long j = Model.listOfObject.total_Records;
+                            long last = 1 , next=1;
+                        }
                         @for (long i = 1; i <= (j % Model.pagination.Pagesize == 0 ? j / Model.pagination.Pagesize : (j / Model.pagination.Pagesize) + 1); i++)
                         {
-                           if(i==Model.pagination.Pageindex){
+
+                            if (i == Model.pagination.Pageindex)
+                            {
                                 <a href="#" class="active">@i</a>
-                           }
-                           else{
-                               <a href="#" >@i</a>
-                           }     
-                       }
-                        <a href="#">&rsaquo;</a>
-                        <a href="#" style="margin-right: 0;">&raquo;</a>
+                                next = i+1;
+                            }
+                            else
+                            {
+                                <a asp-action="Userlist" asp-route-pagination.Pageindex="@i" asp-route-pagination.Keyword="@Model.pagination.Keyword" >@i</a>
+                            }
+                            last = i;
+                        }
+                        @if (next > last )
+                        {
+                            next--;
+                        }
+                        <a asp-action="Userlist" asp-route-pagination.Pageindex="@next" asp-route-pagination.Keyword="@Model.pagination.Keyword">&rsaquo;</a>
                     </div>
                 </div>
             </div>

@@ -79,11 +79,13 @@
                         <label asp-for="FirstName" class="form-label"> First Name </label>
                         <input asp-for="FirstName" type="text" class="form-control" style="display:inline;box-shadow: none;" id="first-Name"
                                placeholder="Your Name">
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 col-xl-12 mb-2">
                         <label asp-for="LastName" class="form-label">Last Name</label>
                         <input asp-for="LastName" type="text" class="form-control" id="last-Name" style="display:inline;box-shadow: none;"
                                placeholder="Surname">
+                        <span asp-validation-for="LastName" class="text-danger"></span>
                     </div>
 
 
@@ -91,11 +93,13 @@
                         <label asp-for="Email" class="form-label">Email Address</label>
                         <input asp-for="Email" type="email" class="form-control" style="display:inline;box-shadow: none;" id="Email"
                                placeholder="xyz@abc.com">
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 col-xl-12 mb-2">
                         <label asp-for="PhoneNumber" class="form-label"> Phone Number </label>
                         <input asp-for="PhoneNumber" type="number" class="form-control" style="display:inline;box-shadow: none;"
                                id="phone-Number" placeholder="Phone Number">
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                     </div>
 
 
@@ -103,6 +107,7 @@
                         <label asp-for="Password" class="form-label"> Password </label>
                         <input asp-for="Password" type="password" class="form-control" style="display:inline;box-shadow: none;"
                                id="pass" placeholder="Enter Password...">
+                        <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
 
                     <div class="col-12 col-md-6 col-lg-4 col-xl-12 mb-2">
@@ -155,6 +160,9 @@
             }
         }
     </script>
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+    }
 
 </body>
 

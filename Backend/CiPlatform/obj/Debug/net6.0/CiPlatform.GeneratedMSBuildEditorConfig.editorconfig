@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\CI\Design1\Backend\CiPlatform
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/Banner.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQmFubmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/UpsertBanner.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBzZXJ0QmFubmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/CI/Design1/Backend/CiPlatform/Views/Admin/UpsertUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBzZXJ0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

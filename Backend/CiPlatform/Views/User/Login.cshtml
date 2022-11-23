@@ -35,8 +35,8 @@
                         }
                         
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i"
-                        class="@tempclass" aria-label="Slide @i" 
-                        style="height: 8px;width: 8px; border-radius: 10px;border: 0;">
+                            class="@tempclass" aria-label="Slide @i" 
+                            style="height: 8px;width: 8px; border-radius: 10px;border: 0;">
                         </button>
                         i++;
                     }                    
@@ -79,12 +79,14 @@
                         <input asp-for="Email" type="email" class="form-control form-input"
                                style=" display:inline;color: #414141; border-radius: 3px;box-shadow: none;"
                                id="Email" placeholder="xyz@abc.com">
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Password" class="form-label"
                                style="color: #414141;font-size: 16px;">Password</label>
                         <input asp-for="Password" type="password" class="form-control form-input" id="Password" style="box-shadow: none;"
                                placeholder="Enter Password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <button type="submit" class="btn form-control mb-3 mt-3"
                             style="border: solid 2px #f88634;color:#f88634;border-radius: 50px;font-size: 17px;">
@@ -103,7 +105,9 @@
             </div>
         </div>
     </div>
-
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+    }
 </body>
 
 </html>

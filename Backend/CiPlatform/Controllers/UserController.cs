@@ -7,11 +7,16 @@ namespace CiPlatform.Controllers
     public class UserController : Controller
     {
         readonly CiPlatformContext _db = new CiPlatformContext();
+
+        // Login Controllers
+
+        #region Login
+
         [HttpGet]
         public IActionResult Login()
         {
             LoginPageViewModel loginPageViewModel = new LoginPageViewModel();
-            loginPageViewModel.banner = _db.Banners.ToList();
+            loginPageViewModel.banner = _db.Banners.Where(u => u.DeletedAt == null).AsQueryable().ToList();
             return View(loginPageViewModel);
         }
 
@@ -30,12 +35,15 @@ namespace CiPlatform.Controllers
                 return RedirectToAction("Login", "User");
         }
 
+        #endregion
+
         // Register Controllers
 
+        #region Register
         public IActionResult Register()
         {
             RegisterPageViewModel registerPageViewModel = new RegisterPageViewModel();
-            registerPageViewModel.banner = _db.Banners.ToList();
+            registerPageViewModel.banner = _db.Banners.Where(u => u.DeletedAt == null).AsQueryable().ToList();
             return View(registerPageViewModel);
         }
 
@@ -64,7 +72,11 @@ namespace CiPlatform.Controllers
             }
         }
 
-        // Lost-Password
+        #endregion
+
+        // Lost-Password Controller
+
+        #region Lost 
 
         public IActionResult Lost()
         {
@@ -90,8 +102,11 @@ namespace CiPlatform.Controllers
             }
         }
 
+        #endregion
 
-        // Reset-Password
+        // Reset-Password Controller
+
+        #region Reset
 
         public IActionResult Reset(long i)
         {
@@ -121,5 +136,8 @@ namespace CiPlatform.Controllers
                 return RedirectToAction("Lost", "User");
             }
         }
+
+        #endregion
+    
     }
 }

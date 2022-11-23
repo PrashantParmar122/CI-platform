@@ -1,5 +1,5 @@
 ﻿@using CiPlatform.DataModels
-@model User
+@model UserVM
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,10 +19,10 @@
     <div class="body-1">
         <div class="left-container">
             <ul class="nav flex-column side-nav">
-                
+
                 <li class="nav-head">NAVIGATION</li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items active" aria-current="page" href="./User.html">
+                    <a class="nav-link navigation-items active" aria-current="page" asp-controller="Admin" asp-action="Userlist">
                         <i class="bi bi-person"></i>
                         <div class="nav-item-name">User</div>
                     </a>
@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./Banner.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Banner">
                         <i class="bi bi-gear-fill"></i>
                         <div class="nav-item-name">Banner Management</div>
                     </a>
@@ -75,88 +75,133 @@
 
             <div style="display: flex;box-shadow: 3px 5.2px 10px 0 rgba(0, 0, 0, 0.08);padding:23px 40px 20px 20px;">
                 <div style="align-items: center;display: flex;">
-                Thursday, November 3, 2022, 10:06 AM
+                    Thursday, November 3, 2022, 10:06 AM
                 </div>
                 <div style="margin-left: auto;">
-                <a class="nav-link dropdown-toggle" id="profile-dropdown-icon"
-                   style="font-size: 15px;display: flex;align-items: center;padding: 0;color:#757575;" href="#"
-                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/Assets/user-img.png" alt="Avatar"
-                         style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
-                    <div class="profile-name-in-nav">Evan Donohue</div>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                    <a class="nav-link dropdown-toggle" id="profile-dropdown-icon"
+                       style="font-size: 15px;display: flex;align-items: center;padding: 0;color:#757575;" href="#"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/Assets/user-img.png" alt="Avatar"
+                             style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+                        <div class="profile-name-in-nav">Evan Donohue</div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="padding: 0 40px 0 20px;width: 100%;position: relative;">
+                <form method="post" class="row g-4 font-style-1"
+                      style="margin: 50px 0 130px 0;border: 1px solid #e8e8e8;position: relative;">
+                    <div class="form-title">@(Model.User.UserId !=0 ? "Edit":"Add") User</div>
+                    <hr style="margin: 0;">
+                    <input type="hidden" asp-for="User.UserId" />
+                    <div class="col-md-6 col-xl-4">
+                        <label asp-for="User.FirstName" class="form-label">First Name</label>
+                        <input asp-for="User.FirstName" type="text" class="form-control input-box-style" style="box-shadow: none;" id="firstname">
+                        <span asp-validation-for="User.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <label asp-for="User.LastName" class="form-label">Last Name</label>
+                        <input asp-for="User.LastName" type="text" class="form-control input-box-style" style="box-shadow: none;" id="lastname">
+                        <span asp-validation-for="User.LastName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <label asp-for="User.PhoneNumber" class="form-label">Phone Number</label>
+                        <input asp-for="User.PhoneNumber" type="number" class="form-control input-box-style" style="box-shadow: none;" id="phonenumber">
+                        <span asp-validation-for="User.PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <label asp-for="User.Email" class="form-label">Email</label>
+                        <input asp-for="User.Email" type="email" class="form-control input-box-style" style="box-shadow: none;" id="email">
+                        <span asp-validation-for="User.Email" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <label asp-for="User.Password" class="form-label">Password</label>
+                        <input asp-for="User.Password" type="password" class="form-control input-box-style" style="box-shadow: none;" id="password">
+                        @if(Model.User.UserId == 0 ){
+                            <span asp-validation-for="User.Password" class="text-danger"></span>
+                        }
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <label asp-for="User.EmployeeId" class="form-label">EmployeeId</label>
+                        <input asp-for="User.EmployeeId" type="number" class="form-control input-box-style" style="box-shadow: none;" id="employeeid">
+                        <span asp-validation-for="User.EmployeeId" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="User.Department" class="form-label">Department</label>
+                        <input asp-for="User.Department" type="text" class="form-control input-box-style" style="box-shadow: none;" id="department">
+                        <span asp-validation-for="User.Department" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="User.ProfileText" class="form-label">Profile Text</label>
+                        <input asp-for="User.ProfileText" type="text" class="form-control input-box-style" style="box-shadow: none;" id="profiletext">
+                        <span asp-validation-for="User.ProfileText" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="User.WhyIVolunteer" class="form-label">WhyIVolunteer</label>
+                        <textarea asp-for="User.WhyIVolunteer" type="text" class="form-control input-box-style" style="box-shadow: none;height:100px" id="whyivolunteer">
+                        </textarea>
+                        <span asp-validation-for="User.WhyIVolunteer" class="text-danger"></span>
+                    </div>
+                    <div class="col-12" style="box-shadow: none;">
+                        <label for="User.CityId" class="form-label">City</label>
+                            @Html.DropDownListFor(m => m.User.CityId, Model.CityList, "Select a City",
+                            new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
+                        <span asp-validation-for="User.CityId" class="text-danger"></span>
+                    </div>
+                    <div class="col-12" style="box-shadow: none;">
+                        <label for="User.CountryId" class="form-label">Country</label>
+                        @Html.DropDownListFor(m => m.User.CountryId, Model.CountryList, "Select a Country",
+                        new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
+                        <span asp-validation-for="User.CountryId" class="text-danger"></span>
+                    </div>
+                    <div class="col-xl-6">
+                        <label for="role" class="form-label">Role</label>
+                        <select id="role" class="form-select input-box-style" style="box-shadow: none;">
+                            <option selected>Normal User</option>
+                            <option>Admin</option>
+                        </select>
+                    </div>
+                    <div class="col-xl-6" style="margin-bottom: 40px;">
+                        <label for="status" class="form-label">Status</label>
+                        <select id="status" class="form-select input-box-style" style="box-shadow: none;">
+                            <option value="1" selected>Active</option>
+                            <option value="0">In active</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; position: absolute;bottom: -75px;justify-content: end;">
+                        <a asp-controller="Admin" asp-action="Userlist" style="text-decoration: none;" class="btn-style1 btn-style-grey">
+                            Cancel
+                        </a>
+                        @if(Model.User.UserId == 0){
+                            <button type="submit" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                                Create
+                            </button>
+                        }
+                        else{
+                            <button type="submit" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                                Update
+                            </button>
+                        }
+                        
+                    </div>
+                </form>
             </div>
         </div>
-        <div style="padding: 0 40px 0 20px;width: 100%;position: relative;">
-            <form method="post" class="row g-4 font-style-1"
-                  style="margin: 50px 0 130px 0;border: 1px solid #e8e8e8;position: relative;">
-                <div class="form-title">Add/Edit</div>
-                <hr style="margin: 0;">
-                <input type="hidden" asp-for="UserId" />
-                <div class="col-md-6 col-xl-4">
-                    <label asp-for="FirstName" class="form-label">First Name</label>
-                    <input asp-for="FirstName" type="text" class="form-control input-box-style" style="box-shadow: none;" id="firstname">
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <label asp-for="LastName" class="form-label">Last Name</label>
-                    <input asp-for="LastName" type="text" class="form-control input-box-style" style="box-shadow: none;" id="lastname">
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
-                    <input asp-for="PhoneNumber" type="number" class="form-control input-box-style" style="box-shadow: none;" id="phonenumber">
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <label asp-for="Email" class="form-label">Email</label>
-                    <input asp-for="Email" type="email" class="form-control input-box-style" style="box-shadow: none;" id="email">
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <label asp-for="Password" class="form-label">Password</label>
-                    <input asp-for="Password" type="password" class="form-control input-box-style" style="box-shadow: none;" id="password">
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <label for="confirmpass" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control input-box-style" style="box-shadow: none;" id="confirmpass">
-                </div>
-                <div class="col-xl-6">
-                    <label for="role" class="form-label">Role</label>
-                    <select id="role" class="form-select input-box-style" style="box-shadow: none;">
-                        <option selected></option>
-                        <option>Admin</option>
-                        <option>Normal User</option>
-                    </select>
-                </div>
-                <div class="col-xl-6" style="margin-bottom: 40px;">
-                    <label for="status" class="form-label">Status</label>
-                    <select id="status" class="form-select input-box-style" style="box-shadow: none;">
-                        <option selected></option>
-                        <option>Active</option>
-                        <option>In active</option>
-                    </select>
-                </div>
-                <div style="display: flex; position: absolute;bottom: -75px;justify-content: end;">
-                    <a asp-controller="Admin" asp-action="Userlist" style="text-decoration: none;" class="btn-style1 btn-style-grey">
-                        Cancel
-                    </a>
-                    <button type="submit" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
-                        Save
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous">
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous">
     </script>
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+    }
 </body>
 
 </html>

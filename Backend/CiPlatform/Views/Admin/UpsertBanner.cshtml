@@ -1,0 +1,165 @@
+﻿@using CiPlatform.DataModels
+@model Banner
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL-User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="~/css/AdminStyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-1">
+        <div class="left-container">
+            <ul class="nav flex-column side-nav">
+
+                <li class="nav-head">NAVIGATION</li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Userlist">
+                        <i class="bi bi-person"></i>
+                        <div class="nav-item-name">User</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" href="./CMS.html">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <div class="nav-item-name">CMS Pages</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" href="./Mission.html">
+                        <i class="bi bi-bullseye"></i>
+                        <div class="nav-item-name">Mission</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" href="./MissionTheme.html">
+                        <i class="bi bi-columns"></i>
+                        <div class="nav-item-name">Mission Theme</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" href="./MissionSkill.html">
+                        <i class="bi bi-tools"></i>
+                        <div class="nav-item-name">Mission Skills</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" href="./MissionApplication.html">
+                        <i class="bi bi-gear-fill"></i>
+                        <div class="nav-item-name">Mission Application</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" href="./Story.html">
+                        <i class="bi bi-pencil-square"></i>
+                        <div class="nav-item-name">Story</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items active" aria-current="page" asp-controller="Admin" asp-action="Banner">
+                        <i class="bi bi-gear-fill"></i>
+                        <div class="nav-item-name">Banner Management</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="right-container">
+
+            <div style="display: flex;box-shadow: 3px 5.2px 10px 0 rgba(0, 0, 0, 0.08);padding:23px 40px 20px 20px;">
+                <div style="align-items: center;display: flex;">
+                    Thursday, November 3, 2022, 10:06 AM
+                </div>
+                <div style="margin-left: auto;">
+                    <a class="nav-link dropdown-toggle" id="profile-dropdown-icon"
+                       style="font-size: 15px;display: flex;align-items: center;padding: 0;color:#757575;" href="#"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/Assets/user-img.png" alt="Avatar"
+                             style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+                        <div class="profile-name-in-nav">Evan Donohue</div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">My Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Time Sheet</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="padding: 0 40px 0 20px;width: 100%;position: relative;">
+                <form method="post" class="row g-4 font-style-1" enctype="multipart/form-data"
+                      style="margin: 50px 0 130px 0;border: 1px solid #e8e8e8;position: relative;">
+                    <div class="form-title">
+                        @(Model.BannerId != 0? "Edit" : "Add" ) Banner
+                    </div>
+                    <hr style="margin: 0;">
+                    <input type="hidden" asp-for="BannerId" />
+                    <div class="col-12">
+                        <label asp-for="Title" class="form-label">Title</label>
+                        <input asp-for="Title" type="text" class="form-control input-box-style" style="box-shadow: none;" id="title">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="Text" class="form-label">Discription</label>
+                        <textarea asp-for="Text" class="form-control input-box-style" style="box-shadow: none;min-height:150px;" id="text">
+                        </textarea>
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+                    <div class="col-12" style="margin-bottom: 40px;">
+                        <label class="form-label">Image</label>
+                        <input type="file" name="file" multiple class="form-control input-box-style" style="box-shadow: none;" id="uploadBox">
+                    </div>                                   
+                    
+                    <div style="display: flex; position: absolute;bottom: -75px;justify-content: end;">
+                        <a asp-controller="Admin" asp-action="Banner" style="text-decoration: none;" class="btn-style1 btn-style-grey">
+                            Cancel
+                        </a>
+                        @if (Model.BannerId == 0)
+                        {
+                            <button type="submit" onclick="return validateInput()" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                                Create
+                            </button>
+                        }
+                        else{
+                            <button type="submit" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                                Update
+                            </button>
+                        }                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous">
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Upload Image',
+                    text: 'Image should be uploaded while creating new Banner.....',
+                })
+                return false;
+            }
+            return true;
+        };
+    </script>
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>
+
+</html>
