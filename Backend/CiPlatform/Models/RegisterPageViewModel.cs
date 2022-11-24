@@ -12,7 +12,7 @@ namespace CiPlatform.Models
 
         public string Password { get; set; } = null!;
 
-        public int? PhoneNumber { get; set; } 
+        public int PhoneNumber { get; set; } 
 
         public List<Banner> banner { get; set; } = null!;
     }

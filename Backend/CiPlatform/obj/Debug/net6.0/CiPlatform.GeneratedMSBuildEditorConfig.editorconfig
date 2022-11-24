@@ -19,8 +19,32 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQmFubmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/Cmspage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ21zcGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/Missionskill.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWlzc2lvbnNraWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/Missiontheme.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWlzc2lvbnRoZW1lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/CI/Design1/Backend/CiPlatform/Views/Admin/UpsertBanner.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBzZXJ0QmFubmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/UpsertCmspage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBzZXJ0Q21zcGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/UpsertMissionskill.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBzZXJ0TWlzc2lvbnNraWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/UpsertMissiontheme.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBzZXJ0TWlzc2lvbnRoZW1lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CI/Design1/Backend/CiPlatform/Views/Admin/UpsertUser.cshtml]

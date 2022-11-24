@@ -248,7 +248,7 @@ namespace CiPlatform.Controllers
             }
             var banner = _db.Banners.FirstOrDefault(g => g.BannerId == id);
             if (banner == null)
-                return BadRequest("Banner not find");
+                return BadRequest("Banner not found");
             banner.DeletedAt = DateTime.Now;
             _db.Banners.Update(banner);
             _db.SaveChanges();
@@ -256,5 +256,288 @@ namespace CiPlatform.Controllers
         }
 
         #endregion
+
+
+
+        #region Mission Skill
+        [HttpGet]
+        public IActionResult Missionskill(AdminPageViewModel<Skill> obj)
+        {
+            ListOfObject<Skill> listofskill = new ListOfObject<Skill>();
+            var query = _db.Skills.Where(c => (obj.pagination.Keyword == null
+            || c.SkillName.ToLower().Contains(obj.pagination.Keyword))
+            && c.DeletedAt == null).AsQueryable();
+            long total = query.Count();
+
+            List<Skill> list = new List<Skill>();
+            list = query.Skip((int)((obj.pagination.Pageindex - 1) * obj.pagination.Pagesize)).Take((int)obj.pagination.Pagesize).ToList();
+
+            listofskill.Records = list;
+            listofskill.total_Records = (int)total;
+            obj.listOfObject = listofskill;
+
+            return View(obj);
+        }
+        #endregion
+
+        #region Upsert MissionSkill
+        [HttpGet]
+        public IActionResult UpsertMissionskill(int id = 0)
+        {
+            Skill skill = new Skill();
+            if (id == 0)
+            {
+                skill.SkillId = 0;
+                return View(skill);
+            }
+            skill = _db.Skills.FirstOrDefault(u => u.SkillId.Equals(id));
+            if (skill == null)
+            {
+                return NotFound();
+            }
+            return View(skill);
+        }
+
+        [HttpPost]
+        public IActionResult UpsertMissionskill(Skill skill)
+        {
+            if (skill != null)
+            {
+                if (skill.SkillId == 0)
+                {
+                    skill.CreatedAt = DateTime.Now;
+                    _db.Skills.Add(skill);
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    Skill obj = new Skill();
+                    obj = _db.Skills.FirstOrDefault(u => u.SkillId.Equals(skill.SkillId));
+                    if (obj != null)
+                    {
+                        obj.SkillName = skill.SkillName;
+                        obj.Status = skill.Status;
+                        obj.UpdatedAt = DateTime.Now;
+                        _db.Skills.Update(obj);
+                        _db.SaveChanges();
+                    }
+                }
+                return RedirectToAction("Missionskill");
+            }
+            else
+                return NotFound();
+        }
+
+        #endregion
+
+        #region Delete Mission skill
+        [HttpPost]
+        public IActionResult DeleteMissionskill(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("");
+            }
+            var skill = _db.Skills.FirstOrDefault(g => g.SkillId == id);
+            if (skill == null)
+                return BadRequest("Skill not find");
+            skill.DeletedAt = DateTime.Now;
+            skill.Status = 0;
+            _db.Skills.Update(skill);
+            _db.SaveChanges();
+            return RedirectToAction("Missionskill");
+        }
+        #endregion
+
+
+
+        #region Mission Theme
+        [HttpGet]
+        public IActionResult Missiontheme(AdminPageViewModel<MissionTheme> obj)
+        {
+            ListOfObject<MissionTheme> listoftheme = new ListOfObject<MissionTheme>();
+            var query = _db.MissionThemes.Where(c => (obj.pagination.Keyword == null
+            || c.Title.ToLower().Contains(obj.pagination.Keyword))
+            && c.DeletedAt == null).AsQueryable();
+            long total = query.Count();
+
+            List<MissionTheme> list = new List<MissionTheme>();
+            list = query.Skip((int)((obj.pagination.Pageindex - 1) * obj.pagination.Pagesize)).Take((int)obj.pagination.Pagesize).ToList();
+
+            listoftheme.Records = list;
+            listoftheme.total_Records = (int)total;
+            obj.listOfObject = listoftheme;
+
+            return View(obj);
+        }
+        #endregion
+
+        #region Upsert MissionTheme
+        [HttpGet]
+        public IActionResult UpsertMissiontheme(int id = 0)
+        {
+            MissionTheme theme = new MissionTheme();
+            if (id == 0)
+            {
+                theme.MissionThemeId = 0;
+                return View(theme);
+            }
+            theme = _db.MissionThemes.FirstOrDefault(u => u.MissionThemeId.Equals(id));
+            if (theme == null)
+            {
+                return NotFound();
+            }
+            return View(theme);
+        }
+
+        [HttpPost]
+        public IActionResult UpsertMissiontheme(MissionTheme theme)
+        {
+            if (theme != null)
+            {
+                if (theme.MissionThemeId== 0)
+                {
+                    theme.CreatedAt = DateTime.Now;
+                    _db.MissionThemes.Add(theme);
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    MissionTheme obj = new MissionTheme();
+                    obj = _db.MissionThemes.FirstOrDefault(u => u.MissionThemeId.Equals(theme.MissionThemeId));
+                    if (obj != null)
+                    {
+                        obj.Title = theme.Title;
+                        obj.Status = theme.Status;
+                        obj.UpdatedAt = DateTime.Now;
+                        _db.MissionThemes.Update(obj);
+                        _db.SaveChanges();
+                    }
+                }
+                return RedirectToAction("Missiontheme");
+            }
+            else
+                return NotFound();
+        }
+
+        #endregion
+
+        #region Delete Mission theme
+        [HttpPost]
+        public IActionResult DeleteMissiontheme(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("");
+            }
+            var theme = _db.MissionThemes.FirstOrDefault(g => g.MissionThemeId== id);
+            if (theme == null)
+                return BadRequest("theme not found");
+            theme.DeletedAt = DateTime.Now;
+            theme.Status = 0;
+            _db.MissionThemes.Update(theme);
+            _db.SaveChanges();
+            return RedirectToAction("Missiontheme");
+        }
+        #endregion
+
+
+
+        #region CMS Pages
+
+        [HttpGet]
+        public IActionResult Cmspage(AdminPageViewModel<CmsPage> obj)
+        {
+            ListOfObject<CmsPage> listofcms = new ListOfObject<CmsPage>();
+            var query = _db.CmsPages.Where(c => (obj.pagination.Keyword == null
+            || c.Title.ToLower().Contains(obj.pagination.Keyword))
+            && c.DeletedAt == null).AsQueryable();
+            long total = query.Count();
+
+            List<CmsPage> list = new List<CmsPage>();
+            list = query.Skip((int)((obj.pagination.Pageindex - 1) * obj.pagination.Pagesize)).Take((int)obj.pagination.Pagesize).ToList();
+
+            listofcms.Records = list;
+            listofcms.total_Records = (int)total;
+            obj.listOfObject = listofcms;
+
+            return View(obj);
+        }
+
+        #endregion
+
+        #region Upsert CMS Page
+
+        [HttpGet]
+        public IActionResult UpsertCmspage(int id = 0)
+        {
+            CmsPage cmsPage = new CmsPage();
+            if (id == 0)
+            {
+                cmsPage.CmsPageId = 0;
+                return View(cmsPage);
+            }
+            cmsPage = _db.CmsPages.FirstOrDefault(u => u.CmsPageId.Equals(id));
+            if (cmsPage == null)
+            {
+                return NotFound();
+            }
+            return View(cmsPage);
+        }
+
+        [HttpPost]
+        public IActionResult UpsertCmspage(CmsPage cmsPage)
+        {
+            if (cmsPage != null)
+            {
+                if (cmsPage.CmsPageId == 0)
+                {
+                    cmsPage.CreatedAt = DateTime.Now;
+                    _db.CmsPages.Add(cmsPage);
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    CmsPage obj = new CmsPage();
+                    obj = _db.CmsPages.FirstOrDefault(u => u.CmsPageId.Equals(cmsPage.CmsPageId));
+                    if (obj != null)
+                    {
+                        obj.Title = cmsPage.Title;
+                        obj.Description = cmsPage.Description;
+                        obj.Slug = cmsPage.Slug;
+                        obj.Status = cmsPage.Status;
+                        obj.UpdatedAt = DateTime.Now;
+                        _db.CmsPages.Update(obj);
+                        _db.SaveChanges();
+                    }
+                }
+                return RedirectToAction("Cmspage");
+            }
+            else
+                return NotFound();
+        }
+
+        #endregion
+
+        #region Delete CMS Pages
+        [HttpPost]
+        public IActionResult DeleteCmspage(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("");
+            }
+            var obj = _db.CmsPages.FirstOrDefault(g => g.CmsPageId == id);
+            if (obj == null)
+                return BadRequest("CMS Page not found");
+            obj.DeletedAt = DateTime.Now;
+            _db.CmsPages.Update(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Cmspage");
+        }
+        #endregion
+
+
+
     }
 }

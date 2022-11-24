@@ -34,37 +34,37 @@
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./CMS.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Cmspage">
                         <i class="bi bi-file-earmark-text-fill"></i>
                         <div class="nav-item-name">CMS Pages</div>
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./Mission.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Mission">
                         <i class="bi bi-bullseye"></i>
                         <div class="nav-item-name">Mission</div>
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./MissionTheme.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missiontheme">
                         <i class="bi bi-columns"></i>
                         <div class="nav-item-name">Mission Theme</div>
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./MissionSkill.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missionskill">
                         <i class="bi bi-tools"></i>
                         <div class="nav-item-name">Mission Skills</div>
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./MissionApplication.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missionapp">
                         <i class="bi bi-gear-fill"></i>
                         <div class="nav-item-name">Mission Application</div>
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./Story.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Userlist">
                         <i class="bi bi-pencil-square"></i>
                         <div class="nav-item-name">Story</div>
                     </a>
@@ -138,7 +138,7 @@
                             <tr>
                                 <td>@obj.Title</td>
                                 <td>
-                                    <a class="Edit" asp-controller="Admin" asp-action="UpsertBanner" asp-route-id=@obj.BannerId>
+                                    <a class="Edit" asp-controller="Admin" asp-action="UpsertBanner" asp-route-id="@obj.BannerId">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <button class="Delete" type="button" data-bs-toggle="offcanvas"
@@ -167,7 +167,7 @@
                                                         aria-label="Close">
                                                         Cancel
                                                     </button>
-                                                    <button type="submit" asp-controller="Admin" asp-action="DeleteBanner" asp-route-id=@obj.BannerId class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                                                    <button type="submit" asp-controller="Admin" asp-action="DeleteBanner" asp-route-id="@obj.BannerId" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
                                                         Delete
                                                     </button>
                                                 </div>
@@ -186,7 +186,7 @@
                             if (Model.pagination.Pageindex > 1)
                                 back = Model.pagination.Pageindex - 1;
                         }
-                        <a asp-action="Userlist" asp-route-pagination.Pageindex="@back" asp-route-pagination.Keyword="@Model.pagination.Keyword">
+                        <a asp-action="Banner" asp-route-pagination.Pageindex="@back" asp-route-pagination.Keyword="@Model.pagination.Keyword">
                             &lsaquo;
                         </a>
 

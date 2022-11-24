@@ -28,37 +28,37 @@
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./CMS.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Cmspage">
                         <i class="bi bi-file-earmark-text-fill"></i>
                         <div class="nav-item-name">CMS Pages</div>
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./Mission.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Mission">
                         <i class="bi bi-bullseye"></i>
                         <div class="nav-item-name">Mission</div>
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./MissionTheme.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missiontheme">
                         <i class="bi bi-columns"></i>
                         <div class="nav-item-name">Mission Theme</div>
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./MissionSkill.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missionskill">
                         <i class="bi bi-tools"></i>
                         <div class="nav-item-name">Mission Skills</div>
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./MissionApplication.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missionapp">
                         <i class="bi bi-gear-fill"></i>
                         <div class="nav-item-name">Mission Application</div>
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items" href="./Story.html">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Story">
                         <i class="bi bi-pencil-square"></i>
                         <div class="nav-item-name">Story</div>
                     </a>
@@ -150,16 +150,16 @@
                         <span asp-validation-for="User.WhyIVolunteer" class="text-danger"></span>
                     </div>
                     <div class="col-12" style="box-shadow: none;">
-                        <label for="User.CityId" class="form-label">City</label>
-                            @Html.DropDownListFor(m => m.User.CityId, Model.CityList, "Select a City",
-                            new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
-                        <span asp-validation-for="User.CityId" class="text-danger"></span>
-                    </div>
-                    <div class="col-12" style="box-shadow: none;">
                         <label for="User.CountryId" class="form-label">Country</label>
                         @Html.DropDownListFor(m => m.User.CountryId, Model.CountryList, "Select a Country",
                         new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
                         <span asp-validation-for="User.CountryId" class="text-danger"></span>
+                    </div>
+                    <div class="col-12" style="box-shadow: none;">
+                        <label for="User.CityId" class="form-label">City</label>
+                            @Html.DropDownListFor(m => m.User.CityId, Model.CityList, "Select a City",
+                            new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
+                        <span asp-validation-for="User.CityId" class="text-danger"></span>
                     </div>
                     <div class="col-xl-6">
                         <label for="role" class="form-label">Role</label>
