@@ -297,6 +297,9 @@ public partial class CiPlatformContext : DbContext
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
+            entity.Property(e => e.Deadline)
+                .HasColumnType("datetime")
+                .HasColumnName("deadline");
             entity.Property(e => e.DeletedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("deleted_at");
@@ -324,6 +327,7 @@ public partial class CiPlatformContext : DbContext
             entity.Property(e => e.Title)
                 .HasMaxLength(128)
                 .HasColumnName("title");
+            entity.Property(e => e.TotalSeat).HasColumnName("total_seat");
             entity.Property(e => e.UpdatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("updated_at");
@@ -548,10 +552,9 @@ public partial class CiPlatformContext : DbContext
 
         modelBuilder.Entity<PasswordReset>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("password_reset");
+            entity.ToTable("password_reset");
 
+            entity.Property(e => e.PasswordResetId).HasColumnName("password_reset_id");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");

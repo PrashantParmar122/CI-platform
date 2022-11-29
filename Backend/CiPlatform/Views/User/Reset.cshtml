@@ -1,5 +1,5 @@
 ﻿@using CiPlatform.Models
-@model ResetPageViewModel
+@model ResetPasswordVM
 
 <!DOCTYPE html>
 <html lang="en">
@@ -81,13 +81,12 @@
                         <input asp-for="Password" type="password" class="form-control" style="display:inline;box-shadow: none;" id="pass"
                                placeholder="Enter New Password...">
                     </div>
-                    <span class="col-12" id="wrong_pass_alert" style="margin:0;"></span>
                     <div class="mb-3">
                         <label for="Confirm-Password" class="form-label">Confirm New Password</label>
-                        <input type="password" class="form-control" id="confirm_pass" style="box-shadow: none;"
+                        <input type="password" class="form-control" id="confirmpass" style="box-shadow: none;"
                                placeholder="Enter Same Password...">
                     </div>
-                    <button type="submit" class="btn form-control mt-2 mb-3 rounded-pill"
+                    <button type="submit" class="btn form-control mt-2 mb-3 rounded-pill" onclick="return Validate()"
                             style="border: solid 2px #f88634;color:#f88634;border-radius: 50px;font-size: 17px;">
                         Change Password
                     </button>
@@ -100,39 +99,21 @@
             </div>
         </div>
     </div>
-    <script>
-        function validate_password() {
-
-            var pass = document.getElementById('pass').value;
-            var confirm_pass = document.getElementById('confirm_pass').value;
-            if (pass != confirm_pass) {
-                document.getElementById('wrong_pass_alert').style.color = 'red';
-                document.getElementById('wrong_pass_alert').innerHTML
-                    = '☒ Use same password';
-                document.getElementById('create').disabled = true;
-                document.getElementById('create').style.opacity = (0.4);
-            } else {
-                document.getElementById('wrong_pass_alert').style.color = 'green';
-                document.getElementById('wrong_pass_alert').innerHTML =
-                    '🗹 Password Matched';
-                document.getElementById('create').disabled = false;
-                document.getElementById('create').style.opacity = (1);
+    <script type="text/javascript">
+        function Validate() {
+            var password = document.getElementById("pass").value;
+            var confirmPassword = document.getElementById("confirmpass").value;
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
             }
-        }
-
-        function wrong_pass_alert() {
-            if (document.getElementById('pass').value != "" &&
-                document.getElementById('confirm_pass').value != "") {
-                alert("Your response is submitted");
-            } else {
-                alert("Please fill all the fields");
-            }
+            return true;
         }
     </script>
     @section Scripts{
         <partial name="_ValidationScriptsPartial" />
     }
 
-</body>
+    </body>
 
-</html>
+    </html>

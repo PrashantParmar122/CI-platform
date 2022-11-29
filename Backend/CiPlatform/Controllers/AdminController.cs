@@ -8,6 +8,8 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using System.Reflection;
+using System.IO;
 
 namespace CiPlatform.Controllers
 {
@@ -22,6 +24,7 @@ namespace CiPlatform.Controllers
         }
 
         #region UserList
+       
         [HttpGet]
         public IActionResult Userlist(AdminPageViewModel<User> obj)
         {
@@ -538,6 +541,260 @@ namespace CiPlatform.Controllers
         #endregion
 
 
+
+        #region Mission List 
+
+        [HttpGet]
+        public IActionResult Mission(AdminPageViewModel<Mission> obj)
+        {
+            ListOfObject<Mission> listofmision = new ListOfObject<Mission>();
+            var query = _db.Missions.Where(c => (obj.pagination.Keyword == null
+            || c.Title.ToLower().Contains(obj.pagination.Keyword)
+            || c.StartDate.ToString().Contains(obj.pagination.Keyword)
+            || c.EndDate.ToString().Contains(obj.pagination.Keyword))
+            && c.DeletedAt == null).AsQueryable();
+            long total = query.Count();
+
+            List<Mission> list = new List<Mission>();
+            list = query.Skip((int)((obj.pagination.Pageindex - 1) * obj.pagination.Pagesize)).Take((int)obj.pagination.Pagesize).ToList();
+
+            listofmision.Records = list;
+            listofmision.total_Records = (int)total;
+            obj.listOfObject = listofmision;
+
+            return View(obj);
+        }
+
+        #endregion
+
+        #region Upsert Mission Page
+
+        [HttpGet]
+        public IActionResult UpsertMission(int id = 0)
+        {
+            MissionVM mission = new MissionVM()
+            {
+                Mission = new Mission(),
+                CityList = _db.Cities.Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.CityId.ToString()
+                }),
+                CountryList = _db.Countries.Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.CountryId.ToString()
+                }),
+                ThemeList = _db.MissionThemes.Select(i => new SelectListItem
+                {
+                    Text = i.Title,
+                    Value = i.MissionThemeId.ToString()
+                }),
+                SkillList = _db.Skills.Select(i => new SelectListItem
+                {
+                    Text = i.SkillName,
+                    Value = i.SkillId.ToString(),
+                    Selected = false
+                }),
+            };
+            if (id == 0)
+            {
+                mission.Mission.MissionId = 0;
+                return View(mission);
+            }
+            mission.Mission = _db.Missions.FirstOrDefault(u => u.MissionId.Equals(id));        
+
+            if (mission.Mission == null)
+            {
+                return NotFound();
+            }
+            return View(mission);
+        }
+
+        [HttpPost]
+        public IActionResult UpsertMission(MissionVM missionVM , List<IFormFile>? images , List<IFormFile>? files)
+        {
+            if (missionVM.Mission != null)
+            {
+                if (missionVM.Mission.MissionId == 0)
+                {
+                    missionVM.Mission.CreatedAt = DateTime.Now;
+                    _db.Missions.Add(missionVM.Mission);
+                    _db.SaveChanges();
+
+                    foreach(var item in missionVM.SkillList)
+                    {
+                        MissionSkill missionSkill = new MissionSkill();
+                        if(item.Selected == true)
+                        {
+                            missionSkill.MissionId = missionVM.Mission.MissionId;
+                            missionSkill.SkillId = Int64.Parse(item.Value);
+                            missionSkill.CreatedAt = DateTime.Now;
+                            _db.Add(missionSkill);
+                            _db.SaveChanges();
+                        }
+                    }             
+                }
+                else
+                {
+                    Mission obj = new Mission();
+                    obj = _db.Missions.FirstOrDefault(u => u.MissionId.Equals(missionVM.Mission.MissionId));
+                    if (obj != null)
+                    {
+                        obj.Title = missionVM.Mission.Title;
+                        obj.Description = missionVM.Mission.Description;
+                        obj.CityId = missionVM.Mission.CityId;
+                        obj.CountryId = missionVM.Mission.CountryId;
+                        obj.ThemeId = missionVM.Mission.ThemeId;
+                        obj.Status = missionVM.Mission.Status;
+                        obj.UpdatedAt = DateTime.Now;
+                        _db.Missions.Update(obj);
+                        _db.SaveChanges();
+                    }
+                    foreach (var item in missionVM.SkillList)
+                    {
+                        MissionSkill missionSkill = new MissionSkill();
+                        if (item.Selected == true)
+                        {
+                            missionSkill.MissionId = missionVM.Mission.MissionId;
+                            missionSkill.SkillId = Int64.Parse(item.Value);
+                            missionSkill.CreatedAt = DateTime.Now;
+                            _db.Add(missionSkill);
+                            _db.SaveChanges();
+                        }
+                        else
+                        {
+                            missionSkill = _db.MissionSkills.FirstOrDefault(u => u.MissionId == missionVM.Mission.MissionId && u.SkillId == Int64.Parse(item.Value));
+                        }
+                    }
+
+                }
+
+
+                string webRootPath = _hostEnvironment.WebRootPath;
+                                
+                if (images != null)
+                {
+                    foreach (var image in images)
+                    {
+                        MissionMedium missionMedium = new MissionMedium();
+                        string fileName = Guid.NewGuid().ToString();
+                        var uploads = Path.Combine(webRootPath, @"Images\MissionPhotos");
+                        var extenstion = Path.GetExtension(image.FileName);
+
+                        using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + extenstion), FileMode.Create))
+                        {
+                            image.CopyTo(filesStreams);
+                        }
+                        missionMedium.MissionId = missionVM.Mission.MissionId;
+                        missionMedium.MediaPath = @"\Images\MissionPhotos\" + fileName + extenstion;
+                        missionMedium.MediaName = fileName;
+                        missionMedium.MediaType = extenstion;
+                        missionMedium.CreatedAt = DateTime.Now;
+                        _db.MissionMedia.Add(missionMedium);
+                        _db.SaveChanges();
+                    }
+                }
+
+                if (files != null)
+                {
+                    foreach (var doc in files)
+                    {
+                        MissionDocument missiondoc = new MissionDocument();
+                        string fileName = Guid.NewGuid().ToString();
+                        var uploads = Path.Combine(webRootPath, @"Documents\Mission");
+                        var extenstion = Path.GetExtension(doc.FileName);
+
+                        using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + extenstion), FileMode.Create))
+                        {
+                            doc.CopyTo(filesStreams);
+                        }
+                        missiondoc.MissionId = missionVM.Mission.MissionId;
+                        missiondoc.DocumentPath = @"\Documents\Mission\" + fileName + extenstion;
+                        missiondoc.DocumentName = fileName;
+                        missiondoc.DocumentType = extenstion;
+                        missiondoc.CreatedAt = DateTime.Now;
+                        _db.MissionDocuments.Add(missiondoc);
+                        _db.SaveChanges();
+                    }
+                }
+                return RedirectToAction("Mission");
+            }
+            else
+                return NotFound();
+        }
+
+        #endregion
+
+        #region Delete Mission
+        [HttpPost]
+        public IActionResult DeleteMission(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("");
+            }
+            var obj = _db.Missions.FirstOrDefault(g => g.MissionId == id);
+            if (obj == null)
+                return BadRequest("Mission not found");
+            obj.DeletedAt = DateTime.Now;
+            obj.Status = 0;
+            _db.Missions.Update(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Mission");
+        }
+        #endregion
+
+
+        
+        #region Mission app
+        [HttpGet]
+        public IActionResult Missionapp(MissionApplicationVM obj)
+        {
+            ListOfObject<MissionApplication> listofapp = new ListOfObject<MissionApplication>();
+            var query = _db.MissionApplications.Where(c => (obj.pagination.Keyword == null
+            || c.MissionId.ToString().Contains(obj.pagination.Keyword)
+            || c.UserId.ToString().Contains(obj.pagination.Keyword)
+            || c.User.FirstName.ToLower().Contains(obj.pagination.Keyword)
+            || c.Mission.Title.ToLower().Contains(obj.pagination.Keyword))
+            && c.ApprovalStatus == 0).AsQueryable();
+            long total = query.Count();
+
+            var list = query.Skip((int)((obj.pagination.Pageindex - 1) * obj.pagination.Pagesize)).Take((int)obj.pagination.Pagesize).ToList();
+            obj.user = _db.Users.ToList();
+            obj.mission = _db.Missions.ToList();
+
+            listofapp.Records = list;
+            listofapp.total_Records = (int)total;
+            obj.application = listofapp;
+            return View(obj);
+        }
+        #endregion
+
+        #region Mission application status
+        [HttpGet]
+        public IActionResult UpsertMissionapp(int id ,bool isapproved)
+        {
+            MissionApplication application = new MissionApplication();
+            if (id == 0)
+            {
+                application.MissionApplicationId = 0;
+                return View(application);
+            }
+            application = _db.MissionApplications.FirstOrDefault(u => u.MissionApplicationId.Equals(id));
+            if (application == null)
+            {
+                return NotFound();
+            }
+            if(isapproved)
+                application.ApprovalStatus = 1;
+            else
+                application.ApprovalStatus = 0;
+            _db.Update(application);
+            _db.SaveChanges();
+            return RedirectToAction("Missionapp");
+        }
+        #endregion
 
     }
 }

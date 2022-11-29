@@ -23,6 +23,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ21zcGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/Mission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWlzc2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/Missionapp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWlzc2lvbmFwcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/CI/Design1/Backend/CiPlatform/Views/Admin/Missionskill.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWlzc2lvbnNraWxsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -37,6 +45,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/CI/Design1/Backend/CiPlatform/Views/Admin/UpsertCmspage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBzZXJ0Q21zcGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/UpsertMission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBzZXJ0TWlzc2lvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CI/Design1/Backend/CiPlatform/Views/Admin/UpsertMissionskill.cshtml]

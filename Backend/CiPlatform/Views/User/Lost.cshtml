@@ -1,5 +1,5 @@
 ﻿@using CiPlatform.Models
-@model LostPageViewModel
+@model LostPasswordVM
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,12 +54,8 @@
                             <img src="@item.Image"
                              class="d-block w-100 img-height" alt="Can't Load Image">
                             <div class="carousel-caption d-none d-md-block">
-                                <p class="photo-head">
-                                    @item.Title
-                                </p>
-                                <p class="photo-body">
-                                    @item.Text
-                                </p>
+                                <p class="photo-head"> @item.Title </p>
+                                <p class="photo-body"> @item.Text </p>
                             </div>
                         </div>
                     }

@@ -23,6 +23,10 @@ public partial class Mission
 
     public DateTime? EndDate { get; set; }
 
+    public DateTime? Deadline { get; set; }
+
+    public long? TotalSeat { get; set; }
+
     public int MissionType { get; set; }
 
     public int? Status { get; set; }

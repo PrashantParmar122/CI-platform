@@ -80,3 +80,6 @@ D:\CI\Design1\Backend\CiPlatform\obj\Debug\net6.0\refint\CiPlatform.dll
 D:\CI\Design1\Backend\CiPlatform\obj\Debug\net6.0\CiPlatform.pdb
 D:\CI\Design1\Backend\CiPlatform\obj\Debug\net6.0\CiPlatform.genruntimeconfig.cache
 D:\CI\Design1\Backend\CiPlatform\obj\Debug\net6.0\ref\CiPlatform.dll
+D:\CI\Design1\Backend\CiPlatform\bin\Debug\net6.0\MailKit.dll
+D:\CI\Design1\Backend\CiPlatform\bin\Debug\net6.0\MimeKit.dll
+D:\CI\Design1\Backend\CiPlatform\bin\Debug\net6.0\BouncyCastle.Crypto.dll

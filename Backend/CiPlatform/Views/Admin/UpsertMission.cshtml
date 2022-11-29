@@ -1,0 +1,227 @@
+﻿@using CiPlatform.DataModels
+@model MissionVM
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL-Mission Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="~/css/AdminStyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-1">
+        <div class="left-container">
+            <ul class="nav flex-column side-nav">
+
+                <li class="nav-head">NAVIGATION</li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Userlist">
+                        <i class="bi bi-person"></i>
+                        <div class="nav-item-name">User</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Cmspage">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <div class="nav-item-name">CMS Pages</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items active" aria-current="page"  asp-controller="Admin" asp-action="Mission">
+                        <i class="bi bi-bullseye"></i>
+                        <div class="nav-item-name">Mission</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missiontheme">
+                        <i class="bi bi-columns"></i>
+                        <div class="nav-item-name">Mission Theme</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missionskill">
+                        <i class="bi bi-tools"></i>
+                        <div class="nav-item-name">Mission Skills</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missionapp">
+                        <i class="bi bi-gear-fill"></i>
+                        <div class="nav-item-name">Mission Application</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Story">
+                        <i class="bi bi-pencil-square"></i>
+                        <div class="nav-item-name">Story</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Banner">
+                        <i class="bi bi-gear-fill"></i>
+                        <div class="nav-item-name">Banner Management</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="right-container">
+
+            <div style="display: flex;box-shadow: 3px 5.2px 10px 0 rgba(0, 0, 0, 0.08);padding:23px 40px 20px 20px;">
+                <div style="align-items: center;display: flex;">
+                    Thursday, November 3, 2022, 10:06 AM
+                </div>
+                <div style="margin-left: auto;">
+                    <a class="nav-link dropdown-toggle" id="profile-dropdown-icon"
+                       style="font-size: 15px;display: flex;align-items: center;padding: 0;color:#757575;" href="#"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/Assets/user-img.png" alt="Avatar"
+                             style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+                        <div class="profile-name-in-nav">Evan Donohue</div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="padding: 0 40px 0 20px;width: 100%;position: relative;">
+                <form method="post" class="row g-4 font-style-1" enctype="multipart/form-data"
+                      style="margin: 50px 0 130px 0;border: 1px solid #e8e8e8;position: relative;">
+                    <div class="form-title">@(Model.Mission.MissionId != 0 ? "Edit" : "Add") Mission</div>
+                    <hr style="margin: 0;">
+                    <input type="hidden" asp-for="Mission.MissionId" />
+                    <div class="col-md-6" style="box-shadow: none;">
+                        <label asp-for="Mission.CountryId" class="form-label">Country</label>
+                        @Html.DropDownListFor(m => m.Mission.CountryId, Model.CountryList, "Select a Country",
+                        new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
+                        <span asp-validation-for="Mission.CountryId" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6" style="box-shadow: none;">
+                        <label asp-for="Mission.CityId" class="form-label">City</label>
+                        @Html.DropDownListFor(m => m.Mission.CityId, Model.CityList, "Select a City",
+                        new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
+                        <span asp-validation-for="Mission.CityId" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 ">
+                        <label asp-for="Mission.Title" class="form-label">Mission Title</label>
+                        <input asp-for="Mission.Title" type="text" class="form-control input-box-style" style="box-shadow: none;" id="title">
+                        <span asp-validation-for="Mission.Title" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="Mission.Description" class="form-label">Discription</label>
+                        <textarea asp-for="Mission.Description" class="form-control input-box-style" style="box-shadow: none;min-height:200px;" id="description">
+                        </textarea>
+                        <span asp-validation-for="Mission.Description" class="text-danger"></span>
+                    </div>  
+                    <div class="col-12 ">
+                        <label asp-for="Mission.OrganizationName" class="form-label">Organization Name</label>
+                        <input asp-for="Mission.OrganizationName" type="text" class="form-control input-box-style" style="box-shadow: none;" id="organizationname">
+                        <span asp-validation-for="Mission.OrganizationName" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="Mission.OrganizationDetail" class="form-label">Organization Detail</label>
+                        <textarea asp-for="Mission.OrganizationDetail" class="form-control input-box-style" style="box-shadow: none;min-height:200px;" id="organizationdetail">
+                        </textarea>
+                        <span asp-validation-for="Mission.OrganizationDetail" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Mission.StartDate" class="form-label">Start Date</label>
+                        <input asp-for="Mission.StartDate" type="datetime" class="form-control input-box-style"
+                               style="box-shadow: none;" id="start-date" placeholder="Select start date">
+                        <span asp-validation-for="Mission.StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Mission.EndDate" class="form-label">End Date</label>
+                        <input asp-for="Mission.EndDate" type="datetime" class="form-control input-box-style"
+                               style="box-shadow: none;" id="start-date" placeholder="Select end date">
+                        <span asp-validation-for="Mission.EndDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6" style="box-shadow: none;">
+                        <label asp-for="Mission.ThemeId" class="form-label">Theme</label>
+                        @Html.DropDownListFor(m => m.Mission.ThemeId, Model.ThemeList, "Select a Theme",
+                        new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
+                        <span asp-validation-for="Mission.ThemeId" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="col-md-6" style="box-shadow: none;">
+                        <label asp-for="Mission.MissionSkills" class="form-label">Skills</label><br>
+                        <div class="form-control" style="overflow-y: auto; height: 100px;">
+                            @{
+                                int i = 0;
+                            }
+                            @foreach (var item in Model.SkillList)
+                            {
+                                @Html.CheckBoxFor( m => item.Selected ,new { @class = "form-checkbox input-box-style" ,@style = "box-shadow:none;" })
+                                <label for="skill" class="form-label"> @item.Text </label>
+                                <br>
+                                i++;
+                            }
+                            <span asp-validation-for="Mission.CityId" class="text-danger"></span>
+                        </div>                        
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Mission Images</label>
+                        <input type="file" name="images" multiple class="form-control input-box-style" style="box-shadow: none;" id="uploadBox">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Documents</label>
+                        <input type="file" name="files" multiple class="form-control input-box-style" style="box-shadow: none;" id="uploadBox">
+                    </div>
+                    <div class="col-12" style="margin-bottom: 40px;">
+                        <label asp-for="Mission.Status" class="form-label">Status</label>
+                        <select asp-for="Mission.Status" id="status" class="form-select input-box-style" style="box-shadow: none;">
+                            <option value="0">In Active</option>
+                            @if (Model.Mission.MissionId != 0)
+                            {
+                                <option value="1">Active</option>
+                            }
+                            else
+                            {
+                                <option value="1" selected>Active</option>
+                            }
+                        </select>
+                    </div>
+                    <div style="display: flex; position: absolute;bottom: -75px;justify-content: end;">
+                        <a asp-controller="Admin" asp-action="Mission" style="text-decoration: none;" class="btn-style1 btn-style-grey">
+                            Cancel
+                        </a>
+                        @if (Model.Mission.MissionId == 0)
+                        {
+                            <button type="submit" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                                Create
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                                Update
+                            </button>
+                        }
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous">
+    </script>
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>
+
+</html>

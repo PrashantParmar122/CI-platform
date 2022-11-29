@@ -1,17 +1,20 @@
 ﻿using CiPlatform.DataModels;
 using CiPlatform.Models;
+using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using MimeKit.Text;
+using MailKit.Net.Smtp;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Primitives;
 
 namespace CiPlatform.Controllers
 {
     public class UserController : Controller
     {
-        readonly CiPlatformContext _db = new CiPlatformContext();
-
-        // Login Controllers
+        public CiPlatformContext _db = new CiPlatformContext();
 
         #region Login
-
         [HttpGet]
         public IActionResult Login()
         {
@@ -26,19 +29,30 @@ namespace CiPlatform.Controllers
             var user = _db.Admins.FirstOrDefault(u =>u.Email.Equals(obj.Email.ToLower()) && u.Password.Equals(obj.Password));
             if(user != null)
             {
+                HttpContext.Session.SetString("UserId", user.AdminId.ToString());
+                HttpContext.Session.SetString("UserName", user.FirstName);
                 return RedirectToAction("Userlist" , "Admin");
             }
             var user1 = _db.Users.FirstOrDefault(u => u.Email.Equals(obj.Email.ToLower()) && u.Password.Equals(obj.Password));
+            
+            if (user1.Status == 0)
+            {
+                TempData["ErrorMes"] = "This user is deactivated";
+                return RedirectToAction("Login" ,"User");
+            }
+
+            HttpContext.Session.SetString("UserId", user1.UserId.ToString());
+            HttpContext.Session.SetString("UserName", user1.FirstName);
+
             if (user1 != null)
                 return RedirectToAction("Index", "Home");            
             else
                 return RedirectToAction("Login", "User");
         }
-
         #endregion
 
-        // Register Controllers
-
+        
+        
         #region Register
         public IActionResult Register()
         {
@@ -71,72 +85,113 @@ namespace CiPlatform.Controllers
                 return RedirectToAction("Register", "User");
             }
         }
-
         #endregion
 
-        // Lost-Password Controller
+
 
         #region Lost 
-
         public IActionResult Lost()
         {
-            return View();
+            LostPasswordVM model = new LostPasswordVM();
+            model.banner = _db.Banners.Where(u => u.DeletedAt == null).AsQueryable().ToList();
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult Lost(User obj)
+        public IActionResult Lost(LostPasswordVM obj)
         {
-            if (obj.Email != null)
-            {
-                var objfromdb = _db.Users.FirstOrDefault(u => u.Email.ToLower() == obj.Email.ToLower().Trim());
-                if (objfromdb != null)
-                {
-                    long i = objfromdb.UserId;
-                    return RedirectToAction("Reset", "User", new { i });
-                }
-                return View(obj);
-            }
-            else
-            {
-                return View(obj);
-            }
-        }
 
+            var user = _db.Users.FirstOrDefault(u => u.Email.Equals(obj.Email.ToLower()) && u.DeletedAt == null);
+
+            if (user == null)
+            {
+                // Error User not found
+                return RedirectToAction("Login" , "User");
+            }
+
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[16];
+            var random = new Random();
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+            var tokenString = new String(stringChars);
+
+            PasswordReset entry = new PasswordReset();
+            entry.Email = obj.Email;
+            entry.Token = tokenString;
+            entry.CreatedAt = DateTime.Now;
+            _db.PasswordResets.Add(entry);
+            _db.SaveChanges();
+
+            var mailBody = "<h1>Click Below link to reset your password</h1><br><h2><a href='" + "https://localhost:44307/User/Reset?Token=" + tokenString + "&Email=" +obj.Email+ "'>Reset Password</a></h2>";
+
+            // Create Email
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("pdparmar91@gmail.com"));
+            email.To.Add(MailboxAddress.Parse(user.Email));
+            email.Subject = "Reset Your Password";
+            email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
+
+            //  Send Email  
+            using var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("pdparmar91@gmail.com", "unmrlfscedyndpvl");
+            smtp.Send(email);
+            smtp.Disconnect(true);
+
+            // Check your Email to Reset password.....
+            return RedirectToAction("Login", "User");
+        }
         #endregion
 
-        // Reset-Password Controller
+
 
         #region Reset
-
-        public IActionResult Reset(long i)
+        [HttpGet]
+        public IActionResult Reset(String Token , String Email )
         {
-            User user = new User();
-            user = _db.Users.FirstOrDefault(u => u.UserId == i);
-            if (user != null)
-                return View(user);
-            else
-                return RedirectToAction("Lost", "User");
+            ResetPasswordVM model = new ResetPasswordVM();
+            model.banner = _db.Banners.Where(u => u.DeletedAt == null).AsQueryable().ToList();
+            model.Token = Token;
+            model.Email = Email;
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult Reset(User obj)
+        public IActionResult Reset(ResetPasswordVM model) 
         {
-            if (obj != null)
+            if(model.Token != null && model.Email != null)
             {
-                User user = new User();
-                user = _db.Users.FirstOrDefault(u => u.UserId == obj.UserId);
-                user.Password = obj.Password;
-                _db.Update(user);
-                _db.SaveChanges();
-                //Change password
-                return RedirectToAction("Login", "User");
+                var resetPassUser = _db.PasswordResets.OrderByDescending(x => x.CreatedAt).FirstOrDefault(x => x.Token == model.Token && x.Email == model.Email);
+
+                DateTime currentTime = DateTime.Now;
+                TimeSpan diffrenceTime = (TimeSpan)(currentTime - resetPassUser.CreatedAt);
+                if (diffrenceTime.TotalHours <= 4.0)
+                {
+                    var user = _db.Users.FirstOrDefault(x => x.Email.Equals(resetPassUser.Email) && x.DeletedAt == null);
+                    if(user != null)
+                    {
+                        user.Password = model.Password;
+                        _db.Users.Update(user);
+                        _db.SaveChanges();
+                    }
+                    return RedirectToAction("Login", "User");
+
+                }
+                else
+                {
+                    // Token Expire messages
+                    return RedirectToAction("Login", "User");
+                }
             }
             else
             {
-                return RedirectToAction("Lost", "User");
+                return View();
             }
+            
         }
-
         #endregion
     
     }
