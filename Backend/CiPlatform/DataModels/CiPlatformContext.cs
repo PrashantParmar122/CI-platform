@@ -187,6 +187,9 @@ public partial class CiPlatformContext : DbContext
 
             entity.Property(e => e.CommentId).HasColumnName("comment_id");
             entity.Property(e => e.ApprovalStatus).HasColumnName("approval_status");
+            entity.Property(e => e.CommentText)
+                .HasMaxLength(250)
+                .HasColumnName("comment_text");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");

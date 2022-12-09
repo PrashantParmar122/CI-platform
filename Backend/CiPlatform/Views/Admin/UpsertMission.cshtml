@@ -1,4 +1,5 @@
-﻿@using CiPlatform.DataModels
+﻿@using CiPlatform.Models
+@using CiPlatform.DataModels
 @model MissionVM
 
 <!DOCTYPE html>
@@ -12,10 +13,78 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/virtual-select-plugin@1.0.33/dist/virtual-select.min.js"></script>
     <link href="~/css/AdminStyle.css" rel="stylesheet">
+    <link href="~/css/Vitualselect.css" rel="stylesheet">
+    
 </head>
 
 <body>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script data-main="dist/js/" src="js/require.min.js"></script>
+    <script>
+        setTimeout(alertFunc, 1000);
+        function alertFunc() {
+            VirtualSelect.init({
+                ele: '#skillSelect'
+            });
+        }
+        $(document).ready(function () {
+            $("#goalMissionValue").hide();
+            $("#goalMissionObjective").hide();
+            $("#timeMissionStartdate").hide();
+            $("#timeMissionEnddate").hide();
+            $("#timeMissionDeadlinedate").hide();
+            $("#ddlCountry").change(function () {
+                ddlCity = $('#ddlCity');
+                $.ajax({
+                    url: '/City/GetCity',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: { id: $(this).val() },
+                    success: function (d) {
+                        ddlCity.empty();
+                        ddlCity.append($("<option></option>").val('').html('Select City'));
+                        $.each(d, function (i, city) {
+                            ddlCity.append($("<option></option>").val(city.value).html(city.text));
+                        });
+                    },
+                    error: function () {
+                        alert('Error');
+                    }
+                });
+            });
+            $("#ddlMissionType").change(function () {
+                value = $(this).val();
+                if (value == 1) {
+                    $("#goalMissionValue").hide();
+                    $("#goalMissionObjective").hide();
+                    $("#timeMissionStartdate").show();
+                    $("#timeMissionEnddate").show();
+                    $("#timeMissionDeadlinedate").show();
+                }
+                else if (value == 2) {
+                    $("#goalMissionValue").show();
+                    $("#goalMissionObjective").show();
+                    $("#timeMissionStartdate").hide();
+                    $("#timeMissionEnddate").hide();
+                    $("#timeMissionDeadlinedate").hide();
+                }
+            });
+        });
+    </script>
+    @if (Model.Mission != null && Model.Mission.MissionType == 2)
+    {
+        <script>
+            setTimeout(function () { $("#goalMissionValue").show(); $("#goalMissionObjective").show(); }, 1000);
+        </script>
+    }
+    else if (Model.Mission != null)
+    {
+        <script>
+            setTimeout(function () { $("#timeMissionStartdate").show(); $("#timeMissionEnddate").show(); $("#timeMissionDeadlinedate").show(); }, 1000);
+        </script>
+    }
     <div class="body-1">
         <div class="left-container">
             <ul class="nav flex-column side-nav">
@@ -34,7 +103,7 @@
                     </a>
                 </li>
                 <li class="nav-item navigation-items-container">
-                    <a class="nav-link navigation-items active" aria-current="page"  asp-controller="Admin" asp-action="Mission">
+                    <a class="nav-link navigation-items active" aria-current="page" asp-controller="Admin" asp-action="Mission">
                         <i class="bi bi-bullseye"></i>
                         <div class="nav-item-name">Mission</div>
                     </a>
@@ -104,13 +173,13 @@
                     <div class="col-md-6" style="box-shadow: none;">
                         <label asp-for="Mission.CountryId" class="form-label">Country</label>
                         @Html.DropDownListFor(m => m.Mission.CountryId, Model.CountryList, "Select a Country",
-                        new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
+                        new { @class = "form-select input-box-style", @style = "box-shadow:none;" , @id="ddlCountry" })
                         <span asp-validation-for="Mission.CountryId" class="text-danger"></span>
                     </div>
                     <div class="col-md-6" style="box-shadow: none;">
                         <label asp-for="Mission.CityId" class="form-label">City</label>
-                        @Html.DropDownListFor(m => m.Mission.CityId, Model.CityList, "Select a City",
-                        new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
+                        <select class="form-select input-box-style" style="box-shadow:none;" id="ddlCity" asp-for="Mission.CityId" asp-items="@Model.CityList" aria-label="Default select example">
+                        </select>
                         <span asp-validation-for="Mission.CityId" class="text-danger"></span>
                     </div>
                     <div class="col-12 ">
@@ -118,12 +187,32 @@
                         <input asp-for="Mission.Title" type="text" class="form-control input-box-style" style="box-shadow: none;" id="title">
                         <span asp-validation-for="Mission.Title" class="text-danger"></span>
                     </div>
+                    <div class="col-12 ">
+                        <label asp-for="Mission.ShortDescription" class="form-label">Short Description</label>
+                        <input asp-for="Mission.ShortDescription" type="text" class="form-control input-box-style" style="box-shadow: none;" id="shortdescription">
+                        <span asp-validation-for="Mission.ShortDescription" class="text-danger"></span>
+                    </div>
                     <div class="col-12">
                         <label asp-for="Mission.Description" class="form-label">Discription</label>
                         <textarea asp-for="Mission.Description" class="form-control input-box-style" style="box-shadow: none;min-height:200px;" id="description">
                         </textarea>
                         <span asp-validation-for="Mission.Description" class="text-danger"></span>
-                    </div>  
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Mission.MissionType" class="form-label">Mission Type</label>
+                        <select id="ddlMissionType" asp-for="Mission.MissionType" class="form-select input-box-style" style="box-shadow: none;" aria-label="Default select example">
+                            <option value="0" selected>Open this select menu</option>
+                            <option value="1">Time</option>
+                            <option value="2">Goal</option>
+                        </select>
+                        <span asp-validation-for="Mission.MissionType" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Mission.TotalSeat" class="form-label">Total seats</label>
+                        <input type="number" name="Mission.TotalSeat" asp-for="Mission.TotalSeat"
+                               class="form-control input-box-style" style="box-shadow: none;" placeholder="Enter total seats">
+                        <span asp-validation-for="Mission.TotalSeat" class="text-danger"></span>
+                    </div>
                     <div class="col-12 ">
                         <label asp-for="Mission.OrganizationName" class="form-label">Organization Name</label>
                         <input asp-for="Mission.OrganizationName" type="text" class="form-control input-box-style" style="box-shadow: none;" id="organizationname">
@@ -135,50 +224,66 @@
                         </textarea>
                         <span asp-validation-for="Mission.OrganizationDetail" class="text-danger"></span>
                     </div>
-                    <div class="col-md-6">
-                        <label asp-for="Mission.StartDate" class="form-label">Start Date</label>
-                        <input asp-for="Mission.StartDate" type="datetime" class="form-control input-box-style"
-                               style="box-shadow: none;" id="start-date" placeholder="Select start date">
-                        <span asp-validation-for="Mission.StartDate" class="text-danger"></span>
-                    </div>
-                    <div class="col-md-6">
-                        <label asp-for="Mission.EndDate" class="form-label">End Date</label>
-                        <input asp-for="Mission.EndDate" type="datetime" class="form-control input-box-style"
-                               style="box-shadow: none;" id="start-date" placeholder="Select end date">
-                        <span asp-validation-for="Mission.EndDate" class="text-danger"></span>
-                    </div>
                     <div class="col-md-6" style="box-shadow: none;">
                         <label asp-for="Mission.ThemeId" class="form-label">Theme</label>
                         @Html.DropDownListFor(m => m.Mission.ThemeId, Model.ThemeList, "Select a Theme",
                         new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
                         <span asp-validation-for="Mission.ThemeId" class="text-danger"></span>
                     </div>
-                    
-                    <div class="col-md-6" style="box-shadow: none;">
-                        <label asp-for="Mission.MissionSkills" class="form-label">Skills</label><br>
-                        <div class="form-control" style="overflow-y: auto; height: 100px;">
-                            @{
-                                int i = 0;
-                            }
-                            @foreach (var item in Model.SkillList)
-                            {
-                                @Html.CheckBoxFor( m => item.Selected ,new { @class = "form-checkbox input-box-style" ,@style = "box-shadow:none;" })
-                                <label for="skill" class="form-label"> @item.Text </label>
-                                <br>
-                                i++;
-                            }
-                            <span asp-validation-for="Mission.CityId" class="text-danger"></span>
-                        </div>                        
+                    <div class="col-md-6">
+                        <label asp-for="SkillList" class="form-label">Mission Skills</label>
+                        <div>
+                            <select id="skillSelect" class="input-box-style" asp-for="addskill" multiple asp-items="@Model.SkillList"
+                                    placeholder="Select Skills" data-search="true" data-silent-initial-value-set="true">
+                            </select>
+                        </div>
+                        <span asp-validation-for="SkillList" class="text-danger"></span>
                     </div>
+
+                    <div class="col-md-4" id="timeMissionStartdate">
+                        <label asp-for="Mission.StartDate" class="form-label">Start Date</label>
+                        <input type="date" name="mission.StartDate" asp-for="Mission.StartDate" class="form-control input-box-style"
+                               style="box-shadow: none;" placeholder="Select Start Date">
+                        <span asp-validation-for="Mission.StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4" id="timeMissionEnddate">
+                        <label asp-for="Mission.EndDate" class="form-label">End Date</label>
+                        <input type="date" name="mission.EndDate" asp-for="Mission.EndDate" class="form-control input-box-style"
+                               style="box-shadow: none;" placeholder="Select End Date">
+                        <span asp-validation-for="Mission.EndDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4" id="timeMissionDeadlinedate">
+                        <label asp-for="Mission.Deadline" class="form-label">Mission registration deadline</label>
+                        <input type="date" name="mission.Deadline" asp-for="Mission.Deadline" class="form-control input-box-style"
+                               style="box-shadow: none;" placeholder="Enter deadline for mission-apply">
+                        <span asp-validation-for="Mission.Deadline" class="text-danger"></span>
+                    </div>
+                    
+                        <div class="col-md-6" id="goalMissionValue">
+                            <label asp-for="goalMission.GoalValue" class="form-label">Goal Value</label>
+                            <input type="number" name="goalMission.GoalValue" asp-for="goalMission.GoalValue" class="form-control input-box-style"
+                                   style="box-shadow: none;" placeholder="Enter Goal value">
+                            <span asp-validation-for="goalMission.GoalValue" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6" id="goalMissionObjective">
+                            <label asp-for="goalMission.GoalObjectiveText" class="form-label">Goal Objective</label>
+                            <input type="text" name="goalMission.GoalObjectiveText" asp-for="goalMission.GoalObjectiveText" class="form-control input-box-style"
+                                   style="box-shadow: none;" placeholder="Enter Mission Title">
+                            <span asp-validation-for="goalMission.GoalValue" class="text-danger"></span>
+                        </div>
+                   
+                    
 
                     <div class="col-12">
                         <label class="form-label">Mission Images</label>
-                        <input type="file" name="images" multiple class="form-control input-box-style" style="box-shadow: none;" id="uploadBox">
+                        <input type="file" name="images" multiple class="form-control input-box-style" style="box-shadow: none;" id="uploadImage">
                     </div>
                     <div class="col-12">
                         <label class="form-label">Documents</label>
-                        <input type="file" name="files" multiple class="form-control input-box-style" style="box-shadow: none;" id="uploadBox">
+                        <input type="file" name="files" multiple class="form-control input-box-style" style="box-shadow: none;" id="uploadDoc">
                     </div>
+
+
                     <div class="col-12" style="margin-bottom: 40px;">
                         <label asp-for="Mission.Status" class="form-label">Status</label>
                         <select asp-for="Mission.Status" id="status" class="form-select input-box-style" style="box-shadow: none;">
@@ -199,7 +304,7 @@
                         </a>
                         @if (Model.Mission.MissionId == 0)
                         {
-                            <button type="submit" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                            <button type="submit" onclick="return validateInput()" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
                                 Create
                             </button>
                         }
@@ -215,13 +320,32 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous">
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function validateInput() {
+            if (document.getElementById("uploadImage").value == "" || document.getElementById("uploadDoc").value == "") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Upload Image or Document',
+                    text: 'Image and Document should be uploaded while Adding new Mission.....',
+                })
+                return false;
+            }
+            return true;
+        };
+    </script>
+    
+    
     @section Scripts{
         <partial name="_ValidationScriptsPartial" />
     }
+    
+
 </body>
 
 </html>

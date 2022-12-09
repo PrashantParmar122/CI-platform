@@ -12,7 +12,7 @@ namespace CiPlatform.Controllers
 {
     public class UserController : Controller
     {
-        public CiPlatformContext _db = new CiPlatformContext();
+        readonly CiPlatformContext _db = new CiPlatformContext();
 
         #region Login
         [HttpGet]
@@ -34,25 +34,34 @@ namespace CiPlatform.Controllers
                 return RedirectToAction("Userlist" , "Admin");
             }
             var user1 = _db.Users.FirstOrDefault(u => u.Email.Equals(obj.Email.ToLower()) && u.Password.Equals(obj.Password));
-            
-            if (user1.Status == 0)
-            {
-                TempData["ErrorMes"] = "This user is deactivated";
-                return RedirectToAction("Login" ,"User");
-            }
-
-            HttpContext.Session.SetString("UserId", user1.UserId.ToString());
-            HttpContext.Session.SetString("UserName", user1.FirstName);
 
             if (user1 != null)
-                return RedirectToAction("Index", "Home");            
+            {
+                if (user1.Status == 0)
+                {
+                    TempData["ErrorMes"] = "This user is deactivated";
+                    return RedirectToAction("Login", "User");
+                }
+                HttpContext.Session.SetString("UserId", user1.UserId.ToString());
+                HttpContext.Session.SetString("UserName", user1.FirstName);
+                return RedirectToAction("MissionListing", "Home");
+            }          
             else
                 return RedirectToAction("Login", "User");
         }
         #endregion
 
+
+        [CheckSession]
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.SetString("UserId", "");
+            HttpContext.Session.SetString("UserName", "");
+            return RedirectToAction("Login","User");
+        }
+              
         
-        
+
         #region Register
         public IActionResult Register()
         {
@@ -168,7 +177,7 @@ namespace CiPlatform.Controllers
 
                 DateTime currentTime = DateTime.Now;
                 TimeSpan diffrenceTime = (TimeSpan)(currentTime - resetPassUser.CreatedAt);
-                if (diffrenceTime.TotalHours <= 4.0)
+                if (diffrenceTime.TotalHours <= 1.0)
                 {
                     var user = _db.Users.FirstOrDefault(x => x.Email.Equals(resetPassUser.Email) && x.DeletedAt == null);
                     if(user != null)

@@ -1,0 +1,116 @@
+﻿@using CiPlatform.Models
+@model List<MissionCard>
+
+<script>
+    function AF(MissionId, ismissionfav) {
+        $.ajax({
+            url: '/Home/addtofav',
+            type: 'POST',
+            dataType: 'string',
+            data: { id: MissionId, alreadyfav: ismissionfav },
+            success: function (d) {
+                alert(d);
+            }
+        });
+    }
+</script>
+
+<div class="Card row g-3">
+    @foreach (var card in Model)
+    {
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4">
+            <div class="box">
+                <div class="box-img">
+                    <img src=@card.MediaPath class="box-img" alt="Can't Render photo">
+                    <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>@card.CityName</button>
+
+
+                    @if (@card.ismissionfav)
+                    {
+                        <button onclick="AF( @card.MissionId,'true')" class="img-icon">
+                            <i class="bi bi-heart-fill" style="color:#ff00b7;"></i>
+                        </button>
+                        // onclick="location.href='@Url.Action("addtofav", "Home", new { id = card.MissionId , alreadyfav = card.ismissionfav})'"
+                        //      @card.MissionId,@card.ismissionfav
+                    }
+                    else
+                    {
+                        <button onclick="AF( @card.MissionId,'false')" class="img-icon">
+                            <i class="bi bi-heart-fill"></i>
+                        </button>
+                    }
+
+                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <div class="img-text common-font">@card.ThemeName</div>
+                </div>
+
+                <div class="card-heading">@card.MissionTitle</div>
+                <div class="card-body">@card.ShortDescription</div>
+                <div class="star-box">
+                    <div class="star-name common-font">@card.OrganizationName</div>
+                    <div class="star-rate">
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
+                        <i class="bi bi-star-fill star"></i>
+                        <i class="bi bi-star-fill star"></i>
+                    </div>
+                </div>
+
+                @if (card.MissionType == 2)
+                {
+                    <div class="time-date">
+                        <div class="date-set common-font">
+                            @card.GoalObjectiveText
+                        </div>
+                        <div class="person">
+                            <div style="display:flex;width:30%;">
+                                <div><i class="bi bi-person deadline-icon"></i></div>
+                                <div class="Deadline">
+                                    @card.TotalSeat<div class="text-style-1">Seats left</div>
+                                </div>
+                            </div>
+                            <div style="width:70%;display: block;">
+                                <div style="display:flex;">
+                                    <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
+                                    <div class="Deadline">
+                                        <div style="width: 100%;"><progress max="100" value="@card.GoalValue"></progress></div>
+                                        <div class="text-style-1">8000 achieved</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="time-date">
+                        <div class="date-set common-font">
+                            From  @Convert.ToDateTime(@card.StartDate).ToString("dd/MM/yyyy") until @Convert.ToDateTime(@card.EndDate).ToString("dd/MM/yyyy")
+                        </div>
+                        <div class="person">
+                            <div style="display:flex;width:50%;">
+                                <div><i class="bi bi-person deadline-icon"></i></div>
+                                <div class="Deadline">
+                                    @card.TotalSeat <div class="text-style-1">Already volunteered</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; margin-left:30px;width:50%">
+                                <div><i class="bi bi-clock deadline-icon"></i></div>
+                                <div class="Deadline">
+                                    @Convert.ToDateTime(@card.Deadline).ToString("dd/MM/yyyy") <div class="text-style-1">Deadline</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="Apply-btn">
+                    <button class="Apply common-font">
+                        Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

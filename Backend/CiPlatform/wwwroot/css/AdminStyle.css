@@ -219,6 +219,10 @@ thead {
     color: #757575;
 }
 
+.vscomp-ele {
+    max-width: none;
+}
+
 .navigation-items.active {
     color: #f88634;
     background-color: white;

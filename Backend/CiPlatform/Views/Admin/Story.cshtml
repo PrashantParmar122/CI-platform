@@ -1,0 +1,244 @@
+﻿@using CiPlatform.Models;
+@using CiPlatform.DataModels;
+@model StoryVM
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL-Story list</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
+    <link href="~/css/AdminStyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="body-1">
+        <div class="left-container">
+            <ul class="nav flex-column side-nav">
+                <li class="nav-head">NAVIGATION</li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Userlist">
+                        <i class="bi bi-person"></i>
+                        <div class="nav-item-name">User</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Cmspage">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <div class="nav-item-name">CMS Pages</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Mission">
+                        <i class="bi bi-bullseye"></i>
+                        <div class="nav-item-name">Mission</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missiontheme">
+                        <i class="bi bi-columns"></i>
+                        <div class="nav-item-name">Mission Theme</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missionskill">
+                        <i class="bi bi-tools"></i>
+                        <div class="nav-item-name">Mission Skills</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Missionapp">
+                        <i class="bi bi-gear-fill"></i>
+                        <div class="nav-item-name">Mission Application</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items active" aria-current="page" href="#">
+                        <i class="bi bi-pencil-square"></i>
+                        <div class="nav-item-name">Story</div>
+                    </a>
+                </li>
+                <li class="nav-item navigation-items-container">
+                    <a class="nav-link navigation-items" asp-controller="Admin" asp-action="Banner">
+                        <i class="bi bi-gear-fill"></i>
+                        <div class="nav-item-name">Banner Management</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="right-container">
+
+            <div style="display: flex;box-shadow: 3px 5.2px 10px 0 rgba(0, 0, 0, 0.08);padding:23px 40px 20px 20px;">
+                <div style="align-items: center;display: flex;">
+                    Thursday, November 3, 2022, 10:06 AM
+                </div>
+                <div style="margin-left: auto;">
+                    <a class="nav-link dropdown-toggle" id="profile-dropdown-icon"
+                       style="font-size: 15px;display: flex;align-items: center;padding: 0;color:#757575;" href="#"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/Assets/user-img.png" alt="Avatar"
+                             style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+                        <div class="profile-name-in-nav">Evan Donohue</div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="padding: 0 40px 0 20px;width: 100%;position: relative;">
+                <div style="border-bottom: 1px solid #d9d9d9;margin-top: 30px;padding-bottom: 8px;">
+                    <span style="border-bottom: 1px solid #757575;font-size: 30px;padding-bottom: 8px;position: relative;bottom: -3px;">
+                        Story Listing
+                    </span>
+                </div>
+
+                <div style="display: flex; margin-top: 30px;">
+                    <div style="display: flex;align-items: center;border: 1px solid #d9d9d9;width: 400px;border-radius: 3px;">
+                        <div>
+                            <i class="bi bi-search" style="color:#757575;margin-left: 10px;"></i>
+                        </div>
+                        <form method="get" class="d-flex" role="search" style="width: 100%;">
+                            <input asp-for="pagination.Keyword" class="form-control me-2 Search-mission common-font" type="search"
+                                   placeholder="Search" aria-label="Search" style="box-shadow: none;">
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+                <table id="datatable" style="width:100%;margin-top: 30px;">
+                    <thead class="thead_font">
+                        <tr>
+                            <th width="50%">Story Title</th>
+                            <th width="15%">Full Name</th>
+                            <th width="38%">Mission Title</th>
+                            <th width="15%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var obj in Model.story.Records)
+                        {
+                            <tr>
+                                <td>@obj.Title</td>
+                                <td>@obj.User.FirstName</td>
+                                <td>@obj.Mission.Title</td>
+                                <td>
+                                    <div style="font-size: x-large;display: flex;">
+                                        <a class="btn-style1 btn-style-orange" asp-controller="Admin" asp-action="StoryList" asp-route-id=@obj.StoryId
+                                            style="padding:2px 10px;font-size: 12px;border:1px solid;margin: auto 0;text-decoration:none;">
+                                            View
+                                        </a>
+                                        <a style="color: #14c506;text-decoration: none;margin-left: 5px;" asp-controller="Admin" asp-action="UpsertStory" asp-route-id=@obj.StoryId
+                                       asp-route-isapproved="true">
+                                            <i class="bi bi-check-circle"></i>
+                                        </a>
+                                        <button class="Delete" type="submit" asp-controller="Admin" asp-action="UpsertStory" asp-route-id="@obj.StoryId"
+                                            asp-route-isapproved="false" style="color: #ff0000;margin-left: 5px;">
+                                            <i class="bi bi-x-circle"></i>
+                                        </button>
+                                        <button class="Delete" type="button" data-bs-toggle="offcanvas"
+                                            style="margin-left: 1px;" data-bs-target="#StoryDelete_@obj.StoryId"
+                                            aria-controls="staticBackdrop">
+                                            <i class="bi bi-trash"></i>
+                                        </button>                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
+                             id="StoryDelete_@obj.StoryId" aria-labelledby="staticBackdropLabel2" aria-controls="offcanvasWithBackdrop"
+                             style="width:634px; left: 50%;transform: translate(-50%,-50%);height: 100vh;top:50%;max-height: 250px;">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title common-font font-style-1"
+                                    style="font-weight: normal;color: #414141;font-size: 22px;" id="staticBackdropLabel2">
+                                        Confirm Delete
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <div>
+                                        <form method="post" class="row g-4 common-font font-style-1">
+                                            <div style="align-items: end;">
+                                                <div style="font-size: 24px;">Are you sure you want to Delete this item?</div>
+                                                <div style="text-align: center; margin-top: 40px;">
+                                                    <button type="button" class="btn-style1 btn-style-grey" data-bs-dismiss="offcanvas"
+                                                        aria-label="Close">
+                                                        Cancel
+                                                    </button>
+                                                    <button type="submit" asp-controller="Admin" asp-action="DeleteStory" asp-route-id="@obj.StoryId"
+                                                        class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                                                        Delete
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </tbody>
+                </table>
+                <div class="center">
+                    <div class="pagination">
+                        @{
+                            long back = 1;
+                            if (Model.pagination.Pageindex > 1)
+                                back = Model.pagination.Pageindex - 1;
+                        }
+                        <a asp-action="Story" asp-route-pagination.Pageindex="@back" asp-route-pagination.Keyword="@Model.pagination.Keyword">
+                            &lsaquo;
+                        </a>
+
+                        @{
+                            long j = Model.story.total_Records;
+                            long last = 1, next = 1;
+                        }
+                        @for (long i = 1; i <= (j % Model.pagination.Pagesize == 0 ? j / Model.pagination.Pagesize : (j / Model.pagination.Pagesize) + 1); i++)
+                        {
+
+                            if (i == Model.pagination.Pageindex)
+                            {
+                                <a href="#" class="active">@i</a>
+                                next = i + 1;
+                            }
+                            else
+                            {
+                                <a asp-action="Story" asp-route-pagination.Pageindex="@i" asp-route-pagination.Keyword="@Model.pagination.Keyword">@i</a>
+                            }
+                            last = i;
+                        }
+                        @if (next > last)
+                        {
+                            next--;
+                        }
+                        <a asp-action="Story" asp-route-pagination.Pageindex="@next" asp-route-pagination.Keyword="@Model.pagination.Keyword">&rsaquo;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

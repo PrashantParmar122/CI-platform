@@ -1,0 +1,217 @@
+﻿.Explore-Stories-Policy {
+    font-size: 16px;
+    font-weight: 300;
+    color: #333;
+}
+
+.right-nav-2 {
+    display: contents;
+    margin-left: auto;
+}
+
+.Search-mission {
+    font-size: 20px;
+    font-weight: 300;
+    color: #757575;
+    border: 0px;
+}
+
+.City {
+    font-size: 16px;
+    font-weight: 300;
+    color: #414141;
+}
+
+.nav-container {
+    width: 75%;
+    left: 12.5%;
+    right: 12.5%;
+    position: relative;
+    margin-top: 16px;
+    display: flex;
+}
+
+.nav-2 {
+    position: relative;
+    width: 75%;
+    left: 12.5%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-2-items {
+    width: 25%;
+}
+
+.Submit-new-mission-btn {
+    position: relative;
+    margin-right: 19px;
+}
+
+.Submit-new-mission {
+    position: relative;
+    width: max-content;
+    font-weight: normal;
+    color: #f88634;
+    padding: 15px;
+    font-size: 20px;
+    background-color: white;
+    border: solid 2px #f88634;
+    border-radius: 35px;
+}
+
+    .Submit-new-mission:hover {
+        color: white;
+        background-color: #f88634;
+        border-color: black;
+    }
+
+.profile-name-in-nav {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-style-99 {
+    position: relative;
+    border-radius: 100px;
+    padding: 10px 30px;
+    border: 2px solid #f88634;
+    font-size: 17px;
+    background-color: white;
+    font-weight: normal;
+    text-align: left;
+    color: #f88634;
+}
+
+.select-menu {
+    border: 0;
+    height: 78px;
+    border-radius: 0;
+}
+
+.border-lg-left {
+    border-left: 1px solid #d9d9d9;
+}
+
+.border-lg-right {
+    border-right: 1px solid #d9d9d9;
+}
+
+.btn-style99-orange {
+    color: #f88634;
+    border: 2px solid #f88634;
+}
+
+    .btn-style99-orange:hover {
+        color: white;
+        border: 2px solid black;
+        background-color: #f88634;
+    }
+
+.btn-style99-grey {
+    color: #757575;
+    border: 2px solid #757575;
+}
+
+    .btn-style99-grey:hover {
+        border: 2px solid black;
+        background-color: #e8e8e8;
+    }
+
+.font-style-99 {
+    font-size: 15px;
+    font-weight: 300;
+    text-align: left;
+    color: #414141;
+}
+
+.input-box-style {
+    border-radius: 3px;
+    border: solid 1px #d9d9d9;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    color: #757575;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+footer {
+    margin: 36px 0 36px 0;
+}
+
+@media only screen and (max-width: 1536px) {
+    .nav-container {
+        width: 92%;
+        left: 4%;
+    }
+
+    .nav-2 {
+        width: 92%;
+        left: 4%;
+    }
+
+    .Submit-new-mission {
+        padding: 14px;
+        font-size: 17px;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 992px) {
+    .border-lg-left {
+        border: 0;
+    }
+
+    .border-lg-right {
+        border: 0;
+    }
+
+    .nav-2-items {
+        width: 50%;
+    }
+
+    .select-menu {
+        height: 40px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #profile-dropdown-icon.dropdown-toggle::after {
+        display: none;
+    }
+
+    .profile-name-in-nav {
+        display: none;
+    }
+
+    .Submit-new-mission {
+        padding: 13px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+    .nav-container {
+        width: 96%;
+        left: 2%;
+    }
+
+    .nav-2 {
+        width: 96%;
+        left: 2%;
+    }
+
+    .Submit-new-mission {
+        padding: 10px;
+        font-size: 13px;
+    }
+}

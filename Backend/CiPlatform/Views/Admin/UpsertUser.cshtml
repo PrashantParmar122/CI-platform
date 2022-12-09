@@ -16,6 +16,31 @@
 </head>
 
 <body>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script data-main="dist/js/" src="js/require.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#ddlCountry").change(function () {
+                ddlCity = $('#ddlCity');
+                $.ajax({
+                    url: '/City/GetCity',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: { id: $(this).val() },
+                    success: function (d) {
+                        ddlCity.empty();
+                        ddlCity.append($("<option></option>").val('').html('Select City'));
+                        $.each(d, function (i, city) {
+                            ddlCity.append($("<option></option>").val(city.value).html(city.text));
+                        });
+                    },
+                    error: function () {
+                        alert('Error');
+                    }
+                });
+            });
+        });
+    </script>
     <div class="body-1">
         <div class="left-container">
             <ul class="nav flex-column side-nav">
@@ -96,7 +121,7 @@
                 </div>
             </div>
             <div style="padding: 0 40px 0 20px;width: 100%;position: relative;">
-                <form method="post" class="row g-4 font-style-1"
+                <form method="post" class="row g-4 font-style-1" enctype="multipart/form-data"
                       style="margin: 50px 0 130px 0;border: 1px solid #e8e8e8;position: relative;">
                     <div class="form-title">@(Model.User.UserId !=0 ? "Edit":"Add") User</div>
                     <hr style="margin: 0;">
@@ -123,10 +148,8 @@
                     </div>
                     <div class="col-md-6 col-xl-4">
                         <label asp-for="User.Password" class="form-label">Password</label>
-                        <input asp-for="User.Password" type="password" class="form-control input-box-style" style="box-shadow: none;" id="password">
-                        @if(Model.User.UserId == 0 ){
-                            <span asp-validation-for="User.Password" class="text-danger"></span>
-                        }
+                        <input asp-for="User.Password" type="text" class="form-control input-box-style" style="box-shadow: none;" id="password">                        
+                        <span asp-validation-for="User.Password" class="text-danger"></span>
                     </div>
                     <div class="col-md-6 col-xl-4">
                         <label asp-for="User.EmployeeId" class="form-label">EmployeeId</label>
@@ -143,23 +166,37 @@
                         <input asp-for="User.ProfileText" type="text" class="form-control input-box-style" style="box-shadow: none;" id="profiletext">
                         <span asp-validation-for="User.ProfileText" class="text-danger"></span>
                     </div>
+                    <div class="col-md-6">
+                        <label asp-for="User.LinkedInUrl" class="form-label">LinkedIn Url</label>
+                        <input asp-for="User.LinkedInUrl" type="text" class="form-control input-box-style" style="box-shadow: none;" id="linkedinurl">
+                        <span asp-validation-for="User.LinkedInUrl" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="User.Title" class="form-label">Title</label>
+                        <input asp-for="User.Title" type="text" class="form-control input-box-style" style="box-shadow: none;" id="title">
+                        <span asp-validation-for="User.Title" class="text-danger"></span>
+                    </div>
                     <div class="col-12">
                         <label asp-for="User.WhyIVolunteer" class="form-label">WhyIVolunteer</label>
                         <textarea asp-for="User.WhyIVolunteer" type="text" class="form-control input-box-style" style="box-shadow: none;height:100px" id="whyivolunteer">
                         </textarea>
                         <span asp-validation-for="User.WhyIVolunteer" class="text-danger"></span>
                     </div>
-                    <div class="col-12" style="box-shadow: none;">
-                        <label for="User.CountryId" class="form-label">Country</label>
+                    <div class="col-md-6" style="box-shadow: none;">
+                        <label asp-for="User.CountryId" class="form-label">Country</label>
                         @Html.DropDownListFor(m => m.User.CountryId, Model.CountryList, "Select a Country",
-                        new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
+                        new { @class = "form-select input-box-style", @style = "box-shadow:none;" , @id="ddlCountry" })
                         <span asp-validation-for="User.CountryId" class="text-danger"></span>
                     </div>
-                    <div class="col-12" style="box-shadow: none;">
-                        <label for="User.CityId" class="form-label">City</label>
-                            @Html.DropDownListFor(m => m.User.CityId, Model.CityList, "Select a City",
-                            new { @class = "form-select input-box-style", @style = "box-shadow:none;" })
+                    <div class="col-md-6" style="box-shadow: none;">
+                        <label asp-for="User.CityId" class="form-label">City</label>
+                        <select class="form-select input-box-style" style="box-shadow:none;" id="ddlCity" asp-for="User.CityId" asp-items="@Model.CityList" aria-label="Default select example">
+                        </select>
                         <span asp-validation-for="User.CityId" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="User.Avatar" class="form-label">Avatar</label>
+                        <input type="file" name="avatar" class="form-control input-box-style" style="box-shadow: none;" id="uploadAvatar">
                     </div>
                     <div class="col-xl-6">
                         <label for="role" class="form-label">Role</label>
@@ -169,10 +206,17 @@
                         </select>
                     </div>
                     <div class="col-xl-6" style="margin-bottom: 40px;">
-                        <label for="status" class="form-label">Status</label>
-                        <select id="status" class="form-select input-box-style" style="box-shadow: none;">
-                            <option value="1" selected>Active</option>
-                            <option value="0">In active</option>
+                        <label asp-for="User.Status" class="form-label">Status</label>
+                        <select asp-for="User.Status" id="status" class="form-select input-box-style" style="box-shadow: none;">
+                            <option value="0">In Active</option>
+                            @if (Model.User.UserId != 0)
+                            {
+                                <option value="1">Active</option>
+                            }
+                            else
+                            {
+                                <option value="1" selected>Active</option>
+                            }
                         </select>
                     </div>
                     <div style="display: flex; position: absolute;bottom: -75px;justify-content: end;">
@@ -180,7 +224,7 @@
                             Cancel
                         </a>
                         @if(Model.User.UserId == 0){
-                            <button type="submit" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
+                            <button type="submit" onclick="return validateInput()" class="btn-style1 btn-style-orange" style="margin-left: 10px;">
                                 Create
                             </button>
                         }
@@ -198,6 +242,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous">
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function validateInput() {
+            if (document.getElementById("uploadAvatar").value == "") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Upload Profile Image',
+                    text: 'Image should be uploaded while creating new User.....',
+                })
+                return false;
+            }
+            return true;
+        };
     </script>
     @section Scripts{
         <partial name="_ValidationScriptsPartial" />
