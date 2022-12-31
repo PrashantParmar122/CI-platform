@@ -1,22 +1,32 @@
 ﻿@using CiPlatform.Models;
 @model MissionListingVM
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CL-Home-Listing</title>
+<body>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />    
     <script src="~/js/dropdowncheckbox.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link href="~/css/MissionListing.css" rel="stylesheet">
     <link href="~/css/Navigation.css" rel="stylesheet">
     <link href="~/css/Vitualselect.css" rel="stylesheet">
-</head>
-<body>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>    
     <script data-main="dist/js/" src="js/require.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
+    @if (TempData["Done"] != null)
+    {        
+        <script>
+            toastr.success('@TempData["Done"]');
+        </script>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <script>
+            toastr.error('@TempData["Error"]');
+        </script>
+    }
+    
     <script>
         setTimeout(alertFunc, 1000);
         function alertFunc() {
@@ -36,30 +46,31 @@
                 ele: '#ddlcountry',
                 hideClearButton: true
             });
-
-            $("#ddlcountry").change(function () {
-                filtertag("#ddlcountry");
-                filtration();
+            $(document).ready(function () {
+                $("#ddlcountry").change(function () {
+                    filtertag("#ddlcountry");
+                    filtration();
+                });
+                $("#ddlcity").change(function () {
+                    filtertag("#ddlcity");
+                    filtration();
+                });
+                $("#ddltheme").change(function () {
+                    filtertag("#ddltheme");
+                    filtration();
+                });
+                $("#ddlskill").change(function () {
+                    filtertag("#ddlskill");
+                    filtration();
+                });
+                $("#keyword").keypress(function () {
+                    filtration();
+                });
+                $("#ddlsort").change(function () {
+                    filtration();
+                });
             });
-            $("#ddlcity").change(function () {
-                filtertag("#ddlcity");
-                filtration();
-            });
-            $("#ddltheme").change(function () {
-                filtertag("#ddltheme");
-                filtration();
-            });
-            $("#ddlskill").change(function () {
-                filtertag("#ddlskill");
-                filtration();
-            });
-            $("#keyword").keypress(function () {
-                filtration();
-            });
-            $("#ddlsort").change(function () {
-                filtration();
-            });
-            $("#clearalltags").click(function(){
+            $("#clearalltags").click(function () {
                 document.querySelector('#ddlcity').reset();
                 document.querySelector('#ddltheme').reset();
                 document.querySelector('#ddlcountry').reset();
@@ -74,8 +85,6 @@
                 });
             }
 
-            
-
             function filtration() {
                 $.ajax({
                     url: '/Home/GetMission',
@@ -87,13 +96,11 @@
                         themeid: $(ddltheme).val(),
                         skillid: $(ddlskill).val(),
                         sort: $(ddlsort).val(),
-                        keyword: $(keyword).val()                        
+                        keyword: $(keyword).val()
                     },
                     success: function (d) {
                         $("#missioncardlist").empty();
-                        $("#totalmissioncards").empty();
                         $("#missioncardlist").html(d);
-                        $("#totalmissioncards").html(d.Count());
                     },
                     error: function () {
                         alert('Error');
@@ -104,7 +111,8 @@
     </script>
     <div class="body-1">
 
-        <partial name="_NavigationPartial" />
+        @*<partial name="_NavigationPartial" />*@
+        @await Component.InvokeAsync("Navigation")
 
         <hr style="margin-bottom: 0;">
         <div class="nav-2">
@@ -224,15 +232,18 @@
             }
         </div>
 
-               
+
 
         <hr style="height:1px;border-width:0;color:gray;background-color:gray">
         <footer>
             <a href="#" class="privacy-policy common-font">Privacy Policy</a>
         </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+   @* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous">
-    </script>
+    </script>*@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+            crossorigin="anonymous"></script>
 </body>

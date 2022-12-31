@@ -1,1 +1,109 @@
-﻿
+﻿@using CiPlatform.DataModels
+@model User
+
+<div class="nav-container">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid" style="padding:0px">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navigation-1" aria-controls="navigation-1" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+                 id="navigation-1" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="navbar-collapse">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link Explore-Stories-Policy common-font" asp-action="StoryList" asp-controller="Story">Stories</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
+                                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Policy
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-action="Policy" asp-controller="Policy">Privacy</a></li>
+                                    <li><a class="dropdown-item" href="#">Policy</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Cookies</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    @*<nav class="navbar bg-light ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Offcanvas navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>*@
+
+    
+    <div class="nav-item dropdown" style="display: flex; align-items :center;margin-left: auto;">
+        <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" id="profile-dropdown-icon"
+           style="font-size: 15px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @{
+                var navprofilepic = "/Assets/user-img-large.png";
+                if (Model.Avatar != null)
+                    navprofilepic = Model.Avatar;
+            }
+            <img src="@navprofilepic" alt="Avatar"
+                 style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+            <div class="profile-name-in-nav">@Model.FirstName @Model.LastName</div>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" asp-controller="MyProfile" asp-action="MyProfile">My Profile</a></li>
+            <li><a class="dropdown-item" asp-action="TimeSheet" asp-controller="MyProfile">Time Sheet</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" asp-controller="User" asp-action="LogOut">Log Out</a></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,117 @@
+﻿@using CiPlatform.Models
+@model List<StoryListVM>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI-Stories-Listing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="~/css/Navigation.css" rel="stylesheet">
+    <link href="~/css/StoryList.css" rel="stylesheet">
+</head>
+
+<body>
+
+    @await Component.InvokeAsync("Navigation")
+
+    <hr style="margin-bottom: 0;">
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin: 0;">
+
+    <div style="width: 100%;position: relative;">
+        <img src="/Assets/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
+             style="position: relative; height: 360px;width: 100%; object-fit: cover; object-position: 0% 33%;"
+             alt="Can't load">
+        <div class="Share-story"></div>
+        <div class="Share-story" style="opacity: 1; background: inherit;">
+            <div style="width: 50%;top: 50%;left: 50%;position: relative;transform: translate(-50%, -50%);">
+                <div class="common-font" style="font-size: 19px; color: white; line-height: 1.6;">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a accusamus asperiores cum dolor
+                    ratione voluptatum maxime error explicabo repellat quibusdam, esse quis eum ipsam autem id voluptas
+                    ducimus amet.
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <a asp-action="UpsertStory" asp-controller="Story" class="mission common-font mission-text"
+                       style="margin-top: 20px; background:inherit;font-size: 25px;border:2px solid white;text-decoration:none;">
+                        <div style="width:max-content; color:white">
+                            Share your Story
+                            <i class="bi bi-arrow-right" style="color:white;margin-left: 15px;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Card row g-3">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+                <div class="box">
+                    <div class="box-img">
+                        <img src="@item.Storyimg" class="box-img" alt="Can't Render photo">
+                        <div class="img-text common-font">@item.themeName</div>
+                        <span class="Share-story" id="visible-view-details" style="left:0"></span>
+                        <span class="Share-story" id="visible-view-details" style="left:0;opacity: 1;background: inherit;">
+                            <div style="width: 50%;top: 50%;left: 50%;position: relative;transform: translate(-50%, -50%);">
+                                <div style="display: flex; justify-content: center;">
+                                    <a asp-action="StoryDetail" asp-controller="Story" asp-route-id="@item.story.StoryId" class="mission common-font mission-text"
+                                   style="margin-top: 20px;background:inherit;font-size: 25px;border:2px solid white;text-decoration:none;">
+                                        <div style="width:max-content;color:white;">
+                                            View Details
+                                            <i class="bi bi-arrow-right" style="color:white;margin-left: 15px;"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+
+                    <div class="card-heading">@item.story.Title</div>
+                    <div class="card-body">
+                        @item.story.Description
+                        <div class="small-card-body">
+                            <img src="@item.avatar" alt="Avatar" style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+                            <div class="Explore-Stories-Policy common-font" style="font-size: 15px;">
+                                @item.VolunteerName
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="center">
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#">&lsaquo;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">&rsaquo;</a>
+            <a href="#">&raquo;</a>
+        </div>
+    </div>
+
+    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+    <footer><a href="#" class="privacy-policy common-font">Privacy Policy</a></footer>
+
+    <!-- Ended -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

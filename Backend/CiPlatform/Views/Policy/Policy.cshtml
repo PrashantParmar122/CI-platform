@@ -1,0 +1,76 @@
+﻿@using CiPlatform.DataModels
+@model List<CmsPage>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL-Policy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="~/css/Policy.css" rel="stylesheet">
+    <link href="~/css/Navigation.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-1">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        @await Component.InvokeAsync("Navigation")
+
+        <hr>
+
+        <div class="common-font Privacy-and-Cookies-Policy">Privacy and Cookies Policy</div>
+
+        <div class="body-2">
+            <div class="left-container">
+                <div style="position: sticky; top:15px;" id="list_example">
+                    @foreach (var item in Model)
+                    {
+                        <a class="link-font-style common-font list-group-item list-group-item-action"
+                        style="font-size: 14px;" href="#section_@item.CmsPageId">
+                            <div style="margin-right: auto;">@item.Title</div>
+                            <div><i class="bi bi-chevron-right"></i></div>
+                        </a>
+                        <hr>
+                    }                    
+                </div>
+            </div>
+
+            <div data-bs-spy="scroll" data-bs-target="#list_example" data-bs-smooth-scroll="true"
+                class="scrollspy-example right-container" tabindex="0">
+                @{
+                    var i = 1;
+                    var last = Model.Count();
+                }
+                @foreach (var item in Model)
+                {
+                    <div id="section_@item.CmsPageId">
+                        <div class="policy-head common-font">@item.Title</div>
+                        <div class="policy-body common-font">@item.Description</div>
+                    </div>
+                    if(i != last){
+                        i++;
+                        <hr>
+                    }                    
+                }               
+            </div>
+        </div>
+
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+        <footer>
+            <a href="#" class="privacy-policy common-font">Privacy Policy</a>
+        </footer>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

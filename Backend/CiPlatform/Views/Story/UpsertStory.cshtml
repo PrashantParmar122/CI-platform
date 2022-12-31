@@ -1,0 +1,153 @@
+﻿@using CiPlatform.Models
+@model UpsertStoryVM
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CL-StoryUpsert</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="~/css/StoryShare.css" rel="stylesheet">
+    <link href="~/css/Navigation.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-1">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script data-main="dist/js/" src="js/require.min.js"></script>
+        @await Component.InvokeAsync("Navigation")
+        <hr>
+
+        <div class="main-body" style="display: block;">
+            <div class="common-font Share-your-story font-style-1 "> Share your story</div>
+            <form method="post" enctype="multipart/form-data" class="row g-3 common-font font-style-1" style="margin-bottom: 50px;">
+                <div class="col-md-4">
+                    <label asp-for="MissionId" class="form-label">Select Mission</label>
+                    <select asp-for="MissionId" asp-items="@Model.MissionList" id="mission" class="form-select input-box-style" style="box-shadow: none;">
+                    </select>
+                    <span asp-validation-for="MissionId" class="text-danger"></span>
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Title" class="form-label">My Story Title</label>
+                    <input type="text" asp-for="Title" class="form-control input-box-style" style="box-shadow: none;"
+                        placeholder="Enter story title">
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="date" class="form-label">Date</label>
+                    <input type="date" asp-for="date" class="form-control input-box-style" style="box-shadow: none;">
+                    <span asp-validation-for="date" class="text-danger"></span>
+                </div>
+                <div class="col-12 ">
+                    <label asp-for="Description" class="form-label">My Story</label>
+                    <textarea asp-for="Description" class="form-control input-box-style" placeholder="Share your story..."
+                        style="height: 200px; box-shadow: none;"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label asp-for="VideoURL" class="form-label">Enter Video URL</label>
+                    <input type="text" asp-for="VideoURL" class="form-control input-box-style" id="link" style="box-shadow: none;"
+                        placeholder="Enter your url">
+                    <span asp-validation-for="VideoURL" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Upload your Photos</label>
+                    <input type="file" name="images" id="uploadImage" multiple class="form-control input-box-style"
+                        accept="image/png, image/jpg, image/gif, image/jpeg"/>
+                </div> 
+                <div>
+                    @*<div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/Animal-welfare-&-save-birds-campaign-1.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/Plantation-and-Afforestation-programme-1.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/Nourish-the-Children-in--African-country-1.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/Animal-welfare-&-save-birds-campaign-1.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/Plantation-and-Afforestation-programme-1.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/Nourish-the-Children-in--African-country-1.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/Animal-welfare-&-save-birds-campaign-1.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/Plantation-and-Afforestation-programme-1.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="preview-img-block">
+                        <img class="preview-img" src="/Assets/Nourish-the-Children-in--African-country-1.png" alt="">
+                        <button class="close-btn-icon"><i class="bi bi-x"></i></button>
+                    </div>*@
+                </div>
+                <div style="display: flex;">
+                    <a asp-action="StoryList" asp-controller="Story" class="btn-style1 btn-style-grey common-font" style="text-decoration:none;">
+                        Cancel
+                    </a>
+                    <div style="display: flex;margin-left: auto;">
+                        @*<button class="btn-style1 btn-style-orange common-font" style="margin-right: 10px;">Save</button>*@
+                        <button type="submit" onclick="return validateInput()" class="btn-style1 btn-style-orange common-font">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+    <footer>
+        <a href="#" class="privacy-policy common-font">Privacy Policy</a>
+    </footer>
+   
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function validateInput() {
+            if (document.getElementById("uploadImage").value == "")
+            {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Upload Image',
+                    text: 'Atleast 1 Image should be uploaded while Adding new Story.....',
+                })
+                return false;
+            }
+            return true;
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+            crossorigin="anonymous"></script>
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>

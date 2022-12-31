@@ -1,0 +1,164 @@
+﻿.body-1 {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.main-body {
+    width: 75%;
+    left: 12.5%;
+    right: 12.5%;
+    position: relative;
+    margin-top: 16px;
+    display: flex;
+}
+
+.common-font {
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.preview-img-block {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.preview-img {
+    height: 110px;
+    width: 110px;
+    object-fit: cover;
+}
+
+.close-btn-icon {
+    color: white;
+    background-color: black;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
+
+.font-style-1 {
+    font-size: 15px;
+    font-weight: 300;
+    text-align: left;
+    color: #414141;
+}
+
+.Share-your-story {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.btn-style1 {
+    position: relative;
+    border-radius: 100px;
+    padding: 10px 30px;
+    font-size: 17px;
+    background-color: white;
+    font-weight: normal;
+    text-align: left;
+}
+
+.btn-style-orange {
+    border: 2px solid #f88634;
+    color: #f88634;
+}
+
+    .btn-style-orange:hover {
+        border: 2px solid black;
+        color: white;
+        background-color: #f88634;
+    }
+
+.btn-style-grey {
+    border: 2px solid #757575;
+    color: #757575;
+}
+
+    .btn-style-grey:hover {
+        border: 2px solid black;
+        color: #757575;
+        background-color: #e8e8e8;
+    }
+
+.privacy-policy {
+    position: relative;
+    width: 75%;
+    left: 12.5%;
+    right: 12.5;
+    height: 100px;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    color: #414141;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 1536px) {
+    .Share-your-story {
+        font-size: 37px;
+    }
+
+    .main-body {
+        width: 92%;
+        left: 4%;
+    }
+
+    .preview-img {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .Share-your-story {
+        font-size: 35px;
+    }
+
+    .preview-img {
+        height: 95px;
+        width: 95px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .Share-your-story {
+        font-size: 32px;
+    }
+
+    .preview-img {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .Share-your-story {
+        font-size: 29px;
+    }
+
+    .preview-img {
+        height: 70px;
+        width: 70px;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+
+    .main-body {
+        width: 96%;
+        left: 2%;
+    }
+
+    .preview-img {
+        height: 60px;
+        width: 60px;
+    }
+}

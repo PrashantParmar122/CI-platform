@@ -142,28 +142,8 @@
         </div>
         <div class="right-container">
 
-            <div style="display: flex;box-shadow: 3px 5.2px 10px 0 rgba(0, 0, 0, 0.08);padding:23px 40px 20px 20px;">
-                <div style="align-items: center;display: flex;">
-                    Thursday, November 3, 2022, 10:06 AM
-                </div>
-                <div style="margin-left: auto;">
-                    <a class="nav-link dropdown-toggle" id="profile-dropdown-icon"
-                       style="font-size: 15px;display: flex;align-items: center;padding: 0;color:#757575;" href="#"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/Assets/user-img.png" alt="Avatar"
-                             style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
-                        <div class="profile-name-in-nav">Evan Donohue</div>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Log out</a></li>
-                    </ul>
-                </div>
-            </div>
+            @await Component.InvokeAsync("AdminNavigation")
+
             <div style="padding: 0 40px 0 20px;width: 100%;position: relative;">
                 <form method="post" class="row g-4 font-style-1" enctype="multipart/form-data"
                       style="margin: 50px 0 130px 0;border: 1px solid #e8e8e8;position: relative;">
@@ -272,7 +252,16 @@
                             <span asp-validation-for="goalMission.GoalValue" class="text-danger"></span>
                         </div>
                    
-                    
+                    <div class="col-12">
+                        <label asp-for="Mission.Availability" class="form-label">Mission Availablity</label>
+                        <select id="ddlavailablity" asp-for="Mission.Availability" class="form-select input-box-style" style="box-shadow: none;" aria-label="Default select example">
+                            <option value="0" selected>Available time</option>
+                            <option value="1">Daily</option>
+                            <option value="2">Weekly</option>
+                            <option value="3">WeekEnd</option>
+                        </select>
+                        <span asp-validation-for="Mission.Availability" class="text-danger"></span>
+                    </div>
 
                     <div class="col-12">
                         <label class="form-label">Mission Images</label>
@@ -321,7 +310,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous">
     </script>

@@ -86,7 +86,7 @@
                         <input type="password" class="form-control" id="confirmpass" style="box-shadow: none;"
                                placeholder="Enter Same Password...">
                     </div>
-                    <button type="submit" class="btn form-control mt-2 mb-3 rounded-pill" onclick="return Validate()"
+                    <button type="submit" class="btn form-control mt-2 mb-3 rounded-pill" onclick="return validateInput()"
                             style="border: solid 2px #f88634;color:#f88634;border-radius: 50px;font-size: 17px;">
                         Change Password
                     </button>
@@ -99,21 +99,30 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        function Validate() {
-            var password = document.getElementById("pass").value;
-            var confirmPassword = document.getElementById("confirmpass").value;
-            if (password != confirmPassword) {
-                alert("Passwords do not match.");
+
+
+    
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function validateInput() {
+            if (document.getElementById("pass").value != document.getElementById("confirmpass").value) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Password Missmatch',
+                    text: 'Please Enter Same password.....!',
+                })
                 return false;
             }
             return true;
-        }
+        };
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+            crossorigin="anonymous"></script>
     @section Scripts{
         <partial name="_ValidationScriptsPartial" />
     }
-
     </body>
 
     </html>

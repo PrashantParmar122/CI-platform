@@ -10,5 +10,7 @@ namespace CiPlatform.Models
         public User User { get; set; }
         public IEnumerable<SelectListItem> CityList { get; set; }
         public IEnumerable<SelectListItem> CountryList { get; set; }
+        public IEnumerable<SelectListItem> SkillList { get; set; }
+        public List<String> Skillname { get; set; }
     }
 }

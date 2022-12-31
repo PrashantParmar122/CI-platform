@@ -1,0 +1,34 @@
+﻿@using CiPlatform.DataModels
+@model Mission
+
+<div class="modal fade" id="SuggestWorker" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="modalForm" method="post" action="SuggestCoWorker">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Suggest A Co-Worker</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <input asp-for="MissionId" hidden />
+                        <div class="col-12 mt-3">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="WorkerEmail" required="" placeholder="Enter Email" id="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                        Cancel
+                    </button>
+                    
+                    <button type="submit" class="Apply common-font" style="left: 0;transform: translate(0, 0);padding: 6px 16px;">
+                        Send
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

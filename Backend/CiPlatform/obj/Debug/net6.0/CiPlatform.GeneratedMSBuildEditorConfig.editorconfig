@@ -71,6 +71,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcmxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/CI/Design1/Backend/CiPlatform/Views/Admin/_AdminNavPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkbWluTmF2UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Home/MissionDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNaXNzaW9uRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/CI/Design1/Backend/CiPlatform/Views/Home/MissionListing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNaXNzaW9uTGlzdGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -83,12 +91,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQ2FyZFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/CI/Design1/Backend/CiPlatform/Views/Home/_CoWorkerPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQ29Xb3JrZXJQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/CI/Design1/Backend/CiPlatform/Views/Home/_NavigationPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTmF2aWdhdGlvblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CI/Design1/Backend/CiPlatform/Views/Home/_PaginationPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfUGFnaW5hdGlvblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/MyProfile/MyProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlQcm9maWxlXE15UHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/MyProfile/TimeSheet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlQcm9maWxlXFRpbWVTaGVldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/MyProfile/UpsertTimeSheet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlQcm9maWxlXFVwc2VydFRpbWVTaGVldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/MyProfile/_NavigationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlQcm9maWxlXF9OYXZpZ2F0aW9uUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Policy/Policy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9saWN5XFBvbGljeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Shared/Components/AdminNavigation/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQWRtaW5OYXZpZ2F0aW9uXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CI/Design1/Backend/CiPlatform/Views/Shared/Components/Navigation/Default.cshtml]
@@ -101,6 +137,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/CI/Design1/Backend/CiPlatform/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Story/StoryDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlcU3RvcnlEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Story/StoryList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlcU3RvcnlMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/Story/UpsertStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlcVXBzZXJ0U3RvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CI/Design1/Backend/CiPlatform/Views/User/Login.cshtml]

@@ -19,6 +19,8 @@ public partial class Story
 
     public DateTime? PublishedAt { get; set; }
 
+    public long? ViewCount { get; set; }
+
     public DateTime CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }

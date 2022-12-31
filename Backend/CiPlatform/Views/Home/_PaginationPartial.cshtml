@@ -3,14 +3,45 @@
 
 <div class="center">
     <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">&lsaquo;</a>
-        <a href="#" class="active">@Model</a>
-        <a href="#">@Model</a>
-        <a href="#">@Model</a>
-        <a href="#">@Model</a>
-        <a href="#">@Model</a>
-        <a href="#">&rsaquo;</a>
-        <a href="#">&raquo;</a>
+        
+        <a href="1">&laquo;</a>
+        @{
+            var Pageindex = 1; 
+            long back = 1;
+            if (Pageindex > 1)
+                back = Pageindex - 1;
+        }
+        <a asp-action="Cmspage" asp-route-pagination.Pageindex="@back">
+            &lsaquo;
+        </a>
+
+        @{
+            long j = Model;
+            long last = 1, next = 1;
+            long Pageshow = j % 12 == 0 ? j / 12 : (j / 12) + 1;
+            Pageshow = Pageshow > 5 ? 5 : Pageshow;
+        }
+        
+        @for (long i = 1; i <= Pageshow ; i++)
+        {
+            if (i == Pageindex)
+            {
+                <a href="#" class="active">@i</a>
+                next = i + 1;
+            }
+            else
+            {
+                <a asp-action="Cmspage" asp-route-pagination.Pageindex="@i">@i</a>
+            }                
+            last = i;
+        }
+
+        @if (next > last)
+        {
+            next--;
+        }
+        <a asp-action="Cmspage" asp-route-pagination.Pageindex="@next">&rsaquo;</a>
+        <a href="@last">&raquo;</a>
+
     </div>
 </div>

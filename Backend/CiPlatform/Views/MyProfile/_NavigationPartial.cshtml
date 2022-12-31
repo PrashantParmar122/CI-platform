@@ -1,0 +1,59 @@
+﻿<div class="nav-container">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid" style="padding:0px">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navigation-1" aria-controls="navigation-1" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+                 id="navigation-1" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="navbar-collapse">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link Explore-Stories-Policy common-font" href="#">Stories</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" href="#"
+                                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Policy
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Privacy</a></li>
+                                    <li><a class="dropdown-item" href="#">Policy</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Cookies</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+    <div class="nav-item dropdown" style="display: flex; align-items :center;margin-left: auto;">
+        <a class="nav-link dropdown-toggle Explore-Stories-Policy common-font" id="profile-dropdown-icon"
+           style="font-size: 15px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/Assets/user-img.png" alt="Avatar"
+                 style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+            <div class="profile-name-in-nav">Evan Donohue</div>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            <li><a class="dropdown-item" href="#">Time Sheet</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" asp-controller="User" asp-action="LogOut">Log Out</a></li>
+        </ul>
+    </div>
+</div>

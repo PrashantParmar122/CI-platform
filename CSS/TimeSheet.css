@@ -73,6 +73,8 @@ tr {
 
 .Edit {
     color: #f88634;
+    border: 0;
+    background-color: #fff;
 }
 
 .Delete {

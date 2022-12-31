@@ -11,14 +11,29 @@
     <title>CI-Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link href="~/css/Style.css" rel="stylesheet">
 </head>
 
 <body>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script data-main="dist/js/" src="js/require.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    @if (TempData["Error"] != null)
+    {
+        <script>
+            toastr.error('@TempData["Error"]');
+        </script>
+    }
+    @if (TempData["Done"] != null)
+    {
+        <script>
+            toastr.success('@TempData["Done"]');
+        </script>
+    }
 
     <div class="body-1">
         <div class="Left-Container">
@@ -105,6 +120,12 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous">
+    </script>
+
     @section Scripts{
         <partial name="_ValidationScriptsPartial" />
     }

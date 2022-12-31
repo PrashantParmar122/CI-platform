@@ -12,9 +12,7 @@
     <title>CL-Registration</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-            crossorigin="anonymous"></script>
+    
     <link href="~/css/Registration.css" rel="stylesheet">
 </head>
 
@@ -112,59 +110,42 @@
 
                     <div class="col-12 col-md-6 col-lg-4 col-xl-12 mb-2">
                         <label for="Confirm-Password" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirm_pass"
-                               style="display:inline;box-shadow: none;" placeholder="Re-Enter Password..."
-                               onkeyup="validate_password()">
+                        <input type="password" class="form-control" id="confirmpass"
+                               style="display:inline;box-shadow: none;" placeholder="Re-Enter Password...">
                     </div>
-                    <span class="col-12" id="wrong_pass_alert" style="margin:0;position:absolute;"></span>
 
-
-                    <button type="submit" class="btn form-control mb-3 mt-3 rounded-pill" onclick="wrong_pass_alert()"
+                    <button type="submit" class="btn form-control mb-3 mt-3 rounded-pill" onclick="return validateInput()"
                             style="border: solid 2px #f88634;color:#f88634;border-radius: 50px;font-size: 17px;">
                         Register
                     </button>
                 </form>
             </div>
-            <div class="Privacy-Policy">
-                <a class="text" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
-            </div>
         </div>
     </div>
 
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function validate_password() {
-
-            var pass = document.getElementById('pass').value;
-            var confirm_pass = document.getElementById('confirm_pass').value;
-            if (pass != confirm_pass) {
-                document.getElementById('wrong_pass_alert').style.color = 'red';
-                document.getElementById('wrong_pass_alert').innerHTML
-                    = '☒ Use same password';
-                document.getElementById('create').disabled = true;
-                document.getElementById('create').style.opacity = (0.4);
-            } else {
-                document.getElementById('wrong_pass_alert').style.color = 'green';
-                document.getElementById('wrong_pass_alert').innerHTML =
-                    '🗹 Password Matched';
-                document.getElementById('create').disabled = false;
-                document.getElementById('create').style.opacity = (1);
+        function validateInput() {
+            if (document.getElementById("pass").value != document.getElementById("confirmpass").value) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Password Missmatch',
+                    text: 'Please Enter Same password.....!',
+                })
+                return false;
             }
-        }
-
-        function wrong_pass_alert() {
-            if (document.getElementById('pass').value != "" &&
-                document.getElementById('confirm_pass').value != "") {
-                alert("Your response is submitted");
-            } else {
-                alert("Please fill all the fields");
-            }
-        }
+            return true;
+        };
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+            crossorigin="anonymous"></script>
     @section Scripts{
         <partial name="_ValidationScriptsPartial" />
     }
 
-</body>
+    </body>
 
-</html>
+    </html>
 

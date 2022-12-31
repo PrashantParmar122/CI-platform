@@ -1,0 +1,36 @@
+﻿.main-slider {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    width: 70%;
+    height: 500px;
+    box-shadow: 0 0 3px grey;
+    position: relative;
+}
+
+.sliderNav {
+    position: relative;
+    height: 120px;
+    width: 100%;
+    overflow: hidden;
+    top: 100%;
+    background: rgb(255, 255, 255);
+    padding: 10px 0;
+}
+
+    .sliderNav button {
+        z-index: 500;
+        position: absolute;
+        height: 100px;
+        opacity: 0.6;
+        background: black;
+        color: white;
+    }
+
+.slide {
+    position: absolute;
+    height: 100px;
+    width: 24%;
+    transition: 1s;
+}

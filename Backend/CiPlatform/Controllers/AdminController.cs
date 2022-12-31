@@ -91,7 +91,8 @@ namespace CiPlatform.Controllers
             userVM.User = _db.Users.FirstOrDefault(u => u.UserId.Equals(id));
             if(userVM.User == null)
             {
-                return NotFound();
+                TempData["Error"] = "User Not Exist";
+                return RedirectToAction("Userlist","Admin");
             }
             var Listofcity = _db.Cities.Where(i => i.CountryId == userVM.User.CountryId).AsQueryable().ToList();
 
@@ -128,11 +129,12 @@ namespace CiPlatform.Controllers
                     userVM.User.CreatedAt = DateTime.Now;
                     _db.Users.Add(userVM.User);
                     _db.SaveChanges();
+                    TempData["Done"] = "New User Added Successfully";
                 }
                 else
                 {
                     User obj = new User();
-                    obj = _db.Users.FirstOrDefault(u => u.UserId.Equals(userVM.User.UserId));
+                    obj = _db.Users.FirstOrDefault(u => u.UserId == userVM.User.UserId);
                     if (obj != null)
                     {
                         obj.FirstName = userVM.User.FirstName;
@@ -163,12 +165,17 @@ namespace CiPlatform.Controllers
                         obj.UpdatedAt = DateTime.Now;
                         _db.Users.Update(obj);
                         _db.SaveChanges();
+                        TempData["Done"] = "User Updated Successfully";
                     }
                 }
-                return RedirectToAction("Userlist");
+                return RedirectToAction("Userlist","Admin");
             }
             else
+            {
+                TempData["Error"] = "User Not Exist";
                 return NotFound();
+            }
+                
         }
         #endregion
 
@@ -178,15 +185,20 @@ namespace CiPlatform.Controllers
         {
             if (id == null)
             {
-                return BadRequest("");
+                TempData["Error"] = "Something Went Wrong";
+                return RedirectToAction("Userlist","Admin");
             }
             var user = _db.Users.FirstOrDefault(g => g.UserId == id);
             if (user == null)
-                return BadRequest("User not find");
+            {
+                TempData["Error"] = "User Not Found";
+                return RedirectToAction("Userlist", "Admin");
+            }
             user.DeletedAt = DateTime.Now;
             user.Status = 0;
             _db.Users.Update(user);
             _db.SaveChanges();
+            TempData["Error"] = "User Deleted Successfully";
             return RedirectToAction("Userlist");
         }
         #endregion
@@ -229,7 +241,8 @@ namespace CiPlatform.Controllers
             var banner = _db.Banners.FirstOrDefault(u => u.BannerId.Equals(id));
             if (banner == null)
             {
-                return NotFound();
+                TempData["Error"] = "Banner Not Exist";
+                return RedirectToAction("Banner","Admin");
             }
             return View(banner);
         }
@@ -736,6 +749,7 @@ namespace CiPlatform.Controllers
                         obj.OrganizationDetail = missionVM.Mission.OrganizationDetail;
                         obj.TotalSeat = missionVM.Mission.TotalSeat;
                         obj.ShortDescription = missionVM.Mission.ShortDescription;
+                        obj.Availability = missionVM.Mission.Availability;
 
 
                         #region Goal Mission & time Mission
@@ -853,6 +867,7 @@ namespace CiPlatform.Controllers
                         missionMedium.MediaPath = @"\Images\MissionPhotos\" + fileName + extenstion;
                         missionMedium.MediaName = fileName;
                         missionMedium.MediaType = extenstion;
+                        missionMedium.Status = 1;
                         missionMedium.CreatedAt = DateTime.Now;
                         _db.MissionMedia.Add(missionMedium);
                         _db.SaveChanges();
@@ -869,6 +884,7 @@ namespace CiPlatform.Controllers
                         string fileName = Guid.NewGuid().ToString();
                         var uploads = Path.Combine(webRootPath, @"Documents\Mission");
                         var extenstion = Path.GetExtension(doc.FileName);
+                        missiondoc.DocumentType = extenstion;
 
                         using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + extenstion), FileMode.Create))
                         {
@@ -876,8 +892,7 @@ namespace CiPlatform.Controllers
                         }
                         missiondoc.MissionId = missionVM.Mission.MissionId;
                         missiondoc.DocumentPath = @"\Documents\Mission\" + fileName + extenstion;
-                        missiondoc.DocumentName = fileName;
-                        missiondoc.DocumentType = extenstion;
+                        missiondoc.DocumentName = doc.FileName;
                         missiondoc.CreatedAt = DateTime.Now;
                         _db.MissionDocuments.Add(missiondoc);
                         _db.SaveChanges();
@@ -923,7 +938,7 @@ namespace CiPlatform.Controllers
             || c.UserId.ToString().Contains(obj.pagination.Keyword)
             || c.User.FirstName.ToLower().Contains(obj.pagination.Keyword)
             || c.Mission.Title.ToLower().Contains(obj.pagination.Keyword))
-            && c.ApprovalStatus == 0).AsQueryable();
+            && c.DeletedAt == null).AsQueryable();
             long total = query.Count();
 
             var list = query.Skip((int)((obj.pagination.Pageindex - 1) * obj.pagination.Pagesize)).Take((int)obj.pagination.Pagesize).ToList();
@@ -952,10 +967,10 @@ namespace CiPlatform.Controllers
             {
                 return NotFound();
             }
-            if(isapproved)
+            if (isapproved)
                 application.ApprovalStatus = 1;
             else
-                application.ApprovalStatus = 0;
+                application.DeletedAt = DateTime.Now;
             _db.Update(application);
             _db.SaveChanges();
             return RedirectToAction("Missionapp");

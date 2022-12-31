@@ -1,0 +1,32 @@
+﻿@using CiPlatform.DataModels
+@model Admin
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script data-main="dist/js/" src="js/require.min.js"></script>
+<script>
+    setInterval(obj , 1000);
+    function obj() { time.innerHTML = new Date(); }
+</script>
+
+<div style="display: flex;box-shadow: 3px 5.2px 10px 0 rgba(0, 0, 0, 0.08);padding:23px 40px 20px 20px;">
+    <div id="time" style="align-items: center;display: flex;">
+        Thursday, November 3, 2022, 10:06 AM
+    </div>
+    <div style="margin-left: auto;">
+        <a class="nav-link dropdown-toggle" id="profile-dropdown-icon"
+           style="font-size: 15px;display: flex;align-items: center;padding: 0;color:#757575;" href="#"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/Assets/user-img.png" alt="Avatar"
+                 style="width:40px;height: 40px; border-radius:100%;object-fit:cover ;margin-right: 12px;">
+            <div class="profile-name-in-nav">ko</div>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" asp-action="LogOut" asp-controller="User" >Log Out</a></li>
+        </ul>
+    </div>
+</div>

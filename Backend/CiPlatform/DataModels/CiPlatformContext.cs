@@ -640,6 +640,9 @@ public partial class CiPlatformContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("updated_at");
             entity.Property(e => e.UserId).HasColumnName("user_id");
+            entity.Property(e => e.ViewCount)
+                .HasDefaultValueSql("((0))")
+                .HasColumnName("view_count");
 
             entity.HasOne(d => d.Mission).WithMany(p => p.Stories)
                 .HasForeignKey(d => d.MissionId)
@@ -717,12 +720,13 @@ public partial class CiPlatformContext : DbContext
             entity.Property(e => e.DeletedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("deleted_at");
+            entity.Property(e => e.Hour).HasColumnName("hour");
+            entity.Property(e => e.Minutes).HasColumnName("minutes");
             entity.Property(e => e.MissionId).HasColumnName("mission_id");
             entity.Property(e => e.Notes)
                 .HasColumnType("text")
                 .HasColumnName("notes");
             entity.Property(e => e.Status).HasColumnName("status");
-            entity.Property(e => e.Time).HasColumnName("time");
             entity.Property(e => e.UpdatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("updated_at");

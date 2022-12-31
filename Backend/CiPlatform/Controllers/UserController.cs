@@ -26,12 +26,13 @@ namespace CiPlatform.Controllers
         [HttpPost]
         public IActionResult Login(LoginPageViewModel obj)
         {
-            var user = _db.Admins.FirstOrDefault(u =>u.Email.Equals(obj.Email.ToLower()) && u.Password.Equals(obj.Password));
-            if(user != null)
+            var user = _db.Admins.FirstOrDefault(u => u.Email.Equals(obj.Email.ToLower()) && u.Password.Equals(obj.Password));
+            if (user != null)
             {
                 HttpContext.Session.SetString("UserId", user.AdminId.ToString());
                 HttpContext.Session.SetString("UserName", user.FirstName);
-                return RedirectToAction("Userlist" , "Admin");
+                TempData["Done"] = "Login Successfully";
+                return RedirectToAction("Userlist", "Admin");
             }
             var user1 = _db.Users.FirstOrDefault(u => u.Email.Equals(obj.Email.ToLower()) && u.Password.Equals(obj.Password));
 
@@ -39,28 +40,36 @@ namespace CiPlatform.Controllers
             {
                 if (user1.Status == 0)
                 {
-                    TempData["ErrorMes"] = "This user is deactivated";
+                    TempData["Error"] = "This user is deactivated";
                     return RedirectToAction("Login", "User");
                 }
                 HttpContext.Session.SetString("UserId", user1.UserId.ToString());
                 HttpContext.Session.SetString("UserName", user1.FirstName);
+                TempData["Done"] = "Login Successfully";
                 return RedirectToAction("MissionListing", "Home");
-            }          
+            }
             else
+            {
+                TempData["Error"] = "InValid User Id & Password.";
                 return RedirectToAction("Login", "User");
+            }
+
         }
         #endregion
 
 
+
+        #region LogOut
         [CheckSession]
         public IActionResult LogOut()
         {
             HttpContext.Session.SetString("UserId", "");
             HttpContext.Session.SetString("UserName", "");
-            return RedirectToAction("Login","User");
+            return RedirectToAction("Login", "User");
         }
-              
-        
+        #endregion
+
+
 
         #region Register
         public IActionResult Register()
@@ -87,10 +96,12 @@ namespace CiPlatform.Controllers
                 user.Status = 1;
                 _db.Users.Add(user);
                 _db.SaveChanges();
+                TempData["Done"] = "Registered Succussfully !";
                 return RedirectToAction("Login", "User");
             }
             else
             {
+                TempData["Error"] = "Please Fill the Data";
                 return RedirectToAction("Register", "User");
             }
         }
@@ -114,8 +125,8 @@ namespace CiPlatform.Controllers
 
             if (user == null)
             {
-                // Error User not found
-                return RedirectToAction("Login" , "User");
+                TempData["Error"] = "User Not Exist!";
+                return RedirectToAction("Lost", "User");
             }
 
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -134,7 +145,7 @@ namespace CiPlatform.Controllers
             _db.PasswordResets.Add(entry);
             _db.SaveChanges();
 
-            var mailBody = "<h1>Click Below link to reset your password</h1><br><h2><a href='" + "https://localhost:44307/User/Reset?Token=" + tokenString + "&Email=" +obj.Email+ "'>Reset Password</a></h2>";
+            var mailBody = "<h1>Click Below link to reset your password</h1><br><h2><a href='" + "https://localhost:44307/User/Reset?Token=" + tokenString + "&Email=" + obj.Email + "'>Reset Password</a></h2><br><p>Ignore if It is not done you.</p>";
 
             // Create Email
             var email = new MimeMessage();
@@ -150,7 +161,7 @@ namespace CiPlatform.Controllers
             smtp.Send(email);
             smtp.Disconnect(true);
 
-            // Check your Email to Reset password.....
+            TempData["Done"] = "Check your Mail for Password Link.";
             return RedirectToAction("Login", "User");
         }
         #endregion
@@ -159,8 +170,13 @@ namespace CiPlatform.Controllers
 
         #region Reset
         [HttpGet]
-        public IActionResult Reset(String Token , String Email )
+        public IActionResult Reset(String Token, String Email)
         {
+            if (Token == null || Email == null)
+            {
+                TempData["Error"] = "Invalid Userid or Token !";
+                return RedirectToAction("Lost", "User");
+            }
             ResetPasswordVM model = new ResetPasswordVM();
             model.banner = _db.Banners.Where(u => u.DeletedAt == null).AsQueryable().ToList();
             model.Token = Token;
@@ -169,39 +185,39 @@ namespace CiPlatform.Controllers
         }
 
         [HttpPost]
-        public IActionResult Reset(ResetPasswordVM model) 
+        public IActionResult Reset(ResetPasswordVM model)
         {
-            if(model.Token != null && model.Email != null)
+            var resetPassUser = _db.PasswordResets.OrderByDescending(x => x.CreatedAt).FirstOrDefault(x => x.Token == model.Token && x.Email == model.Email);
+            if (resetPassUser != null)
             {
-                var resetPassUser = _db.PasswordResets.OrderByDescending(x => x.CreatedAt).FirstOrDefault(x => x.Token == model.Token && x.Email == model.Email);
-
                 DateTime currentTime = DateTime.Now;
                 TimeSpan diffrenceTime = (TimeSpan)(currentTime - resetPassUser.CreatedAt);
                 if (diffrenceTime.TotalHours <= 1.0)
                 {
                     var user = _db.Users.FirstOrDefault(x => x.Email.Equals(resetPassUser.Email) && x.DeletedAt == null);
-                    if(user != null)
+                    if (user != null)
                     {
                         user.Password = model.Password;
                         _db.Users.Update(user);
                         _db.SaveChanges();
                     }
+                    TempData["Done"] = "Password Changed SuccessFully !";
                     return RedirectToAction("Login", "User");
 
                 }
                 else
                 {
-                    // Token Expire messages
-                    return RedirectToAction("Login", "User");
+                    TempData["Error"] = "Token Expired! Please Generate New !";
+                    return RedirectToAction("Lost", "User");
                 }
             }
             else
             {
-                return View();
+                TempData["Error"] = "Something Went Wrong!";
+                return RedirectToAction("Lost", "User");
             }
-            
         }
         #endregion
-    
+
     }
 }

@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CiPlatformContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(10);
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
 });
 
 var app = builder.Build();

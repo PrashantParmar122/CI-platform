@@ -1,15 +1,59 @@
-﻿@using CiPlatform.Models
+﻿@using CiPlatform.DataModels
 @model List<MissionCard>
 
+<script src="~/js/site.js" asp-append-version="true"></script>
+<link href="~/css/MissionListing.css" rel="stylesheet">
 <script>
-    function AF(MissionId, ismissionfav) {
+    function MissionFav(MissionId, ismissionfav) {
         $.ajax({
             url: '/Home/addtofav',
             type: 'POST',
-            dataType: 'string',
+            dataType: 'text',
             data: { id: MissionId, alreadyfav: ismissionfav },
+            success: function () {
+                filtration();
+            },
+            error: function () {
+                console.log('Error in Mission add to fav');
+            }
+        });
+    }
+
+    function MApplication(MissionId) {
+        $.ajax({
+            url: '/Home/ApplyMission',
+            type: 'POST',
+            dataType: 'text',
+            data: { id: MissionId },
+            success: function () {
+                alert('Thank you for applied in mission.');
+                filtration();
+            },
+            error: function () {
+                console.log('error');
+            }
+        });
+    }
+
+    function filtration() {
+        $.ajax({
+            url: '/Home/GetMission',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                countryid: $(ddlcountry).val(),
+                cityid: $(ddlcity).val(),
+                themeid: $(ddltheme).val(),
+                skillid: $(ddlskill).val(),
+                sort: $(ddlsort).val(),
+                keyword: $(keyword).val()
+            },
             success: function (d) {
-                alert(d);
+                $("#missioncardlist").empty();
+                $("#missioncardlist").html(d);
+            },
+            error: function () {
+                alert('Error');
             }
         });
     }
@@ -24,37 +68,38 @@
                     <img src=@card.MediaPath class="box-img" alt="Can't Render photo">
                     <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>@card.CityName</button>
 
-
-                    @if (@card.ismissionfav)
+                    @if (card.ismissionfav)
                     {
-                        <button onclick="AF( @card.MissionId,'true')" class="img-icon">
+                        <button onclick="MissionFav( @card.MissionId,'true')" class="img-icon">
                             <i class="bi bi-heart-fill" style="color:#ff00b7;"></i>
                         </button>
-                        // onclick="location.href='@Url.Action("addtofav", "Home", new { id = card.MissionId , alreadyfav = card.ismissionfav})'"
-                        //      @card.MissionId,@card.ismissionfav
                     }
                     else
                     {
-                        <button onclick="AF( @card.MissionId,'false')" class="img-icon">
+                        <button onclick="MissionFav( @card.MissionId,'false')" class="img-icon">
                             <i class="bi bi-heart-fill"></i>
                         </button>
                     }
+                    @*// onclick="location.href='@Url.Action("addtofav", "Home", new { id = card.MissionId , alreadyfav = card.ismissionfav})'"
+                //      @card.MissionId,@card.ismissionfav*@
+                    @*
+                <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>*@
 
-                    <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>
+                    <button type="button" data-toggle="ajax-modal" data-target="#SuggestWorker" style=" bottom:10px;"
+                        class="img-icon" data-url="@Url.Action("SuggestCoWorker", "Home" , new{id = @card.MissionId})">
+                        <i class="bi bi-person-plus"></i>
+                    </button>
+
+                    <div id="PlaceHolderHere"></div>
+
                     <div class="img-text common-font">@card.ThemeName</div>
                 </div>
 
-                <div class="card-heading">@card.MissionTitle</div>
+                <div asp-controller="Home" asp-action="MissionDetail" asp-route-id="@card.MissionId" style="text-decoration:none;" class="card-heading">@card.MissionTitle</div>
                 <div class="card-body">@card.ShortDescription</div>
                 <div class="star-box">
                     <div class="star-name common-font">@card.OrganizationName</div>
-                    <div class="star-rate">
-                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                        <i class="bi bi-star-fill star" style="color:#f8d441"></i>
-                        <i class="bi bi-star-fill star"></i>
-                        <i class="bi bi-star-fill star"></i>
-                    </div>
+                    <div class="Stars" style="--rating: @card.avgRate;" aria-label="Rating of this product is @card.avgRate out of 5."></div>
                 </div>
 
                 @if (card.MissionType == 2)
@@ -67,7 +112,7 @@
                             <div style="display:flex;width:30%;">
                                 <div><i class="bi bi-person deadline-icon"></i></div>
                                 <div class="Deadline">
-                                    @card.TotalSeat<div class="text-style-1">Seats left</div>
+                                    @card.Seatleft<div class="text-style-1">Seats left</div>
                                 </div>
                             </div>
                             <div style="width:70%;display: block;">
@@ -92,7 +137,7 @@
                             <div style="display:flex;width:50%;">
                                 <div><i class="bi bi-person deadline-icon"></i></div>
                                 <div class="Deadline">
-                                    @card.TotalSeat <div class="text-style-1">Already volunteered</div>
+                                    @card.Seatleft <div class="text-style-1">Seats Left</div>
                                 </div>
                             </div>
                             <div style="display:flex; margin-left:30px;width:50%">
@@ -105,12 +150,20 @@
                     </div>
                 }
                 <div class="Apply-btn">
-                    <button class="Apply common-font">
-                        Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
-                    </button>
+                    @if (card.ismissionapplied)
+                    {
+                        <a asp-action="MissionDetail" asp-controller="Home" asp-route-id="@card.MissionId" class="Apply common-font" style="text-decoration:none;">
+                            View Details<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <button onclick="MApplication( @card.MissionId)" class="Apply common-font">
+                            Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
+                        </button>
+                    }
                 </div>
             </div>
         </div>
     }
-
 </div>

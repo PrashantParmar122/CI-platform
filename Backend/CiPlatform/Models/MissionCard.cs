@@ -61,6 +61,9 @@ namespace CiPlatform.Models
         public string? MediaType { get; set; }
         public string? MediaPath { get; set; }
         public bool ismissionfav { get; set; }
+        public bool ismissionapplied { get; set; }
         public DateTime CreatedAt { get; set; }
+        public long? Seatleft { get; set; }
+        public float avgRate { get; set; }
     }
 }
