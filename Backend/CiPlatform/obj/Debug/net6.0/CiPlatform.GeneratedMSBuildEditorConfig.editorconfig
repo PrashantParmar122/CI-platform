@@ -83,20 +83,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNaXNzaW9uTGlzdGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/CI/Design1/Backend/CiPlatform/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/CI/Design1/Backend/CiPlatform/Views/Home/_CardPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQ2FyZFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CI/Design1/Backend/CiPlatform/Views/Home/_CoWorkerPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQ29Xb3JrZXJQYXJ0aWFsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/CI/Design1/Backend/CiPlatform/Views/Home/_NavigationPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTmF2aWdhdGlvblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CI/Design1/Backend/CiPlatform/Views/Home/_PaginationPartial.cshtml]
@@ -165,6 +157,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/CI/Design1/Backend/CiPlatform/Views/User/Reset.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZXNldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CI/Design1/Backend/CiPlatform/Views/User/_SliderPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxfU2xpZGVyUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CI/Design1/Backend/CiPlatform/Views/_ViewImports.cshtml]

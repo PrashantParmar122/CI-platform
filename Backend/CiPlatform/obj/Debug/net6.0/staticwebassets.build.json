@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vzB1rONvXTcSkceuAZmalfuhB6IqGSTfHVoX3UY7xak=",
+  "Hash": "OjxAehBlSf4BblWp2qWSq1NOF3JPr+rHSxlzyLT/tIo=",
   "Source": "CiPlatform",
   "BasePath": "_content/CiPlatform",
   "Mode": "Default",
@@ -2786,6 +2786,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Story\\9.png"
+    },
+    {
+      "Identity": "D:\\CI\\Design1\\Backend\\CiPlatform\\wwwroot\\js\\BootStrapBundle.js",
+      "SourceId": "CiPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CI\\Design1\\Backend\\CiPlatform\\wwwroot\\",
+      "BasePath": "_content/CiPlatform",
+      "RelativePath": "js/BootStrapBundle.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\BootStrapBundle.js"
     },
     {
       "Identity": "D:\\CI\\Design1\\Backend\\CiPlatform\\wwwroot\\js\\dropdowncheckbox.js",

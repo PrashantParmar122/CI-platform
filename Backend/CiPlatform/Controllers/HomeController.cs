@@ -3,15 +3,9 @@ using CiPlatform.Models;
 using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 using MimeKit.Text;
 using MimeKit;
-using Org.BouncyCastle.Bcpg;
-using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Xml.Schema;
 using MailKit.Net.Smtp;
 
 namespace CiPlatform.Controllers
@@ -28,7 +22,7 @@ namespace CiPlatform.Controllers
 
         [CheckSession]
         [HttpGet]
-        public IActionResult MissionListing()
+        public IActionResult MissionListing(int pageIndex = 1)
         {
             MissionListingVM missionListingVM = new MissionListingVM();
             missionListingVM.CountryList = _db.Countries.Select(i => new SelectListItem
@@ -184,6 +178,7 @@ namespace CiPlatform.Controllers
                     obj.DeletedAt = DateTime.Now;
                     _db.FavouriteMissions.Update(obj);
                     _db.SaveChanges();
+                    // TempData["Done"] = "Mission Removed From Favourite";
                 }
             }
             else
@@ -195,6 +190,7 @@ namespace CiPlatform.Controllers
                 favouriteMission.CreatedAt = DateTime.Now;
                 _db.Add(favouriteMission);
                 _db.SaveChanges();
+                // TempData["Done"] = "Mission Added to Favourite";
             }
             return Ok("Done");
         }
@@ -209,6 +205,7 @@ namespace CiPlatform.Controllers
             if (application != null)
             {
                 // application in pending
+                TempData["Error"] = "Wait some days for Approval !";
                 return Ok("You already applied for mission! wait some days to apporove");
             }
             else
@@ -222,7 +219,7 @@ namespace CiPlatform.Controllers
                 application1.ApprovalStatus = 0;
                 _db.MissionApplications.Add(application1);
                 _db.SaveChanges();
-
+                TempData["Done"] = "Applied Success fully";
                 return Ok("You Application success fully sended to admin........");
             }
         }
@@ -383,12 +380,7 @@ namespace CiPlatform.Controllers
 
             return RedirectToAction("MissionListing", "Home");
         }
-        #endregion Suggest CoWorker
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        #endregion
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

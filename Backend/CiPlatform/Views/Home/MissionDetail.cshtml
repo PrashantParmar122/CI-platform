@@ -109,29 +109,29 @@
         <div class="photo-description-body">
             <div class=" photo">
                 <div>
-                <display>
-                    <img id="demo" style="height: 420px; width: 100%;object-fit: cover;" src="@Model.MissionImages[0]" alt="">
-                </display>
-                <div class="sliderNav">
-                    @foreach (var item in Model.MissionImages)
-                    {
-                        <div><img class="slide" src="@item" alt="can't rendor"></div>
-                    }
-                    <button onclick="goPrev()">
-                        <i class="bi bi-chevron-left"></i>
-                    </button>
-                    <button onclick="goNext()" style="right:0">
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-                </div>
+                    <display>
+                        <img id="demo" style="height: 420px; width: 100%;object-fit: cover;" src="@Model.MissionImages[0]" alt="">
+                    </display>
+                    <div class="sliderNav">
+                        @foreach (var item in Model.MissionImages)
+                        {
+                            <div><img class="slide" src="@item" alt="can't rendor"></div>
+                        }
+                        <button onclick="goPrev()">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <button onclick="goNext()" style="right:0">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
 
-                <script>
-                    $("img.slide").on('click', function (event) {
-                        $('.slide.active').removeClass('active');
-                        $(this).addClass("active");
-                        setImage();
-                    });
-                </script>
+                    <script>
+                        $("img.slide").on('click', function (event) {
+                            $('.slide.active').removeClass('active');
+                            $(this).addClass("active");
+                            setImage();
+                        });
+                    </script>
                 </div>
             </div>
             <div class="description  ">
@@ -309,28 +309,27 @@
                             proident,
                             sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
-                        @if (Model.missionDocuments.Count > 0)
-                        {
-                            <h4 class="common-font" style="font-weight: normal;color: #414141;">Documents</h4>
-                            <div class="documents">
-                                @foreach (var item in Model.missionDocuments)
-                                {
-                                    <a class="download-btn" href="@Url.Content(@item.DocumentPath)" target="_blank" style="text-decoration: none;color: #414141;">
-                                        <i class="bi bi-filetype-@item.DocumentType?.Remove(0,1)" style="margin-right: 9px;"></i>
-                                        <div class="common-font info-details" style="line-height: 1.6;width: max-content;">
-                                            @item.DocumentName
-                                        </div>
-                                    </a>
-                                }
-                            </div>
-                        }
-
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         @Model.missioncardDetail.OrganizationDetail
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Comments...........</div>
                 </div>
+                @if (Model.missionDocuments.Count > 0)
+                {
+                    <h4 class="common-font" style="font-weight: normal;color: #414141;">Documents</h4>
+                    <div class="documents">
+                        @foreach (var item in Model.missionDocuments)
+                        {
+                            <a class="download-btn" href="@Url.Content(@item.DocumentPath)" target="_blank" style="text-decoration: none;color: #414141;">
+                                <i class="bi bi-filetype-@item.DocumentType?.Remove(0,1)" style="margin-right: 9px;"></i>
+                                <div class="common-font info-details" style="line-height: 1.6;width: max-content;">
+                                    @item.DocumentName
+                                </div>
+                            </a>
+                        }
+                    </div>
+                }
             </div>
 
             <div class="Info-Volunteers-Container">
@@ -386,9 +385,146 @@
 
         <div class="Related-Missions common-font">Related Mission</div>
 
-        <div id="missioncardlist">
+        @*<div id="missioncardlist">
             @{
                 Html.RenderPartial("_CardPartial", Model.missionCards);
+            }
+        </div>*@
+
+        <link href="~/css/MissionListing.css" rel="stylesheet">
+        <script>
+            function MissionFav(MissionId, ismissionfav) {
+                $.ajax({
+                    url: '/Home/addtofav',
+                    type: 'POST',
+                    dataType: 'text',
+                    data: { id: MissionId, alreadyfav: ismissionfav },
+                    success: function () {
+                        location.reload();
+                        console.log('Done for add/ Remove mission..!!');
+                    },
+                    error: function () {
+                        console.log('Error in Mission add to fav');
+                    }
+                });
+            }
+
+            function MApplication(MissionId) {
+                $.ajax({
+                    url: '/Home/ApplyMission',
+                    type: 'POST',
+                    dataType: 'text',
+                    data: { id: MissionId },
+                    success: function () {
+                        location.reload();
+                        alert('Thank you for applied in mission.');
+                    },
+                    error: function () {
+                        console.log('error');
+                    }
+                });
+            }
+
+        </script>
+        <style>
+            .Fav_Mission {
+                color: #ff00b7;
+            }
+        </style>
+
+        <div class="Card row g-3">
+            @foreach (var card in Model.missionCards)
+            {
+                <div class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src=@card.MediaPath class="box-img" alt="Can't Render photo">
+                            <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>@card.CityName</button>
+
+                            <button onclick="MissionFav( @card.MissionId,@(card.ismissionfav ?"true":"false") )" id="Heart_btn" class="img-icon Fav1">
+                                <i class="bi bi-heart-fill @(card.ismissionfav?"Fav_Mission":"")"></i>
+                            </button>
+                            
+                            <button type="button" data-toggle="ajax-modal" data-target="#SuggestWorker" style=" bottom:10px;"
+                                class="img-icon" data-url="@Url.Action("SuggestCoWorker", "Home" , new{id = @card.MissionId})">
+                                <i class="bi bi-person-plus"></i>
+                            </button>
+
+                            <div id="PlaceHolderHere"></div>
+
+                            <div class="img-text common-font">@card.ThemeName</div>
+                        </div>
+
+                        <a class="card-heading" asp-controller="Home" asp-action="MissionDetail" asp-route-id="@card.MissionId" style="text-decoration:none;">@card.MissionTitle</a>
+                        <div class="card-body">@card.ShortDescription</div>
+                        <div class="star-box">
+                            <div class="star-name common-font">@card.OrganizationName</div>
+                            <div class="Stars" style="--rating: @card.avgRate;" aria-label="Rating of this product is @card.avgRate out of 5."></div>
+                        </div>
+
+                        @if (card.MissionType == 2)
+                        {
+                            <div class="time-date">
+                                <div class="date-set common-font">
+                                    @card.GoalObjectiveText
+                                </div>
+                                <div class="person">
+                                    <div style="display:flex;width:30%;">
+                                        <div><i class="bi bi-person deadline-icon"></i></div>
+                                        <div class="Deadline">
+                                            @card.Seatleft<div class="text-style-1">Seats left</div>
+                                        </div>
+                                    </div>
+                                    <div style="width:70%;display: block;">
+                                        <div style="display:flex;">
+                                            <div><img class="deadline-icon" src="/Assets/achieved.png" alt="....."></div>
+                                            <div class="Deadline">
+                                                <div style="width: 100%;"><progress max="100" value="@card.GoalValue"></progress></div>
+                                                <div class="text-style-1">8000 achieved</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="time-date">
+                                <div class="date-set common-font">
+                                    From  @Convert.ToDateTime(@card.StartDate).ToString("dd/MM/yyyy") until @Convert.ToDateTime(@card.EndDate).ToString("dd/MM/yyyy")
+                                </div>
+                                <div class="person">
+                                    <div style="display:flex;width:50%;">
+                                        <div><i class="bi bi-person deadline-icon"></i></div>
+                                        <div class="Deadline">
+                                            @card.Seatleft <div class="text-style-1">Seats Left</div>
+                                        </div>
+                                    </div>
+                                    <div style="display:flex; margin-left:30px;width:50%">
+                                        <div><i class="bi bi-clock deadline-icon"></i></div>
+                                        <div class="Deadline">
+                                            @Convert.ToDateTime(@card.Deadline).ToString("dd/MM/yyyy") <div class="text-style-1">Deadline</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="Apply-btn">
+                            @if (card.ismissionapplied)
+                            {
+                                <a asp-action="MissionDetail" asp-controller="Home" asp-route-id="@card.MissionId" class="Apply common-font" style="text-decoration:none;">
+                                    View Details<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <button onclick="MApplication( @card.MissionId)" class="Apply common-font">
+                                    Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
+                                </button>
+                            }
+                        </div>
+                    </div> 
+                </div>
             }
         </div>
 

@@ -148,6 +148,7 @@
     letter-spacing: normal;
     text-align: left;
     color: #414141;
+    display: block;
 }
 
 .card-body {

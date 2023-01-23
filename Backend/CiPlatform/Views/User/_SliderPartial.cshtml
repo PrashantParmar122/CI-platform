@@ -1,0 +1,70 @@
+﻿@using CiPlatform.DataModels
+@model List<Banner>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+@if (TempData["Error"] != null)
+{
+    <script>
+        toastr.error('@TempData["Error"]');
+    </script>
+}
+@if (TempData["Done"] != null)
+{
+    <script>
+        toastr.success('@TempData["Done"]');
+    </script>
+}
+
+<div class="Left-Container">
+    @{
+        var i = 0;
+    }
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            @foreach (var item in @Model)
+            {
+                var tempclass = "";
+                @if (i == 0)
+                {
+                    tempclass = "active";
+                }
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i"
+                    class="@tempclass" aria-label="Slide @i"
+                    style="height: 8px;width: 8px; border-radius: 10px;border: 0;">
+                </button>
+                i++;
+            }
+        </div>
+        <div class="carousel-inner">
+            @{
+                i = 0;
+            }
+            @foreach (var item in @Model)
+            {
+                var tempclass = "carousel-item ";
+
+                @if (i == 0)
+                {
+                    tempclass = "carousel-item active";
+                    i++;
+                }
+                <div class="@tempclass" data-bs-interval="5000">
+                    <img src="@item.Image"
+                     class="d-block w-100 img-height" alt="Can't Load Image">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p class="photo-head">
+                            @item.Title
+                        </p>
+                        <p class="photo-body">
+                            @item.Text
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -18,8 +18,8 @@
         @{
             long j = Model;
             long last = 1, next = 1;
-            long Pageshow = j % 12 == 0 ? j / 12 : (j / 12) + 1;
-            Pageshow = Pageshow > 5 ? 5 : Pageshow;
+            long Pageshow = j % 2 == 0 ? j / 2 : (j / 2) + 1;
+            Pageshow = Pageshow > 2 ? 2 : Pageshow;
         }
         
         @for (long i = 1; i <= Pageshow ; i++)

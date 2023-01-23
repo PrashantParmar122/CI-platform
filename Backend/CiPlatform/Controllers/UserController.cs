@@ -20,6 +20,7 @@ namespace CiPlatform.Controllers
         {
             LoginPageViewModel loginPageViewModel = new LoginPageViewModel();
             loginPageViewModel.banner = _db.Banners.Where(u => u.DeletedAt == null).AsQueryable().ToList();
+            //TempData["Done"] = "Toaster Check......";
             return View(loginPageViewModel);
         }
 

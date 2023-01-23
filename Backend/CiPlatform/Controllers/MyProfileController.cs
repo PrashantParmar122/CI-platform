@@ -245,6 +245,7 @@ namespace CiPlatform.Controllers
                 obj.Status = 1;
                 _db.Timesheets.Add(obj);
                 _db.SaveChanges();
+                TempData["Done"] = "Added Successfully";
             }
             else
             {
@@ -260,6 +261,7 @@ namespace CiPlatform.Controllers
                 obj.Status = 1;
                 _db.Timesheets.Update(obj);
                 _db.SaveChanges();
+                TempData["Done"] = "Edited Successfully";
             }
             return RedirectToAction("TimeSheet", "MyProfile");
         }
@@ -274,6 +276,7 @@ namespace CiPlatform.Controllers
             timesheet.Status = 0;
             _db.Update(timesheet);
             _db.SaveChanges();
+            TempData["Done"] = "Deleted Successfully";
             return RedirectToAction("TimeSheet","MyProfile");
         }
         #endregion

@@ -19,56 +19,9 @@
 <body>
 
     <div class="body-1">
-        <div class="Left-Container">
-            @{
-                var i = 0;
-            }
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-                <div class="carousel-indicators">
-                    @foreach (var item in @Model.banner)
-                    {
-                        var tempclass = "";
-                        @if (i == 0)
-                        {
-                            tempclass = "active";
-                        }
+        
+        @Html.Partial("_SliderPartial" ,Model.banner)
 
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i"
-                            class="@tempclass" aria-label="Slide @i"
-                            style="height: 8px;width: 8px; border-radius: 10px;border: 0;">
-                        </button>
-                        i++;
-                    }
-                </div>
-                <div class="carousel-inner">
-                    @{
-                        i = 0;
-                    }
-                    @foreach (var item in @Model.banner)
-                    {
-                        var tempclass = "carousel-item";
-
-                        @if (i == 0)
-                        {
-                            tempclass = "carousel-item active";
-                            i++;
-                        }
-                        <div class="@tempclass">
-                            <img src="@item.Image"
-                             class="d-block w-100 img-height" alt="Can't Load Image">
-                            <div class="carousel-caption d-none d-md-block">
-                                <p class="photo-head">
-                                    @item.Title
-                                </p>
-                                <p class="photo-body">
-                                    @item.Text
-                                </p>
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
-        </div>
         <div class="Right-Container">
             <div class="form-block">
                 <form method="post" class="form-container row g-3">

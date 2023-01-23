@@ -1,249 +1,230 @@
 ﻿@using CiPlatform.Models;
 @model MissionListingVM
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+<script src="~/js/dropdowncheckbox.js"></script>
+<link href="~/css/MissionListing.css" rel="stylesheet">
+<link href="~/css/Navigation.css" rel="stylesheet">
+<link href="~/css/Vitualselect.css" rel="stylesheet">
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
 
-<body>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />    
-    <script src="~/js/dropdowncheckbox.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
-    <link href="~/css/MissionListing.css" rel="stylesheet">
-    <link href="~/css/Navigation.css" rel="stylesheet">
-    <link href="~/css/Vitualselect.css" rel="stylesheet">
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>    
-    <script data-main="dist/js/" src="js/require.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    
-    @if (TempData["Done"] != null)
-    {        
-        <script>
-            toastr.success('@TempData["Done"]');
-        </script>
-    }
-    @if (TempData["Error"] != null)
-    {
-        <script>
-            toastr.error('@TempData["Error"]');
-        </script>
-    }
-    
-    <script>
-        setTimeout(alertFunc, 1000);
-        function alertFunc() {
-            VirtualSelect.init({
-                ele: '#ddlskill',
-                hideClearButton: true,
-            });
-            VirtualSelect.init({
-                ele: '#ddlcity',
-                hideClearButton: true
-            });
-            VirtualSelect.init({
-                ele: '#ddltheme',
-                hideClearButton: true
-            });
-            VirtualSelect.init({
-                ele: '#ddlcountry',
-                hideClearButton: true
-            });
-            $(document).ready(function () {
-                $("#ddlcountry").change(function () {
-                    filtertag("#ddlcountry");
-                    filtration();
-                });
-                $("#ddlcity").change(function () {
-                    filtertag("#ddlcity");
-                    filtration();
-                });
-                $("#ddltheme").change(function () {
-                    filtertag("#ddltheme");
-                    filtration();
-                });
-                $("#ddlskill").change(function () {
-                    filtertag("#ddlskill");
-                    filtration();
-                });
-                $("#keyword").keypress(function () {
-                    filtration();
-                });
-                $("#ddlsort").change(function () {
-                    filtration();
-                });
-            });
-            $("#clearalltags").click(function () {
-                document.querySelector('#ddlcity').reset();
-                document.querySelector('#ddltheme').reset();
-                document.querySelector('#ddlcountry').reset();
-                document.querySelector('#ddlskill').reset();
-            });
 
-            function filtertag(comp) {
-                var a = document.querySelector(comp).getSelectedOptions();
-                $(comp + "Tags").empty();
-                $.each(a, function (i, tag) {
-                    $(comp + "Tags").append('<button class="mission common-font mission-text" ><div style="width:max-content" >' + tag.label + ' <i class="bi bi-x"> </i> </div> </button>');
-                });
-            }
+<script>
+    setTimeout(alertFunc, 1000);
+    function alertFunc() {
+        VirtualSelect.init({
+            ele: '#ddlskill',
+            hideClearButton: true,
+        });
+        VirtualSelect.init({
+            ele: '#ddlcity',
+            hideClearButton: true
+        });
+        VirtualSelect.init({
+            ele: '#ddltheme',
+            hideClearButton: true
+        });
+        VirtualSelect.init({
+            ele: '#ddlcountry',
+            hideClearButton: true
+        });
+        $(document).ready(function () {
+            $("#ddlcountry").change(function () {
+                filtertag("#ddlcountry");
+                filtration();
+            });
+            $("#ddlcity").change(function () {
+                filtertag("#ddlcity");
+                filtration();
+            });
+            $("#ddltheme").change(function () {
+                filtertag("#ddltheme");
+                filtration();
+            });
+            $("#ddlskill").change(function () {
+                filtertag("#ddlskill");
+                filtration();
+            });
+            $("#keyword").keypress(function () {
+                filtration();
+            });
+            $("#ddlsort").change(function () {
+                filtration();
+            });
+        });
+        $("#clearalltags").click(function () {
+            document.querySelector('#ddlcity').reset();
+            document.querySelector('#ddltheme').reset();
+            document.querySelector('#ddlcountry').reset();
+            document.querySelector('#ddlskill').reset();
+        });
 
-            function filtration() {
-                $.ajax({
-                    url: '/Home/GetMission',
-                    type: 'POST',
-                    dataType: 'html',
-                    data: {
-                        countryid: $(ddlcountry).val(),
-                        cityid: $(ddlcity).val(),
-                        themeid: $(ddltheme).val(),
-                        skillid: $(ddlskill).val(),
-                        sort: $(ddlsort).val(),
-                        keyword: $(keyword).val()
-                    },
-                    success: function (d) {
-                        $("#missioncardlist").empty();
-                        $("#missioncardlist").html(d);
-                    },
-                    error: function () {
-                        alert('Error');
-                    }
-                });
-            }
+        function filtertag(comp) {
+            var a = document.querySelector(comp).getSelectedOptions();
+            $(comp + "Tags").empty();
+            $.each(a, function (i, tag) {
+                $(comp + "Tags").append('<button class="mission common-font mission-text" ><div style="width:max-content" >' + tag.label + ' <i class="bi bi-x"> </i> </div> </button>');
+            });
         }
-    </script>
-    <div class="body-1">
 
-        @*<partial name="_NavigationPartial" />*@
-        @await Component.InvokeAsync("Navigation")
+        function filtration() {
+            $.ajax({
+                url: '/Home/GetMission',
+                type: 'POST',
+                dataType: 'html',
+                data: {
+                    countryid: $(ddlcountry).val(),
+                    cityid: $(ddlcity).val(),
+                    themeid: $(ddltheme).val(),
+                    skillid: $(ddlskill).val(),
+                    sort: $(ddlsort).val(),
+                    keyword: $(keyword).val()
+                },
+                success: function (d) {
+                    $("#missioncardlist").empty();
+                    $("#missioncardlist").html(d);
+                },
+                error: function () {
+                    alert('Error');
+                }
+            });
+        }
+    }
+</script>
+<div class="body-1">
 
-        <hr style="margin-bottom: 0;">
-        <div class="nav-2">
-            <div class="navbar-nav mb-lg-0" style="display: contents;">
-                <div>
-                    <img src="/Assets/search.png" alt="Avatar" style="object-fit:cover ;">
-                </div>
-                <dic class="d-flex" role="search">
-                    <input id="keyword" class="form-control me-2 Search-mission common-font" type="search" style="box-shadow: none;"
-                           placeholder="Search mission..." aria-label="Search">
-                </dic>
+    @*<partial name="_NavigationPartial" />*@
+    @await Component.InvokeAsync("Navigation")
+
+    <hr style="margin-bottom: 0;">
+    <div class="nav-2">
+        <div class="navbar-nav mb-lg-0" style="display: contents;">
+            <div>
+                <img src="/Assets/search.png" alt="Avatar" style="object-fit:cover ;">
             </div>
-            <nav class="navbar navbar-expand-lg" style="margin-left: auto;width: 50%;padding: 0;">
-                <div class="container-fluid " style="padding:0px;">
-                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#navigation-2" aria-controls="navigation-2" aria-expanded="false"
-                            aria-label="Toggle navigation" style="margin-left: auto;">
-                        <span><img src="/Assets/filter.png" alt=""></span>
-                    </button>
+            <dic class="d-flex" role="search">
+                <input id="keyword" class="form-control me-2 Search-mission common-font" type="search" style="box-shadow: none;"
+                       placeholder="Search mission..." aria-label="Search">
+            </dic>
+        </div>
+        <nav class="navbar navbar-expand-lg" style="margin-left: auto;width: 50%;padding: 0;">
+            <div class="container-fluid " style="padding:0px;">
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#navigation-2" aria-controls="navigation-2" aria-expanded="false"
+                        aria-label="Toggle navigation" style="margin-left: auto;">
+                    <span><img src="/Assets/filter.png" alt=""></span>
+                </button>
 
-                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
-                         id="navigation-2" aria-labelledby="offcanvasScrollingLabel">
-                        <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <div class="navbar-collapse" id="navigation-2">
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+                     id="navigation-2" aria-labelledby="offcanvasScrollingLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="navbar-collapse" id="navigation-2">
 
-                                <div class="right-nav-2">
-                                    <div class="nav-item dropdown nav-2-items">
-                                        <select id="ddlcountry" class="select-menu border-lg-left City" multiple asp-for="selectedcountry" asp-items="@Model.CountryList"
-                                                placeholder="Country" style="box-shadow: none;" data-search="true" data-silent-initial-value-set="true">
-                                        </select>
-                                    </div>
-                                    <div class="nav-item dropdown nav-2-items">
-                                        <select id="ddlcity" class="select-menu border-lg-left City" multiple asp-for="selectedcity" asp-items="@Model.CityList"
-                                                placeholder="City" style="box-shadow: none;" data-search="true" data-silent-initial-value-set="true">
-                                        </select>
-                                    </div>
-                                    <div class="nav-item dropdown nav-2-items">
-                                        <select id="ddltheme" class="select-menu border-lg-left City" multiple asp-for="selectedtheme" asp-items="@Model.ThemeList"
-                                                placeholder="Theme" style="box-shadow: none;" data-search="true" data-silent-initial-value-set="true">
-                                        </select>
-                                    </div>
-                                    <div class="nav-item dropdown nav-2-items">
-                                        <select id="ddlskill" class="select-menu border-lg-left border-lg-right City" asp-for="selectedskill" multiple asp-items="@Model.SkillList"
-                                                placeholder="Skill" style="box-shadow: none;" data-search="true" data-silent-initial-value-set="true">
-                                        </select>
-                                    </div>
+                            <div class="right-nav-2">
+                                <div class="nav-item dropdown nav-2-items">
+                                    <select id="ddlcountry" class="select-menu border-lg-left City" multiple asp-for="selectedcountry" asp-items="@Model.CountryList"
+                                            placeholder="Country" style="box-shadow: none;" data-search="true" data-silent-initial-value-set="true">
+                                    </select>
+                                </div>
+                                <div class="nav-item dropdown nav-2-items">
+                                    <select id="ddlcity" class="select-menu border-lg-left City" multiple asp-for="selectedcity" asp-items="@Model.CityList"
+                                            placeholder="City" style="box-shadow: none;" data-search="true" data-silent-initial-value-set="true">
+                                    </select>
+                                </div>
+                                <div class="nav-item dropdown nav-2-items">
+                                    <select id="ddltheme" class="select-menu border-lg-left City" multiple asp-for="selectedtheme" asp-items="@Model.ThemeList"
+                                            placeholder="Theme" style="box-shadow: none;" data-search="true" data-silent-initial-value-set="true">
+                                    </select>
+                                </div>
+                                <div class="nav-item dropdown nav-2-items">
+                                    <select id="ddlskill" class="select-menu border-lg-left border-lg-right City" asp-for="selectedskill" multiple asp-items="@Model.SkillList"
+                                            placeholder="Skill" style="box-shadow: none;" data-search="true" data-silent-initial-value-set="true">
+                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </nav>
-        </div>
-        <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin-top: 0;">
-
-        <!-- Filaters tab -->
-
-        <div class="show-mission" id="result">
-            <span id="ddlcountryTags"></span>
-            <span id="ddlcityTags"></span>
-            <span id="ddlthemeTags"></span>
-            <span id="ddlskillTags"></span>
-            @*<button class="mission common-font mission-text">
-            <div style="width:max-content">Environmental Science <i class="bi bi-x"></i></div>
-            </button>*@
-            <button id="clearalltags" class="mission mission-text common-font" style="padding:0; border:0;">Clear all</button>
-        </div>
-
-        <!-- Explore Component -->
-
-        <div class="explore">
-            <div class="left-explore common-font">
-                Explore <span class="explore-dark">72 missions</span>
             </div>
-            <div class="right-explore">
-                <div class="Sort-by common-font">
-                    <select id="ddlsort" class="form-select" aria-label="Default select example" style="box-shadow: none;">
-                        <option value="0" selected>Sort by</option>
-                        <option value="1">Newest</option>
-                        <option value="2">Oldest</option>
-                        <option value="3">Lowest available seats</option>
-                        <option value="4">Highest available seats</option>
-                        <option value="5">My favourite</option>
-                        <option value="6">Sort by deadline</option>
-                    </select>
-                </div>
-                <div class="Grid-block" id="grid-icon">
-                    <button class="Grid">
-                        <i class="bi bi-grid" style="font-size:x-large;color:#757575"></i>
-                    </button>
-                </div>
-                <div class="Grid-block" style="margin: 0;">
-                    <button class="Grid" style="background-color: white;">
-                        <i class="bi bi-list" id="list-icon"
-                           style="font-size:xx-large;color:#ccc"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card Component-->
-
-        <div id="missioncardlist">
-            @{
-                Html.RenderPartial("_CardPartial", Model.missions.Records);
-            }
-            @*@await Html.PartialAsync("_CardPartial",Model);*@
-            @*<partial name="_CardPartial" />*@
-            @{
-                Html.RenderPartial("_PaginationPartial", Model.missions.Records.Count());
-            }
-        </div>
-
-
-
-        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
-        <footer>
-            <a href="#" class="privacy-policy common-font">Privacy Policy</a>
-        </footer>
+        </nav>
     </div>
-   @* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous">
-    </script>*@
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-            crossorigin="anonymous"></script>
-</body>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin-top: 0;">
+
+    <!-- Filaters tab -->
+
+    <div class="show-mission" id="result">
+        <span id="ddlcountryTags"></span>
+        <span id="ddlcityTags"></span>
+        <span id="ddlthemeTags"></span>
+        <span id="ddlskillTags"></span>
+        @*<button class="mission common-font mission-text">
+        <div style="width:max-content">Environmental Science <i class="bi bi-x"></i></div>
+        </button>*@
+        <button id="clearalltags" class="mission mission-text common-font" style="padding:0; border:0;">Clear all</button>
+    </div>
+
+    <!-- Explore Component -->
+
+    <div class="explore">
+        <div class="left-explore common-font">
+            Explore <span class="explore-dark">@Model.missions.total_Records missions</span>
+        </div>
+        <div class="right-explore">
+            <div class="Sort-by common-font">
+                <select id="ddlsort" class="form-select" aria-label="Default select example" style="box-shadow: none;">
+                    <option value="0" selected>Sort by</option>
+                    <option value="1">Newest</option>
+                    <option value="2">Oldest</option>
+                    <option value="3">Lowest available seats</option>
+                    <option value="4">Highest available seats</option>
+                    <option value="5">My favourite</option>
+                    <option value="6">Sort by deadline</option>
+                </select>
+            </div>
+            <div class="Grid-block" id="grid-icon">
+                <button class="Grid">
+                    <i class="bi bi-grid" style="font-size:x-large;color:#757575"></i>
+                </button>
+            </div>
+            <div class="Grid-block" style="margin: 0;">
+                <button class="Grid" style="background-color: white;">
+                    <i class="bi bi-list" id="list-icon"
+                       style="font-size:xx-large;color:#ccc"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Component-->
+
+    <div id="missioncardlist">
+        @{
+            Html.RenderPartial("_CardPartial", Model.missions.Records);
+        }
+        @*@await Html.PartialAsync("_CardPartial",Model);*@
+        @*<partial name="_CardPartial" />*@
+        
+    </div>
+    @{
+        Html.RenderPartial("_PaginationPartial", Model.missions.Records.Count());
+    }
+
+
+
+    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+    <footer>
+        <a href="#" class="privacy-policy common-font">Privacy Policy</a>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
+        crossorigin="anonymous">
+</script>

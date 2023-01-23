@@ -2,8 +2,6 @@
 
     var PlaceHolderElement = $('#PlaceHolderHere');
     $('button[data-toggle="ajax-modal"]').off().click(function (event) {
-
-        console.log("It's run");
         var url = $(this).data('url');
         var decodeUrl = decodeURIComponent(url);
         $.get(decodeUrl).done(function (data) {
@@ -13,7 +11,6 @@
     })
 
     PlaceHolderElement.on('click', '[data-bs-save="modal"]', function (event) {
-
         var formData = new FormData($('#modalForm').get(0));
         var form = $(this).parents('.modal').find('form');
         var actionUrl = form.attr('action');
