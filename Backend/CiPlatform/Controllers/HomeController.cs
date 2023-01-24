@@ -378,7 +378,7 @@ namespace CiPlatform.Controllers
                 smtp.Disconnect(true);                
             }
 
-            return RedirectToAction("MissionListing", "Home");
+            return RedirectToAction("MissionListing","Home");
         }
         #endregion
 

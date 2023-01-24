@@ -79,26 +79,23 @@
                     <img src=@card.MediaPath class="box-img" alt="Can't Render photo">
                     <button class="img-icon" style="top:10px;"><i class="bi bi-geo-alt"></i>@card.CityName</button>
 
-                    @*@if (card.ismissionfav)
-                {
-                <button onclick="MissionFav( @card.MissionId,'true')" class="img-icon">
-                <i class="bi bi-heart-fill" style="color:#ff00b7;"></i>
-                </button>
-                }
-                else
-                {
-                <button onclick="MissionFav( @card.MissionId,'false')" class="img-icon">
-                <i class="bi bi-heart-fill"></i>
-                </button>
-                }*@
-                    @* onclick="location.href='@Url.Action("addtofav", "Home", new { id = card.MissionId , alreadyfav = card.ismissionfav})'"
-                @card.MissionId,@card.ismissionfav
-                <button class="img-icon" style="bottom:10px;"><i class="bi bi-person-plus"></i></button>*@
+                    @if (DateTime.Now > card.Deadline || card.Seatleft <= 0)
+                    {
+                        <span class="img-layer" style="background:#d24242;">Closed</span>
+                    }
+                    else
+                    {
+                        <span class="img-layer" style="background:#232389;">Open</span>
+                    }
 
+                    @if (card.ismissionapplied)
+                    {
+                        <span class="img-layer" style="background:#2d9339;top: 30px;">Applied</span>
+                    }
+                    
                     <button onclick="MissionFav( @card.MissionId,@(card.ismissionfav ?"true":"false") )" id="Heart_btn" class="img-icon Fav1">
                         <i class="bi bi-heart-fill @(card.ismissionfav?"Fav_Mission":"")"></i>
                     </button>
-
 
                     <button type="button" data-toggle="ajax-modal" data-target="#SuggestWorker" style=" bottom:10px;"
                         class="img-icon" data-url="@Url.Action("SuggestCoWorker", "Home" , new{id = @card.MissionId})">
@@ -173,9 +170,18 @@
                     }
                     else
                     {
-                        <button onclick="MApplication( @card.MissionId)" class="Apply common-font">
-                            Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
-                        </button>
+                        if (card.Seatleft <= 0 || card.Deadline < DateTime.Now)
+                        {
+                            <button class="btn Apply common-font disabled">
+                                Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
+                            </button>
+                        }
+                        else
+                        {
+                            <button onclick="MApplication( @card.MissionId)" class="Apply common-font">
+                                Apply<i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
+                            </button>
+                        }
                     }
                 </div>
             </div>

@@ -19,6 +19,7 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script data-main="dist/js/" src="js/require.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
         $(document).ready(function () {
             const slides = document.querySelectorAll(".slide")
@@ -100,6 +101,46 @@
             });
         }
     </script>
+    <script>
+        function MissionFav(MissionId, ismissionfav) {
+            $.ajax({
+                url: '/Home/addtofav',
+                type: 'POST',
+                dataType: 'text',
+                data: { id: MissionId, alreadyfav: ismissionfav },
+                success: function () {
+                    location.reload();
+                    console.log('Done for add/ Remove mission..!!');
+                },
+                error: function () {
+                    console.log('Error in Mission add to fav');
+                }
+            });
+        }
+
+        function MApplication(MissionId) {
+            $.ajax({
+                url: '/Home/ApplyMission',
+                type: 'POST',
+                dataType: 'text',
+                data: { id: MissionId },
+                success: function () {
+                    location.reload();
+                    alert('Thank you for applied in mission.');
+                },
+                error: function () {
+                    console.log('error');
+                }
+            });
+        }
+
+    </script>
+    <style>
+        .Fav_Mission {
+            color: #ff00b7;
+        }
+    </style>
+
 
 
     <div class="body-1">
@@ -190,14 +231,24 @@
                 <hr style="height:1px;border-width:0;color:gray;background-color:gray;margin:0 0 30px 0;">
 
                 <div class="two-btn">
-                    <button class="add-to-fav common-font">
-                        <img class="deadline-icon" src="/Assets/heart1.png" alt=".....">Add to Favourite
+                    <button onclick="MissionFav( @Model.missioncardDetail.MissionId,@(Model.missioncardDetail.ismissionfav ?"true":"false") )" class="add-to-fav common-font Fav1" >
+                        <i class="bi bi-heart-fill @(Model.missioncardDetail.ismissionfav?"Fav_Mission":"")"></i>
+                        Add to Favourite
                     </button>
+
+                   @* <button onclick="MissionFav( @Model.missioncardDetail.MissionId,@(Model.missioncardDetail.ismissionfav ?"true":"false") )" id="Heart_btn" class="img-icon Fav1">
+                        <i class="bi bi-heart-fill @(Model.missioncardDetail.ismissionfav?"Fav_Mission":"")"></i>
+                    </button>*@
+
                     <button type="button" data-toggle="ajax-modal" data-target="#SuggestWorker"
                             data-url="@Url.Action("SuggestCoWorker", "Home" , new{id = Model.missioncardDetail.MissionId})" class="add-to-fav common-font" style="margin-left: 20px;">
                         <div><img class="deadline-icon" src="/Assets/add1.png" alt="....."></div>
                         Recommend to a Co-Worker
                     </button>
+                    @*<button type="button" data-toggle="ajax-modal" data-target="#SuggestWorker" style=" bottom:10px;"
+                    class="add-to-fav" data-url="@Url.Action("SuggestCoWorker", "Home" , new{id = Model.missioncardDetail.MissionId})">
+                    <i class="bi bi-person-plus"></i>
+                    </button>*@
 
                     <div id="PlaceHolderHere"></div>
                 </div>
@@ -251,9 +302,16 @@
                     }
                     else
                     {
-                        <button class="Apply common-font">
-                            Apply <i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
-                        </button>
+                        if(Model.missioncardDetail.Seatleft == 0 || Model.missioncardDetail.Deadline < DateTime.Now){
+                            <button type="button" class="btn Apply common-font disabled">
+                                Apply <i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
+                            </button>
+                        }
+                        else{
+                            <button class="Apply common-font">
+                                Apply <i class="bi bi-arrow-right" style="margin:0 0 0 20px;"></i>
+                            </button>
+                        }                        
                     }
                 </div>
 
@@ -296,18 +354,7 @@
                         </p>
                         <h4 class="common-font" style="font-weight: normal;color: #414141;">Challenge</h4>
                         <p class="common-font info-details" style="line-height: 1.6;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat
-                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            <br><br>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non
-                            proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            @Model.missioncardDetail.Challeges
                         </p>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -386,51 +433,13 @@
         <div class="Related-Missions common-font">Related Mission</div>
 
         @*<div id="missioncardlist">
-            @{
-                Html.RenderPartial("_CardPartial", Model.missionCards);
-            }
+        @{
+        Html.RenderPartial("_CardPartial", Model.missionCards);
+        }
         </div>*@
 
         <link href="~/css/MissionListing.css" rel="stylesheet">
-        <script>
-            function MissionFav(MissionId, ismissionfav) {
-                $.ajax({
-                    url: '/Home/addtofav',
-                    type: 'POST',
-                    dataType: 'text',
-                    data: { id: MissionId, alreadyfav: ismissionfav },
-                    success: function () {
-                        location.reload();
-                        console.log('Done for add/ Remove mission..!!');
-                    },
-                    error: function () {
-                        console.log('Error in Mission add to fav');
-                    }
-                });
-            }
 
-            function MApplication(MissionId) {
-                $.ajax({
-                    url: '/Home/ApplyMission',
-                    type: 'POST',
-                    dataType: 'text',
-                    data: { id: MissionId },
-                    success: function () {
-                        location.reload();
-                        alert('Thank you for applied in mission.');
-                    },
-                    error: function () {
-                        console.log('error');
-                    }
-                });
-            }
-
-        </script>
-        <style>
-            .Fav_Mission {
-                color: #ff00b7;
-            }
-        </style>
 
         <div class="Card row g-3">
             @foreach (var card in Model.missionCards)
@@ -444,7 +453,7 @@
                             <button onclick="MissionFav( @card.MissionId,@(card.ismissionfav ?"true":"false") )" id="Heart_btn" class="img-icon Fav1">
                                 <i class="bi bi-heart-fill @(card.ismissionfav?"Fav_Mission":"")"></i>
                             </button>
-                            
+
                             <button type="button" data-toggle="ajax-modal" data-target="#SuggestWorker" style=" bottom:10px;"
                                 class="img-icon" data-url="@Url.Action("SuggestCoWorker", "Home" , new{id = @card.MissionId})">
                                 <i class="bi bi-person-plus"></i>
@@ -523,7 +532,7 @@
                                 </button>
                             }
                         </div>
-                    </div> 
+                    </div>
                 </div>
             }
         </div>

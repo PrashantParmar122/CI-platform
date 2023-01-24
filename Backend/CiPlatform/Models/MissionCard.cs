@@ -34,6 +34,7 @@ namespace CiPlatform.Models
             MissionType = mission.MissionType;
             MissionSkill = obj;
             CreatedAt = mission.CreatedAt;
+            Challeges = mission.Challenges;
         }
 
         public long MissionId { get; set; }
@@ -54,6 +55,7 @@ namespace CiPlatform.Models
         public int MissionType { get; set; }
         public string? OrganizationName { get; set; }
         public string? OrganizationDetail { get; set; }
+        public string? Challeges { get; set; }
         public int? Availability { get; set; }
         public string? GoalObjectiveText { get; set; }
         public int GoalValue { get; set; }
